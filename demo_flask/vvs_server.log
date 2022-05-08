@@ -1,0 +1,572 @@
+[[2022-05-06 13:59:44]]  INFO  [vvs_service.py]  #71 <1811412:139996185134848>  Load blacklist files ... 
+[[2022-05-06 13:59:44]]  INFO  [vvs_service.py]  #72 <1811412:139996185134848>  	black spk number: 581
+[[2022-05-06 14:00:07]]  INFO  [vvs_service.py]  #71 <1814129:140351268464384>  Load blacklist files ... 
+[[2022-05-06 14:00:07]]  INFO  [vvs_service.py]  #72 <1814129:140351268464384>  	black spk number: 581
+[[2022-05-06 14:00:57]]  INFO  [vvs_service.py]  #71 <1815592:140353034196736>  Load blacklist files ... 
+[[2022-05-06 14:00:57]]  INFO  [vvs_service.py]  #72 <1815592:140353034196736>  	black spk number: 581
+[[2022-05-06 14:01:21]]  INFO  [vvs_service.py]  #71 <1816491:139723244377856>  Load blacklist files ... 
+[[2022-05-06 14:01:21]]  INFO  [vvs_service.py]  #72 <1816491:139723244377856>  	black spk number: 581
+[[2022-05-06 14:01:22]]  INFO  [vvs_service.py]  #71 <1816491:139723244377856>  Load blacklist files ... 
+[[2022-05-06 14:01:22]]  INFO  [vvs_service.py]  #72 <1816491:139723244377856>  	black spk number: 581
+[[2022-05-06 14:01:23]]  INFO  [vvs_service.py]  #71 <1816491:139723244377856>  Load blacklist files ... 
+[[2022-05-06 14:01:23]]  INFO  [vvs_service.py]  #72 <1816491:139723244377856>  	black spk number: 581
+[[2022-05-06 14:08:21]]  INFO  [vvs_service.py]  #71 <1828029:139943196612352>  Load blacklist files ... 
+[[2022-05-06 14:08:21]]  INFO  [vvs_service.py]  #72 <1828029:139943196612352>  	black spk number: 581
+[[2022-05-06 14:08:21]]  INFO  [vvs_service.py]  #88 <1828029:139943196612352>  	Already in base.
+[[2022-05-06 14:08:21]]  INFO  [vvs_service.py]  #90 <1828029:139943196612352>  * New spk:13073426753	 file:/mnt/zhaosheng/test_wav_16k/zhaosheng.wav
+[[2022-05-06 14:08:21]]  INFO  [vvs_service.py]  #52 <1828029:139943196612352>  # 接收文件...
+[[2022-05-06 14:09:08]]  INFO  [vvs_service.py]  #71 <1828029:139943196612352>  Load blacklist files ... 
+[[2022-05-06 14:09:08]]  INFO  [vvs_service.py]  #72 <1828029:139943196612352>  	black spk number: 581
+[[2022-05-06 14:09:08]]  INFO  [vvs_service.py]  #88 <1828029:139943196612352>  	Already in base.
+[[2022-05-06 14:09:08]]  INFO  [vvs_service.py]  #90 <1828029:139943196612352>  * New spk:13073426753	 file:/mnt/zhaosheng/test_wav_16k/zhaosheng.wav
+[[2022-05-06 14:09:08]]  INFO  [vvs_service.py]  #52 <1828029:139943196612352>  # 接收文件...
+[[2022-05-06 14:09:18]]  INFO  [vvs_service.py]  #71 <1829735:139617224324864>  Load blacklist files ... 
+[[2022-05-06 14:09:18]]  INFO  [vvs_service.py]  #72 <1829735:139617224324864>  	black spk number: 581
+[[2022-05-06 14:09:18]]  INFO  [vvs_service.py]  #88 <1829735:139617224324864>  	Already in base.
+[[2022-05-06 14:09:18]]  INFO  [vvs_service.py]  #90 <1829735:139617224324864>  * New spk:13073426753	 file:/mnt/zhaosheng/test_wav_16k/zhaosheng.wav
+[[2022-05-06 14:18:35]]  INFO  [vvs_service.py]  #71 <1845011:140069500585728>  Load blacklist files ... 
+[[2022-05-06 14:18:35]]  INFO  [vvs_service.py]  #72 <1845011:140069500585728>  	black spk number: 581
+[[2022-05-06 14:18:35]]  INFO  [vvs_service.py]  #88 <1845011:140069500585728>  	Already in base.
+[[2022-05-06 14:18:35]]  INFO  [vvs_service.py]  #90 <1845011:140069500585728>  * New spk:13073426753	 file:/mnt/zhaosheng/test_wav_16k/zhaosheng.wav
+[[2022-05-06 14:18:54]]  INFO  [vvs_service.py]  #71 <1845933:139653669660416>  Load blacklist files ... 
+[[2022-05-06 14:18:54]]  INFO  [vvs_service.py]  #72 <1845933:139653669660416>  	black spk number: 581
+[[2022-05-06 14:18:54]]  INFO  [vvs_service.py]  #88 <1845933:139653669660416>  	Already in base.
+[[2022-05-06 14:18:54]]  INFO  [vvs_service.py]  #90 <1845933:139653669660416>  * New spk:13073426753	 file:/mnt/zhaosheng/test_wav_16k/zhaosheng.wav
+[[2022-05-06 14:18:59]]  INFO  [vvs_service.py]  #107 <1845933:139653669660416>  # 耗时4.8s
+[[2022-05-06 14:19:32]]  INFO  [vvs_service.py]  #71 <1847074:140472988100352>  Load blacklist files ... 
+[[2022-05-06 14:19:32]]  INFO  [vvs_service.py]  #72 <1847074:140472988100352>  	black spk number: 581
+[[2022-05-06 14:19:32]]  INFO  [vvs_service.py]  #88 <1847074:140472988100352>  	Already in base.
+[[2022-05-06 14:19:32]]  INFO  [vvs_service.py]  #90 <1847074:140472988100352>  * New spk:13073426753	 file:/mnt/zhaosheng/test_wav_16k/zhaosheng.wav
+[[2022-05-06 14:19:34]]  INFO  [vvs_service.py]  #107 <1847074:140472988100352>  # 耗时2.5s
+[[2022-05-06 14:19:49]]  INFO  [vvs_service.py]  #71 <1847074:140472988100352>  Load blacklist files ... 
+[[2022-05-06 14:19:49]]  INFO  [vvs_service.py]  #72 <1847074:140472988100352>  	black spk number: 581
+[[2022-05-06 14:19:49]]  INFO  [vvs_service.py]  #88 <1847074:140472988100352>  	Already in base.
+[[2022-05-06 14:19:49]]  INFO  [vvs_service.py]  #90 <1847074:140472988100352>  * New spk:13073426753	 file:/mnt/zhaosheng/test_wav_16k/zhaosheng.wav
+[[2022-05-06 14:19:51]]  INFO  [vvs_service.py]  #107 <1847074:140472988100352>  # 耗时2.1s
+[[2022-05-06 14:56:27]]  INFO  [vvs_service.py]  #98 <1906213:140589681370880>  Load blacklist files ... 
+[[2022-05-06 14:56:27]]  INFO  [vvs_service.py]  #99 <1906213:140589681370880>  	black spk number: 581
+[[2022-05-06 14:56:27]]  INFO  [vvs_service.py]  #115 <1906213:140589681370880>  	Already in base.
+[[2022-05-06 14:56:27]]  INFO  [vvs_service.py]  #117 <1906213:140589681370880>  * New spk:13073426753	 file:/mnt/zhaosheng/test_wav_16k/zhaosheng.wav
+[[2022-05-06 14:57:51]]  INFO  [vvs_service.py]  #98 <1908364:140365507254016>  Load blacklist files ... 
+[[2022-05-06 14:57:51]]  INFO  [vvs_service.py]  #99 <1908364:140365507254016>  	black spk number: 581
+[[2022-05-06 14:57:51]]  INFO  [vvs_service.py]  #115 <1908364:140365507254016>  	Already in base.
+[[2022-05-06 14:57:51]]  INFO  [vvs_service.py]  #117 <1908364:140365507254016>  * New spk:13073426753	 file:/mnt/zhaosheng/test_wav_16k/zhaosheng.wav
+[[2022-05-06 14:57:53]]  INFO  [vvs_service.py]  #135 <1908364:140365507254016>  # 耗时2.5s
+[[2022-05-06 14:58:57]]  INFO  [vvs_service.py]  #99 <1910550:139809645172480>  Load blacklist files ... 
+[[2022-05-06 14:58:57]]  INFO  [vvs_service.py]  #100 <1910550:139809645172480>  	black spk number: 581
+[[2022-05-06 14:58:57]]  INFO  [vvs_service.py]  #116 <1910550:139809645172480>  	Already in base.
+[[2022-05-06 14:58:57]]  INFO  [vvs_service.py]  #118 <1910550:139809645172480>  * New spk:13073426753	 file:/mnt/zhaosheng/test_wav_16k/zhaosheng.wav
+[[2022-05-06 14:58:59]]  INFO  [vvs_service.py]  #136 <1910550:139809645172480>  # 耗时2.4s
+[[2022-05-06 14:59:55]]  INFO  [vvs_service.py]  #97 <1912363:140608123528960>  Load blacklist files ... 
+[[2022-05-06 14:59:55]]  INFO  [vvs_service.py]  #98 <1912363:140608123528960>  	black spk number: 581
+[[2022-05-06 14:59:55]]  INFO  [vvs_service.py]  #114 <1912363:140608123528960>  	Already in base.
+[[2022-05-06 14:59:55]]  INFO  [vvs_service.py]  #116 <1912363:140608123528960>  * New spk:13073426753	 file:/mnt/zhaosheng/test_wav_16k/zhaosheng.wav
+[[2022-05-06 14:59:57]]  INFO  [vvs_service.py]  #134 <1912363:140608123528960>  # 耗时2.4s
+[[2022-05-06 15:02:01]]  INFO  [vvs_service.py]  #98 <1915954:139905063708416>  Load blacklist files ... 
+[[2022-05-06 15:02:01]]  INFO  [vvs_service.py]  #99 <1915954:139905063708416>  	black spk number: 581
+[[2022-05-06 15:02:01]]  INFO  [vvs_service.py]  #115 <1915954:139905063708416>  	Already in base.
+[[2022-05-06 15:02:01]]  INFO  [vvs_service.py]  #117 <1915954:139905063708416>  * New spk:13073426753	 file:/mnt/zhaosheng/test_wav_16k/zhaosheng.wav
+[[2022-05-06 15:02:04]]  INFO  [vvs_service.py]  #135 <1915954:139905063708416>  # 耗时2.4s
+[[2022-05-06 15:03:02]]  INFO  [vvs_service.py]  #100 <1917708:140276778157824>  Load blacklist files ... 
+[[2022-05-06 15:03:02]]  INFO  [vvs_service.py]  #101 <1917708:140276778157824>  	black spk number: 581
+[[2022-05-06 15:03:02]]  INFO  [vvs_service.py]  #117 <1917708:140276778157824>  	Already in base.
+[[2022-05-06 15:03:02]]  INFO  [vvs_service.py]  #119 <1917708:140276778157824>  * New spk:13073426753	 file:/mnt/zhaosheng/test_wav_16k/zhaosheng.wav
+[[2022-05-06 15:03:04]]  INFO  [vvs_service.py]  #137 <1917708:140276778157824>  # 耗时2.5s
+[[2022-05-06 15:03:39]]  INFO  [vvs_service.py]  #100 <1918855:139806065936128>  Load blacklist files ... 
+[[2022-05-06 15:03:39]]  INFO  [vvs_service.py]  #101 <1918855:139806065936128>  	black spk number: 581
+[[2022-05-06 15:03:39]]  INFO  [vvs_service.py]  #117 <1918855:139806065936128>  	Already in base.
+[[2022-05-06 15:03:39]]  INFO  [vvs_service.py]  #119 <1918855:139806065936128>  * New spk:13073426753	 file:/mnt/zhaosheng/test_wav_16k/zhaosheng.wav
+[[2022-05-06 15:03:43]]  INFO  [vvs_service.py]  #137 <1918855:139806065936128>  # 耗时3.6s
+[[2022-05-06 15:05:45]]  INFO  [vvs_service.py]  #100 <1922342:139911730558720>  -> Start New test
+[[2022-05-06 15:05:45]]  INFO  [vvs_service.py]  #101 <1922342:139911730558720>  	Load blacklist files ... 
+[[2022-05-06 15:05:45]]  INFO  [vvs_service.py]  #102 <1922342:139911730558720>  	black spk number: 581
+[[2022-05-06 15:05:45]]  INFO  [vvs_service.py]  #118 <1922342:139911730558720>  	Already in base.
+[[2022-05-06 15:05:45]]  INFO  [vvs_service.py]  #120 <1922342:139911730558720>  	* New spk:13073426753	 file:/mnt/zhaosheng/test_wav_16k/zhaosheng.wav
+[[2022-05-06 15:05:47]]  INFO  [vvs_service.py]  #138 <1922342:139911730558720>  	# Time using: 2.4s
+[[2022-05-06 15:34:02]]  INFO  [vvs_service.py]  #129 <1949238:140083502647040>  -> Start New test
+[[2022-05-06 15:34:02]]  INFO  [vvs_service.py]  #130 <1949238:140083502647040>  	Load blacklist files ... 
+[[2022-05-06 15:34:02]]  INFO  [vvs_service.py]  #131 <1949238:140083502647040>  	black spk number: 581
+[[2022-05-06 15:34:02]]  INFO  [vvs_service.py]  #144 <1949238:140083502647040>  	Already in base.
+[[2022-05-06 15:34:02]]  INFO  [vvs_service.py]  #146 <1949238:140083502647040>  	* New spk:13073426753	 file:/mnt/zhaosheng/test_wav_16k/zhaosheng.wav
+[[2022-05-06 15:40:25]]  INFO  [vvs_service.py]  #127 <1976318:140467063621376>  -> Start New test
+[[2022-05-06 15:40:25]]  INFO  [vvs_service.py]  #128 <1976318:140467063621376>  	Load blacklist files ... 
+[[2022-05-06 15:40:25]]  INFO  [vvs_service.py]  #129 <1976318:140467063621376>  	black spk number: 581
+[[2022-05-06 15:40:25]]  INFO  [vvs_service.py]  #142 <1976318:140467063621376>  	Already in base.
+[[2022-05-06 15:40:25]]  INFO  [vvs_service.py]  #144 <1976318:140467063621376>  	* New spk:13073426753	 file:/mnt/zhaosheng/test_wav_16k/zhaosheng.wav
+[[2022-05-06 15:55:39]]  INFO  [vvs_service.py]  #127 <2002808:140084209633024>  -> Start New test
+[[2022-05-06 15:55:39]]  INFO  [vvs_service.py]  #128 <2002808:140084209633024>  	Load blacklist files ... 
+[[2022-05-06 15:55:39]]  INFO  [vvs_service.py]  #129 <2002808:140084209633024>  	black spk number: 581
+[[2022-05-06 15:55:39]]  INFO  [vvs_service.py]  #142 <2002808:140084209633024>  	Already in base.
+[[2022-05-06 15:55:39]]  INFO  [vvs_service.py]  #144 <2002808:140084209633024>  	* New spk:13073426753	 file:/mnt/zhaosheng/test_wav_16k/zhaosheng.wav
+[[2022-05-06 15:56:20]]  INFO  [vvs_service.py]  #127 <2004143:140610308314880>  -> Start New test
+[[2022-05-06 15:56:20]]  INFO  [vvs_service.py]  #128 <2004143:140610308314880>  	Load blacklist files ... 
+[[2022-05-06 15:56:20]]  INFO  [vvs_service.py]  #129 <2004143:140610308314880>  	black spk number: 581
+[[2022-05-06 15:56:20]]  INFO  [vvs_service.py]  #142 <2004143:140610308314880>  	Already in base.
+[[2022-05-06 15:56:20]]  INFO  [vvs_service.py]  #144 <2004143:140610308314880>  	* New spk:13073426753	 file:/mnt/zhaosheng/test_wav_16k/zhaosheng.wav
+[[2022-05-06 15:57:13]]  INFO  [vvs_service.py]  #127 <2005423:140103771551488>  -> Start New test
+[[2022-05-06 15:57:13]]  INFO  [vvs_service.py]  #128 <2005423:140103771551488>  	Load blacklist files ... 
+[[2022-05-06 15:57:13]]  INFO  [vvs_service.py]  #129 <2005423:140103771551488>  	black spk number: 581
+[[2022-05-06 15:57:13]]  INFO  [vvs_service.py]  #142 <2005423:140103771551488>  	Already in base.
+[[2022-05-06 15:57:13]]  INFO  [vvs_service.py]  #144 <2005423:140103771551488>  	* New spk:13073426753	 file:/mnt/zhaosheng/test_wav_16k/zhaosheng.wav
+[[2022-05-06 15:59:48]]  INFO  [vvs_service.py]  #128 <2010028:139874478925568>  -> Start New test
+[[2022-05-06 15:59:48]]  INFO  [vvs_service.py]  #129 <2010028:139874478925568>  	Load blacklist files ... 
+[[2022-05-06 15:59:48]]  INFO  [vvs_service.py]  #130 <2010028:139874478925568>  	black spk number: 581
+[[2022-05-06 15:59:48]]  INFO  [vvs_service.py]  #143 <2010028:139874478925568>  	Already in base.
+[[2022-05-06 15:59:48]]  INFO  [vvs_service.py]  #145 <2010028:139874478925568>  	* New spk:13073426753	 file:/mnt/zhaosheng/test_wav_16k/zhaosheng.wav
+[[2022-05-06 16:00:45]]  INFO  [vvs_service.py]  #128 <2011598:140697105397504>  -> Start New test
+[[2022-05-06 16:00:45]]  INFO  [vvs_service.py]  #129 <2011598:140697105397504>  	Load blacklist files ... 
+[[2022-05-06 16:00:45]]  INFO  [vvs_service.py]  #130 <2011598:140697105397504>  	black spk number: 581
+[[2022-05-06 16:00:45]]  INFO  [vvs_service.py]  #143 <2011598:140697105397504>  	Already in base.
+[[2022-05-06 16:00:45]]  INFO  [vvs_service.py]  #145 <2011598:140697105397504>  	* New spk:13073426753	 file:/mnt/zhaosheng/test_wav_16k/zhaosheng.wav
+[[2022-05-06 16:01:58]]  INFO  [vvs_service.py]  #129 <2013791:140186558605056>  -> Start New test
+[[2022-05-06 16:01:58]]  INFO  [vvs_service.py]  #130 <2013791:140186558605056>  	Load blacklist files ... 
+[[2022-05-06 16:01:58]]  INFO  [vvs_service.py]  #131 <2013791:140186558605056>  	black spk number: 581
+[[2022-05-06 16:01:58]]  INFO  [vvs_service.py]  #144 <2013791:140186558605056>  	Already in base.
+[[2022-05-06 16:01:58]]  INFO  [vvs_service.py]  #146 <2013791:140186558605056>  	* New spk:13073426753	 file:/mnt/zhaosheng/test_wav_16k/zhaosheng.wav
+[[2022-05-06 16:03:12]]  INFO  [vvs_service.py]  #129 <2015908:139745195169536>  -> Start New test
+[[2022-05-06 16:03:12]]  INFO  [vvs_service.py]  #130 <2015908:139745195169536>  	Load blacklist files ... 
+[[2022-05-06 16:03:12]]  INFO  [vvs_service.py]  #131 <2015908:139745195169536>  	black spk number: 581
+[[2022-05-06 16:03:12]]  INFO  [vvs_service.py]  #144 <2015908:139745195169536>  	Already in base.
+[[2022-05-06 16:03:12]]  INFO  [vvs_service.py]  #146 <2015908:139745195169536>  	* New spk:13073426753	 file:/mnt/zhaosheng/test_wav_16k/zhaosheng.wav
+[[2022-05-06 16:04:12]]  INFO  [vvs_service.py]  #129 <2017659:140650509510400>  -> Start New test
+[[2022-05-06 16:04:12]]  INFO  [vvs_service.py]  #130 <2017659:140650509510400>  	Load blacklist files ... 
+[[2022-05-06 16:04:12]]  INFO  [vvs_service.py]  #131 <2017659:140650509510400>  	black spk number: 581
+[[2022-05-06 16:04:12]]  INFO  [vvs_service.py]  #144 <2017659:140650509510400>  	Already in base.
+[[2022-05-06 16:04:12]]  INFO  [vvs_service.py]  #146 <2017659:140650509510400>  	* New spk:13073426753	 file:/mnt/zhaosheng/test_wav_16k/zhaosheng.wav
+[[2022-05-06 17:13:01]]  INFO  [vvs_service.py]  #129 <2017659:140650509510400>  -> Start New test
+[[2022-05-06 17:13:01]]  INFO  [vvs_service.py]  #130 <2017659:140650509510400>  	Load blacklist files ... 
+[[2022-05-06 17:13:01]]  INFO  [vvs_service.py]  #131 <2017659:140650509510400>  	black spk number: 581
+[[2022-05-06 17:13:01]]  INFO  [vvs_service.py]  #144 <2017659:140650509510400>  	Already in base.
+[[2022-05-06 17:13:01]]  INFO  [vvs_service.py]  #146 <2017659:140650509510400>  	* New spk:13073426753	 file:/mnt/zhaosheng/test_wav_16k/zhaosheng.wav
+[[2022-05-06 18:15:18]]  INFO  [vvs_service.py]  #67 <2226206:140326263797504>  -> Start New test
+[[2022-05-06 18:15:18]]  INFO  [vvs_service.py]  #68 <2226206:140326263797504>  	Load blacklist files ... 
+[[2022-05-06 18:15:18]]  INFO  [vvs_service.py]  #69 <2226206:140326263797504>  	black spk number: 581
+[[2022-05-06 18:19:31]]  INFO  [vvs_service.py]  #60 <2234977:139783145289472>  -> Start New test
+[[2022-05-06 18:19:31]]  INFO  [vvs_service.py]  #61 <2234977:139783145289472>  	Load blacklist files ... 
+[[2022-05-06 18:19:31]]  INFO  [vvs_service.py]  #62 <2234977:139783145289472>  	Black spk number: 581
+[[2022-05-06 18:19:45]]  INFO  [vvs_service.py]  #60 <2235535:140159086012160>  -> Start New test
+[[2022-05-06 18:19:45]]  INFO  [vvs_service.py]  #61 <2235535:140159086012160>  	Load blacklist files ... 
+[[2022-05-06 18:19:45]]  INFO  [vvs_service.py]  #62 <2235535:140159086012160>  	Black spk number: 581
+[[2022-05-06 18:19:48]]  INFO  [vvs_service.py]  #60 <2235535:140159086012160>  -> Start New test
+[[2022-05-06 18:19:48]]  INFO  [vvs_service.py]  #61 <2235535:140159086012160>  	Load blacklist files ... 
+[[2022-05-06 18:19:48]]  INFO  [vvs_service.py]  #62 <2235535:140159086012160>  	Black spk number: 581
+[[2022-05-06 18:55:59]]  INFO  [vvs_service.py]  #61 <2295144:139643563112192>  -> Start New test
+[[2022-05-06 18:55:59]]  INFO  [vvs_service.py]  #62 <2295144:139643563112192>  	Load blacklist files ... 
+[[2022-05-06 18:55:59]]  INFO  [vvs_service.py]  #63 <2295144:139643563112192>  	Black spk number: 581
+[[2022-05-06 18:56:46]]  INFO  [vvs_service.py]  #61 <2296134:139912082642688>  -> Start New test
+[[2022-05-06 18:56:46]]  INFO  [vvs_service.py]  #62 <2296134:139912082642688>  	Load blacklist files ... 
+[[2022-05-06 18:56:46]]  INFO  [vvs_service.py]  #63 <2296134:139912082642688>  	Black spk number: 581
+[[2022-05-06 18:56:47]]  INFO  [vvs_service.py]  #83 <2296134:139912082642688>  	# Time using: 0.7s
+[[2022-05-06 18:56:47]]  INFO  [vvs_service.py]  #84 <2296134:139912082642688>  	# Error     : 时长不足，当前时长为:6.2s
+[[2022-05-06 18:58:23]]  INFO  [vvs_service.py]  #61 <2299664:140334260766464>  -> Start New test
+[[2022-05-06 18:58:23]]  INFO  [vvs_service.py]  #62 <2299664:140334260766464>  	Load blacklist files ... 
+[[2022-05-06 18:58:23]]  INFO  [vvs_service.py]  #63 <2299664:140334260766464>  	Black spk number: 581
+[[2022-05-06 18:58:45]]  INFO  [vvs_service.py]  #61 <2300488:139744564672256>  -> Start New test
+[[2022-05-06 18:58:45]]  INFO  [vvs_service.py]  #62 <2300488:139744564672256>  	Load blacklist files ... 
+[[2022-05-06 18:58:45]]  INFO  [vvs_service.py]  #63 <2300488:139744564672256>  	Black spk number: 581
+[[2022-05-06 18:58:46]]  INFO  [vvs_service.py]  #94 <2300488:139744564672256>  	# Success: 时长不足，当前时长为:6.2s
+[[2022-05-06 18:58:46]]  INFO  [vvs_service.py]  #95 <2300488:139744564672256>  	# Time using: 1.1s
+[[2022-05-06 19:00:12]]  INFO  [vvs_service.py]  #61 <2303204:139658051204864>  -> Start New test
+[[2022-05-06 19:00:12]]  INFO  [vvs_service.py]  #62 <2303204:139658051204864>  	Load blacklist files ... 
+[[2022-05-06 19:00:12]]  INFO  [vvs_service.py]  #63 <2303204:139658051204864>  	Black spk number: 581
+[[2022-05-06 19:00:13]]  INFO  [vvs_service.py]  #83 <2303204:139658051204864>  	# Time using: 0.7s
+[[2022-05-06 19:00:13]]  INFO  [vvs_service.py]  #84 <2303204:139658051204864>  	# Error: 时长不足，当前时长为:6.2s
+[[2022-05-06 19:01:25]]  INFO  [vvs_service.py]  #61 <2305419:140396444194560>  -> Start New test
+[[2022-05-06 19:01:25]]  INFO  [vvs_service.py]  #62 <2305419:140396444194560>  	Load blacklist files ... 
+[[2022-05-06 19:01:25]]  INFO  [vvs_service.py]  #63 <2305419:140396444194560>  	Black spk number: 581
+[[2022-05-06 19:01:26]]  INFO  [vvs_service.py]  #94 <2305419:140396444194560>  	# Success: 检测合格s
+[[2022-05-06 19:01:26]]  INFO  [vvs_service.py]  #95 <2305419:140396444194560>  	# Time using: 1.3s
+[[2022-05-06 19:02:32]]  INFO  [vvs_service.py]  #61 <2307398:140300878427904>  -> Start New test
+[[2022-05-06 19:02:32]]  INFO  [vvs_service.py]  #62 <2307398:140300878427904>  	Load blacklist files ... 
+[[2022-05-06 19:02:32]]  INFO  [vvs_service.py]  #63 <2307398:140300878427904>  	Black spk number: 581
+[[2022-05-06 19:02:33]]  INFO  [vvs_service.py]  #94 <2307398:140300878427904>  	# Success: 检测合格
+[[2022-05-06 19:02:33]]  INFO  [vvs_service.py]  #95 <2307398:140300878427904>  	# Time using: 1.2s
+[[2022-05-06 19:03:11]]  INFO  [vvs_service.py]  #61 <2308733:140622139533056>  -> Start New test
+[[2022-05-06 19:03:11]]  INFO  [vvs_service.py]  #62 <2308733:140622139533056>  	Load blacklist files ... 
+[[2022-05-06 19:03:11]]  INFO  [vvs_service.py]  #63 <2308733:140622139533056>  	Black spk number: 581
+[[2022-05-06 19:03:12]]  INFO  [vvs_service.py]  #94 <2308733:140622139533056>  	# Success: 检测合格
+[[2022-05-06 19:03:12]]  INFO  [vvs_service.py]  #95 <2308733:140622139533056>  	# Time using: 1.3s
+[[2022-05-06 19:03:22]]  INFO  [vvs_service.py]  #61 <2309193:139626615465728>  -> Start New test
+[[2022-05-06 19:03:22]]  INFO  [vvs_service.py]  #62 <2309193:139626615465728>  	Load blacklist files ... 
+[[2022-05-06 19:03:22]]  INFO  [vvs_service.py]  #63 <2309193:139626615465728>  	Black spk number: 581
+[[2022-05-06 19:03:23]]  INFO  [vvs_service.py]  #94 <2309193:139626615465728>  	# Success: 检测合格
+[[2022-05-06 19:03:23]]  INFO  [vvs_service.py]  #95 <2309193:139626615465728>  	# Time using: 1.3s
+[[2022-05-06 20:18:31]]  INFO  [vvs_service.py]  #52 <2438892:139676111202112>  	Load blacklist files ... 
+[[2022-05-06 20:18:54]]  INFO  [vvs_service.py]  #52 <2439650:139654312875840>  	Load blacklist files ... 
+[[2022-05-06 20:18:57]]  INFO  [vvs_service.py]  #52 <2439778:140509035296576>  	Load blacklist files ... 
+[[2022-05-06 20:19:10]]  INFO  [vvs_service.py]  #105 <2439778:140503046350592>  -> Start new register
+[[2022-05-06 20:19:10]]  INFO  [vvs_service.py]  #106 <2439778:140503046350592>  	Black spk number: 581
+[[2022-05-06 20:26:15]]  INFO  [vvs_service.py]  #105 <2439778:140503046350592>  -> Start new register
+[[2022-05-06 20:26:15]]  INFO  [vvs_service.py]  #106 <2439778:140503046350592>  	Black spk number: 581
+[[2022-05-06 20:26:47]]  INFO  [vvs_service.py]  #52 <2453189:140406355126080>  	Load blacklist files ... 
+[[2022-05-06 20:26:49]]  INFO  [vvs_service.py]  #52 <2453354:140433387546432>  	Load blacklist files ... 
+[[2022-05-06 20:26:50]]  INFO  [vvs_service.py]  #105 <2453354:140427398776576>  -> Start new register
+[[2022-05-06 20:26:50]]  INFO  [vvs_service.py]  #106 <2453354:140427398776576>  	Black spk number: 581
+[[2022-05-06 20:44:20]]  INFO  [vvs_service.py]  #52 <2482797:140641257121600>  	Load blacklist files ... 
+[[2022-05-06 20:44:47]]  INFO  [vvs_service.py]  #60 <2482797:140635268089600>  -> Start new test
+[[2022-05-06 20:44:47]]  INFO  [vvs_service.py]  #61 <2482797:140635268089600>  	Black spk number: 581
+[[2022-05-06 20:48:45]]  INFO  [vvs_service.py]  #52 <2490362:140713751705408>  	Load blacklist files ... 
+[[2022-05-06 20:48:47]]  INFO  [vvs_service.py]  #52 <2490554:140193125349184>  	Load blacklist files ... 
+[[2022-05-06 20:49:20]]  INFO  [vvs_service.py]  #60 <2490554:140187136579328>  -> Start new test
+[[2022-05-06 20:49:20]]  INFO  [vvs_service.py]  #61 <2490554:140187136579328>  	Black spk number: 581
+[[2022-05-06 20:50:21]]  INFO  [vvs_service.py]  #52 <2493407:140339204220736>  	Load blacklist files ... 
+[[2022-05-06 20:50:22]]  INFO  [vvs_service.py]  #60 <2493407:140333215426304>  -> Start new test
+[[2022-05-06 20:50:22]]  INFO  [vvs_service.py]  #61 <2493407:140333215426304>  	Black spk number: 581
+[[2022-05-06 20:50:32]]  INFO  [vvs_service.py]  #52 <2493831:139737674741568>  	Load blacklist files ... 
+[[2022-05-06 20:50:34]]  INFO  [vvs_service.py]  #52 <2493955:139940149716800>  	Load blacklist files ... 
+[[2022-05-06 20:50:46]]  INFO  [vvs_service.py]  #60 <2493955:139934160946944>  -> Start new test
+[[2022-05-06 20:50:46]]  INFO  [vvs_service.py]  #61 <2493955:139934160946944>  	Black spk number: 581
+[[2022-05-06 20:56:44]]  INFO  [vvs_service.py]  #60 <2493955:139934160946944>  -> Start new test
+[[2022-05-06 20:56:44]]  INFO  [vvs_service.py]  #61 <2493955:139934160946944>  	Black spk number: 581
+[[2022-05-06 20:59:06]]  INFO  [vvs_service.py]  #52 <2508444:140716854548288>  	Load blacklist files ... 
+[[2022-05-06 20:59:13]]  INFO  [vvs_service.py]  #52 <2508752:140031534348096>  	Load blacklist files ... 
+[[2022-05-06 20:59:13]]  INFO  [vvs_service.py]  #60 <2508752:140025545578240>  -> Start new test
+[[2022-05-06 20:59:13]]  INFO  [vvs_service.py]  #61 <2508752:140025545578240>  	Black spk number: 581
+[[2022-05-06 21:00:53]]  INFO  [vvs_service.py]  #52 <2511648:140350345094976>  	Load blacklist files ... 
+[[2022-05-06 21:00:54]]  INFO  [vvs_service.py]  #60 <2511648:140344356325120>  -> Start new test
+[[2022-05-06 21:00:54]]  INFO  [vvs_service.py]  #61 <2511648:140344356325120>  	Black spk number: 581
+[[2022-05-06 21:01:12]]  INFO  [vvs_service.py]  #52 <2512288:139755446970176>  	Load blacklist files ... 
+[[2022-05-06 21:01:12]]  INFO  [vvs_service.py]  #60 <2512288:139749458200320>  -> Start new test
+[[2022-05-06 21:01:12]]  INFO  [vvs_service.py]  #61 <2512288:139749458200320>  	Black spk number: 581
+[[2022-05-06 21:03:50]]  INFO  [vvs_service.py]  #52 <2516792:140641655220032>  	Load blacklist files ... 
+[[2022-05-06 21:03:51]]  INFO  [vvs_service.py]  #60 <2516792:140635666450176>  -> Start new test
+[[2022-05-06 21:03:51]]  INFO  [vvs_service.py]  #61 <2516792:140635666450176>  	Black spk number: 581
+[[2022-05-06 21:05:26]]  INFO  [vvs_service.py]  #52 <2519568:139648451327808>  	Load blacklist files ... 
+[[2022-05-06 21:05:28]]  INFO  [vvs_service.py]  #60 <2519568:139642462557952>  -> Start new test
+[[2022-05-06 21:05:28]]  INFO  [vvs_service.py]  #61 <2519568:139642462557952>  	Black spk number: 581
+[[2022-05-06 21:05:42]]  INFO  [vvs_service.py]  #52 <2520220:140430305044288>  	Load blacklist files ... 
+[[2022-05-06 21:05:58]]  INFO  [vvs_service.py]  #52 <2520731:140341321185088>  	Load blacklist files ... 
+[[2022-05-06 21:05:59]]  INFO  [vvs_service.py]  #60 <2520731:140335332390656>  -> Start new test
+[[2022-05-06 21:05:59]]  INFO  [vvs_service.py]  #61 <2520731:140335332390656>  	Black spk number: 581
+[[2022-05-06 21:06:46]]  INFO  [vvs_service.py]  #60 <2520731:140335332390656>  -> Start new test
+[[2022-05-06 21:06:46]]  INFO  [vvs_service.py]  #61 <2520731:140335332390656>  	Black spk number: 581
+[[2022-05-06 21:08:09]]  INFO  [vvs_service.py]  #60 <2520731:140335332390656>  -> Start new test
+[[2022-05-06 21:08:09]]  INFO  [vvs_service.py]  #61 <2520731:140335332390656>  	Black spk number: 581
+[[2022-05-06 21:09:59]]  INFO  [vvs_service.py]  #60 <2520731:140335332390656>  -> Start new test
+[[2022-05-06 21:09:59]]  INFO  [vvs_service.py]  #61 <2520731:140335332390656>  	Black spk number: 581
+[[2022-05-06 21:10:10]]  INFO  [vvs_service.py]  #60 <2520731:140335332390656>  -> Start new test
+[[2022-05-06 21:10:10]]  INFO  [vvs_service.py]  #61 <2520731:140335332390656>  	Black spk number: 581
+[[2022-05-06 21:10:46]]  INFO  [vvs_service.py]  #52 <2529180:139926128310080>  	Load blacklist files ... 
+[[2022-05-06 21:10:47]]  INFO  [vvs_service.py]  #60 <2529180:139920139515648>  -> Start new test
+[[2022-05-06 21:10:47]]  INFO  [vvs_service.py]  #61 <2529180:139920139515648>  	Black spk number: 581
+[[2022-05-06 21:14:36]]  INFO  [vvs_service.py]  #52 <2535631:139796653844288>  	Load blacklist files ... 
+[[2022-05-06 21:14:36]]  INFO  [vvs_service.py]  #60 <2535631:139790665074432>  -> Start new test
+[[2022-05-06 21:14:36]]  INFO  [vvs_service.py]  #61 <2535631:139790665074432>  	Black spk number: 581
+[[2022-05-06 21:15:01]]  INFO  [vvs_service.py]  #52 <2536529:140545415472960>  	Load blacklist files ... 
+[[2022-05-06 21:16:58]]  INFO  [vvs_service.py]  #60 <2536529:140539426703104>  -> Start new test
+[[2022-05-06 21:16:58]]  INFO  [vvs_service.py]  #61 <2536529:140539426703104>  	Black spk number: 581
+[[2022-05-06 21:17:17]]  INFO  [vvs_service.py]  #60 <2536529:140539426703104>  -> Start new test
+[[2022-05-06 21:17:17]]  INFO  [vvs_service.py]  #61 <2536529:140539426703104>  	Black spk number: 581
+[[2022-05-06 21:17:33]]  INFO  [vvs_service.py]  #60 <2536529:140539426703104>  -> Start new test
+[[2022-05-06 21:17:33]]  INFO  [vvs_service.py]  #61 <2536529:140539426703104>  	Black spk number: 581
+[[2022-05-06 21:18:55]]  INFO  [vvs_service.py]  #52 <2543304:139709191288640>  	Load blacklist files ... 
+[[2022-05-06 21:18:55]]  INFO  [vvs_service.py]  #60 <2543304:139703202518784>  -> Start new test
+[[2022-05-06 21:18:55]]  INFO  [vvs_service.py]  #61 <2543304:139703202518784>  	Black spk number: 581
+[[2022-05-06 21:19:22]]  INFO  [vvs_service.py]  #60 <2543304:139703202518784>  -> Start new test
+[[2022-05-06 21:19:22]]  INFO  [vvs_service.py]  #61 <2543304:139703202518784>  	Black spk number: 581
+[[2022-05-06 21:19:42]]  INFO  [vvs_service.py]  #60 <2543304:139703202518784>  -> Start new test
+[[2022-05-06 21:19:42]]  INFO  [vvs_service.py]  #61 <2543304:139703202518784>  	Black spk number: 581
+[[2022-05-06 21:19:45]]  INFO  [vvs_service.py]  #60 <2543304:139703202518784>  -> Start new test
+[[2022-05-06 21:19:45]]  INFO  [vvs_service.py]  #61 <2543304:139703202518784>  	Black spk number: 581
+[[2022-05-06 21:24:31]]  INFO  [vvs_service.py]  #52 <2552908:140706068068160>  	Load blacklist files ... 
+[[2022-05-06 21:24:31]]  INFO  [vvs_service.py]  #63 <2552908:140700079273728>  -> Start new test
+[[2022-05-06 21:24:31]]  INFO  [vvs_service.py]  #64 <2552908:140700079273728>  	Black spk number: 581
+[[2022-05-06 21:26:41]]  INFO  [vvs_service.py]  #63 <2552908:140700079273728>  -> Start new test
+[[2022-05-06 21:26:41]]  INFO  [vvs_service.py]  #64 <2552908:140700079273728>  	Black spk number: 581
+[[2022-05-06 21:27:32]]  INFO  [vvs_service.py]  #63 <2552908:140700079273728>  -> Start new test
+[[2022-05-06 21:27:32]]  INFO  [vvs_service.py]  #64 <2552908:140700079273728>  	Black spk number: 581
+[[2022-05-06 21:28:20]]  INFO  [vvs_service.py]  #52 <2559643:140268177835840>  	Load blacklist files ... 
+[[2022-05-06 21:29:06]]  INFO  [vvs_service.py]  #52 <2560971:139969284032320>  	Load blacklist files ... 
+[[2022-05-06 21:29:06]]  INFO  [vvs_service.py]  #60 <2560971:139963295262464>  -> Start new test
+[[2022-05-06 21:29:06]]  INFO  [vvs_service.py]  #61 <2560971:139963295262464>  	Black spk number: 581
+[[2022-05-06 21:29:35]]  INFO  [vvs_service.py]  #52 <2561917:140524333934400>  	Load blacklist files ... 
+[[2022-05-06 21:29:35]]  INFO  [vvs_service.py]  #60 <2561917:140518345082624>  -> Start new test
+[[2022-05-06 21:29:35]]  INFO  [vvs_service.py]  #61 <2561917:140518345082624>  	Black spk number: 581
+[[2022-05-06 21:30:21]]  INFO  [vvs_service.py]  #52 <2563337:139795846154048>  	Load blacklist files ... 
+[[2022-05-06 21:30:27]]  INFO  [vvs_service.py]  #52 <2563580:140589122312000>  	Load blacklist files ... 
+[[2022-05-06 21:30:39]]  INFO  [vvs_service.py]  #52 <2563963:139929859905344>  	Load blacklist files ... 
+[[2022-05-06 21:30:41]]  INFO  [vvs_service.py]  #60 <2563963:139923871135488>  -> Start new test
+[[2022-05-06 21:30:41]]  INFO  [vvs_service.py]  #61 <2563963:139923871135488>  	Black spk number: 581
+[[2022-05-06 21:30:42]]  INFO  [vvs_service.py]  #89 <2563963:139923871135488>  	# Success: Qualified.
+[[2022-05-06 21:30:42]]  INFO  [vvs_service.py]  #90 <2563963:139923871135488>  	# Time using: 1.2s
+[[2022-05-06 21:31:44]]  INFO  [vvs_service.py]  #104 <2563963:139923871135488>  -> Start new register
+[[2022-05-06 21:31:44]]  INFO  [vvs_service.py]  #105 <2563963:139923871135488>  	Black spk number: 581
+[[2022-05-06 21:32:54]]  INFO  [vvs_service.py]  #52 <2568058:139923079624512>  	Load blacklist files ... 
+[[2022-05-06 21:33:42]]  INFO  [vvs_service.py]  #52 <2569521:140329331607360>  	Load blacklist files ... 
+[[2022-05-06 21:33:45]]  INFO  [vvs_service.py]  #104 <2569521:140323342812928>  -> Start new register
+[[2022-05-06 21:33:45]]  INFO  [vvs_service.py]  #105 <2569521:140323342812928>  	Black spk number: 581
+[[2022-05-06 21:34:17]]  INFO  [vvs_service.py]  #52 <2570607:140661987358528>  	Load blacklist files ... 
+[[2022-05-06 21:35:00]]  INFO  [vvs_service.py]  #52 <2571915:140712933119808>  	Load blacklist files ... 
+[[2022-05-06 21:35:00]]  INFO  [vvs_service.py]  #104 <2571915:140706944325376>  -> Start new register
+[[2022-05-06 21:35:00]]  INFO  [vvs_service.py]  #105 <2571915:140706944325376>  	Black spk number: 581
+[[2022-05-06 21:35:02]]  INFO  [vvs_service.py]  #142 <2571915:140706944325376>  	# Msg: Save to dabase success.
+[[2022-05-06 21:35:02]]  INFO  [vvs_service.py]  #145 <2571915:140706944325376>  	# Success: Qualified.
+[[2022-05-06 21:35:02]]  INFO  [vvs_service.py]  #146 <2571915:140706944325376>  	# Time using: 1.3s
+[[2022-05-06 21:35:10]]  INFO  [vvs_service.py]  #104 <2571915:140706944325376>  -> Start new register
+[[2022-05-06 21:35:10]]  INFO  [vvs_service.py]  #105 <2571915:140706944325376>  	Black spk number: 582
+[[2022-05-06 21:35:11]]  INFO  [vvs_service.py]  #138 <2571915:140706944325376>  	# Time using: 1.0s
+[[2022-05-06 21:35:11]]  INFO  [vvs_service.py]  #139 <2571915:140706944325376>  	# Error: Already in database!
+[[2022-05-06 21:35:27]]  INFO  [vvs_service.py]  #104 <2571915:140706791941888>  -> Start new register
+[[2022-05-06 21:35:27]]  INFO  [vvs_service.py]  #105 <2571915:140706791941888>  	Black spk number: 582
+[[2022-05-06 21:35:28]]  INFO  [vvs_service.py]  #142 <2571915:140706791941888>  	# Msg: Save to dabase success.
+[[2022-05-06 21:35:28]]  INFO  [vvs_service.py]  #145 <2571915:140706791941888>  	# Success: Qualified.
+[[2022-05-06 21:35:28]]  INFO  [vvs_service.py]  #146 <2571915:140706791941888>  	# Time using: 1.0s
+[[2022-05-06 21:35:35]]  INFO  [vvs_service.py]  #104 <2571915:140706791941888>  -> Start new register
+[[2022-05-06 21:35:35]]  INFO  [vvs_service.py]  #105 <2571915:140706791941888>  	Black spk number: 583
+[[2022-05-06 21:35:36]]  INFO  [vvs_service.py]  #138 <2571915:140706791941888>  	# Time using: 0.9s
+[[2022-05-06 21:35:36]]  INFO  [vvs_service.py]  #139 <2571915:140706791941888>  	# Error: Already in database!
+[[2022-05-06 21:36:43]]  INFO  [vvs_service.py]  #52 <2575087:140444514375488>  	Load blacklist files ... 
+[[2022-05-06 21:36:51]]  INFO  [vvs_service.py]  #104 <2575087:140438523770624>  # => Register
+[[2022-05-06 21:36:51]]  INFO  [vvs_service.py]  #105 <2575087:140438523770624>  	Black spk number: 581
+[[2022-05-06 21:36:52]]  INFO  [vvs_service.py]  #142 <2575087:140438523770624>  	# Msg: Save to dabase success.
+[[2022-05-06 21:36:52]]  INFO  [vvs_service.py]  #145 <2575087:140438523770624>  	# Success: Qualified.
+[[2022-05-06 21:36:52]]  INFO  [vvs_service.py]  #146 <2575087:140438523770624>  	# Time using: 1.3s
+[[2022-05-06 21:37:02]]  INFO  [vvs_service.py]  #104 <2575087:140438523770624>  # => Register
+[[2022-05-06 21:37:02]]  INFO  [vvs_service.py]  #105 <2575087:140438523770624>  	Black spk number: 582
+[[2022-05-06 21:37:03]]  INFO  [vvs_service.py]  #138 <2575087:140438523770624>  	# Time using: 1.0s
+[[2022-05-06 21:37:03]]  INFO  [vvs_service.py]  #139 <2575087:140438523770624>  	# Error: Already in database!
+[[2022-05-06 21:37:38]]  INFO  [vvs_service.py]  #104 <2575087:140438523770624>  # => Register
+[[2022-05-06 21:37:38]]  INFO  [vvs_service.py]  #105 <2575087:140438523770624>  	Black spk number: 582
+[[2022-05-06 21:37:39]]  INFO  [vvs_service.py]  #138 <2575087:140438523770624>  	# Time using: 1.0s
+[[2022-05-06 21:37:39]]  INFO  [vvs_service.py]  #139 <2575087:140438523770624>  	# Error: Already in database!
+[[2022-05-06 21:37:53]]  INFO  [vvs_service.py]  #104 <2575087:140438515115776>  # => Register
+[[2022-05-06 21:37:53]]  INFO  [vvs_service.py]  #105 <2575087:140438515115776>  	Black spk number: 582
+[[2022-05-06 21:37:54]]  INFO  [vvs_service.py]  #142 <2575087:140438515115776>  	# Msg: Save to dabase success.
+[[2022-05-06 21:37:54]]  INFO  [vvs_service.py]  #145 <2575087:140438515115776>  	# Success: Qualified.
+[[2022-05-06 21:37:54]]  INFO  [vvs_service.py]  #146 <2575087:140438515115776>  	# Time using: 1.1s
+[[2022-05-06 21:38:31]]  INFO  [vvs_service.py]  #60 <2575087:140438515115776>  @ -> Test
+[[2022-05-06 21:38:31]]  INFO  [vvs_service.py]  #61 <2575087:140438515115776>  	Black spk number: 583
+[[2022-05-06 21:40:00]]  INFO  [vvs_service.py]  #52 <2581068:140659775047488>  	Load blacklist files ... 
+[[2022-05-06 21:40:31]]  INFO  [vvs_service.py]  #52 <2582025:140186685577024>  	Load blacklist files ... 
+[[2022-05-06 21:43:48]]  INFO  [vvs_service.py]  #52 <2587611:139863891171136>  	Load blacklist files ... 
+[[2022-05-06 21:44:51]]  INFO  [vvs_service.py]  #52 <2589335:140328646485824>  	Load blacklist files ... 
+[[2022-05-06 21:48:30]]  INFO  [vvs_service.py]  #52 <2595819:140118783575872>  	Load blacklist files ... 
+[[2022-05-06 21:48:35]]  INFO  [vvs_service.py]  #52 <2595978:140479822317376>  	Load blacklist files ... 
+[[2022-05-06 21:48:36]]  INFO  [vvs_service.py]  #60 <2595978:140473833506560>  @ -> Test
+[[2022-05-06 21:48:36]]  INFO  [vvs_service.py]  #61 <2595978:140473833506560>  	Black spk number: 581
+[[2022-05-06 21:48:38]]  INFO  [vvs_service.py]  #89 <2595978:140473833506560>  	# Success: Qualified.
+[[2022-05-06 21:48:38]]  INFO  [vvs_service.py]  #90 <2595978:140473833506560>  	# Time using: 1.4s
+[[2022-05-06 21:49:48]]  INFO  [vvs_service.py]  #52 <2598297:139822328907584>  	Load blacklist files ... 
+[[2022-05-06 21:49:59]]  INFO  [vvs_service.py]  #104 <2598297:139816340137728>  # => Register
+[[2022-05-06 21:49:59]]  INFO  [vvs_service.py]  #105 <2598297:139816340137728>  	Black spk number: 581
+[[2022-05-06 21:50:00]]  INFO  [vvs_service.py]  #142 <2598297:139816340137728>  	# Msg: Save to dabase success.
+[[2022-05-06 21:50:00]]  INFO  [vvs_service.py]  #145 <2598297:139816340137728>  	# Success: Qualified.
+[[2022-05-06 21:50:00]]  INFO  [vvs_service.py]  #146 <2598297:139816340137728>  	# Time using: 1.3s
+[[2022-05-06 21:50:53]]  INFO  [vvs_service.py]  #60 <2598297:139816340137728>  @ -> Test
+[[2022-05-06 21:50:53]]  INFO  [vvs_service.py]  #61 <2598297:139816340137728>  	Black spk number: 582
+[[2022-05-06 21:50:54]]  INFO  [vvs_service.py]  #89 <2598297:139816340137728>  	# Success: Qualified.
+[[2022-05-06 21:50:54]]  INFO  [vvs_service.py]  #90 <2598297:139816340137728>  	# Time using: 1.0s
+[[2022-05-06 21:51:23]]  INFO  [vvs_service.py]  #60 <2598297:139816340137728>  @ -> Test
+[[2022-05-06 21:51:23]]  INFO  [vvs_service.py]  #61 <2598297:139816340137728>  	Black spk number: 582
+[[2022-05-06 21:51:24]]  INFO  [vvs_service.py]  #89 <2598297:139816340137728>  	# Success: Qualified.
+[[2022-05-06 21:51:24]]  INFO  [vvs_service.py]  #90 <2598297:139816340137728>  	# Time using: 1.1s
+[[2022-05-06 22:47:46]]  INFO  [vvs_service.py]  #52 <2694768:139752611473216>  	Load blacklist files ... 
+[[2022-05-06 22:47:49]]  INFO  [vvs_service.py]  #52 <2694956:140662396458816>  	Load blacklist files ... 
+[[2022-05-06 22:48:16]]  INFO  [vvs_service.py]  #60 <2694956:140656407664384>  @ -> Test
+[[2022-05-06 22:48:16]]  INFO  [vvs_service.py]  #61 <2694956:140656407664384>  	Black spk number: 581
+[[2022-05-06 22:48:17]]  INFO  [vvs_service.py]  #89 <2694956:140656407664384>  	# Success: Qualified.
+[[2022-05-06 22:48:17]]  INFO  [vvs_service.py]  #90 <2694956:140656407664384>  	# Time using: 1.4s
+[[2022-05-06 22:49:31]]  INFO  [vvs_service.py]  #52 <2697753:139715876652864>  	Load blacklist files ... 
+[[2022-05-06 22:49:31]]  INFO  [vvs_service.py]  #60 <2697753:139709887706880>  @ -> Test
+[[2022-05-06 22:49:31]]  INFO  [vvs_service.py]  #61 <2697753:139709887706880>  	Black spk number: 581
+[[2022-05-06 22:49:33]]  INFO  [vvs_service.py]  #89 <2697753:139709887706880>  	# Success: Qualified.
+[[2022-05-06 22:49:33]]  INFO  [vvs_service.py]  #90 <2697753:139709887706880>  	# Time using: 1.5s
+[[2022-05-06 23:34:09]]  INFO  [vvs_service.py]  #52 <2771939:140076884698944>  	Load blacklist files ... 
+[[2022-05-06 23:41:25]]  INFO  [vvs_service.py]  #52 <2783669:140114392483648>  	Load blacklist files ... 
+[[2022-05-06 23:41:30]]  INFO  [vvs_service.py]  #52 <2783929:140205784368960>  	Load blacklist files ... 
+[[2022-05-06 23:42:50]]  INFO  [vvs_service.py]  #52 <2786402:140266672740160>  	Load blacklist files ... 
+[[2022-05-06 23:47:07]]  INFO  [vvs_service.py]  #64 <2786402:140260682249984>  @ -> Test
+[[2022-05-06 23:47:07]]  INFO  [vvs_service.py]  #65 <2786402:140260682249984>  	Black spk number: 581
+[[2022-05-06 23:48:43]]  INFO  [vvs_service.py]  #64 <2786402:140260670449408>  @ -> Test
+[[2022-05-06 23:48:43]]  INFO  [vvs_service.py]  #65 <2786402:140260670449408>  	Black spk number: 581
+[[2022-05-06 23:48:45]]  INFO  [vvs_service.py]  #83 <2786402:140260670449408>  	# Time using: 2.0s
+[[2022-05-06 23:48:45]]  INFO  [vvs_service.py]  #84 <2786402:140260670449408>  	# Error: Insufficient duration, the current duration is 1.777s.s
+[[2022-05-06 23:52:19]]  INFO  [vvs_service.py]  #64 <2786402:140260682249984>  @ -> Test
+[[2022-05-06 23:52:19]]  INFO  [vvs_service.py]  #65 <2786402:140260682249984>  	Black spk number: 581
+[[2022-05-06 23:57:04]]  INFO  [vvs_service.py]  #64 <2786402:140260662056704>  @ -> Test
+[[2022-05-06 23:57:04]]  INFO  [vvs_service.py]  #65 <2786402:140260662056704>  	Black spk number: 581
+[[2022-05-06 23:57:09]]  INFO  [vvs_service.py]  #93 <2786402:140260662056704>  	# Success: Qualified.
+[[2022-05-06 23:57:09]]  INFO  [vvs_service.py]  #94 <2786402:140260662056704>  	# Time using: 4.8s
+[[2022-05-06 23:59:36]]  INFO  [vvs_service.py]  #52 <2815035:140518123038528>  	Load blacklist files ... 
+[[2022-05-07 00:01:12]]  INFO  [vvs_service.py]  #52 <2817700:140511944902464>  	Load blacklist files ... 
+[[2022-05-07 00:01:30]]  INFO  [vvs_service.py]  #112 <2817700:140505956108032>  # => Register
+[[2022-05-07 00:01:30]]  INFO  [vvs_service.py]  #113 <2817700:140505956108032>  	Black spk number: 581
+[[2022-05-07 00:01:33]]  INFO  [vvs_service.py]  #150 <2817700:140505956108032>  	# Msg: Save to dabase success.
+[[2022-05-07 00:01:33]]  INFO  [vvs_service.py]  #153 <2817700:140505956108032>  	# Success: Qualified.
+[[2022-05-07 00:01:33]]  INFO  [vvs_service.py]  #154 <2817700:140505956108032>  	# Time using: 2.8s
+[[2022-05-07 00:01:46]]  INFO  [vvs_service.py]  #66 <2817700:140505938798336>  @ -> Test
+[[2022-05-07 00:01:46]]  INFO  [vvs_service.py]  #67 <2817700:140505938798336>  	Black spk number: 582
+[[2022-05-07 00:01:52]]  INFO  [vvs_service.py]  #95 <2817700:140505938798336>  	# Success: Qualified.
+[[2022-05-07 00:01:52]]  INFO  [vvs_service.py]  #96 <2817700:140505938798336>  	# Time using: 6.0s
+[[2022-05-07 00:02:17]]  INFO  [vvs_service.py]  #66 <2817700:140505786939136>  @ -> Test
+[[2022-05-07 00:02:17]]  INFO  [vvs_service.py]  #67 <2817700:140505786939136>  	Black spk number: 582
+[[2022-05-07 00:02:21]]  INFO  [vvs_service.py]  #95 <2817700:140505786939136>  	# Success: Qualified.
+[[2022-05-07 00:02:21]]  INFO  [vvs_service.py]  #96 <2817700:140505786939136>  	# Time using: 3.6s
+[[2022-05-07 00:14:16]]  INFO  [vvs_service.py]  #66 <2817700:140505947453184>  @ -> Test
+[[2022-05-07 00:14:16]]  INFO  [vvs_service.py]  #67 <2817700:140505947453184>  	Black spk number: 582
+[[2022-05-07 00:14:20]]  INFO  [vvs_service.py]  #95 <2817700:140505947453184>  	# Success: Qualified.
+[[2022-05-07 00:14:20]]  INFO  [vvs_service.py]  #96 <2817700:140505947453184>  	# Time using: 3.7s
+[[2022-05-07 00:14:34]]  INFO  [vvs_service.py]  #66 <2817700:140505786939136>  @ -> Test
+[[2022-05-07 00:14:34]]  INFO  [vvs_service.py]  #67 <2817700:140505786939136>  	Black spk number: 582
+[[2022-05-07 00:14:38]]  INFO  [vvs_service.py]  #95 <2817700:140505786939136>  	# Success: Qualified.
+[[2022-05-07 00:14:38]]  INFO  [vvs_service.py]  #96 <2817700:140505786939136>  	# Time using: 3.9s
+[[2022-05-07 00:14:46]]  INFO  [vvs_service.py]  #66 <2817700:140505265198848>  @ -> Test
+[[2022-05-07 00:14:46]]  INFO  [vvs_service.py]  #67 <2817700:140505265198848>  	Black spk number: 582
+[[2022-05-07 00:14:51]]  INFO  [vvs_service.py]  #95 <2817700:140505265198848>  	# Success: Qualified.
+[[2022-05-07 00:14:51]]  INFO  [vvs_service.py]  #96 <2817700:140505265198848>  	# Time using: 4.4s
+[[2022-05-07 00:17:04]]  INFO  [vvs_service.py]  #66 <2817700:140505273591552>  @ -> Test
+[[2022-05-07 00:17:04]]  INFO  [vvs_service.py]  #67 <2817700:140505273591552>  	Black spk number: 582
+[[2022-05-07 00:17:08]]  INFO  [vvs_service.py]  #95 <2817700:140505273591552>  	# Success: Qualified.
+[[2022-05-07 00:17:08]]  INFO  [vvs_service.py]  #96 <2817700:140505273591552>  	# Time using: 3.4s
+[[2022-05-07 00:30:18]]  INFO  [vvs_service.py]  #66 <2817700:140505285129984>  @ -> Test
+[[2022-05-07 00:30:18]]  INFO  [vvs_service.py]  #67 <2817700:140505285129984>  	Black spk number: 582
+[[2022-05-07 00:30:22]]  INFO  [vvs_service.py]  #95 <2817700:140505285129984>  	# Success: Qualified.
+[[2022-05-07 00:30:22]]  INFO  [vvs_service.py]  #96 <2817700:140505285129984>  	# Time using: 4.4s
+[[2022-05-07 00:30:30]]  INFO  [vvs_service.py]  #66 <2817700:140505947453184>  @ -> Test
+[[2022-05-07 00:30:30]]  INFO  [vvs_service.py]  #67 <2817700:140505947453184>  	Black spk number: 582
+[[2022-05-07 00:30:34]]  INFO  [vvs_service.py]  #95 <2817700:140505947453184>  	# Success: Qualified.
+[[2022-05-07 00:30:34]]  INFO  [vvs_service.py]  #96 <2817700:140505947453184>  	# Time using: 4.1s
+[[2022-05-07 06:53:55]]  INFO  [vvs_service.py]  #52 <3506638:140313535784768>  	Load blacklist files ... 
+[[2022-05-07 08:01:37]]  INFO  [vvs_service.py]  #52 <3619369:140013954099008>  	Load blacklist files ... 
+[[2022-05-07 08:01:41]]  INFO  [vvs_service.py]  #52 <3619539:140545576974144>  	Load blacklist files ... 
+[[2022-05-07 08:02:20]]  INFO  [vvs_service.py]  #118 <3619539:140539587946240>  # => Register
+[[2022-05-07 08:02:20]]  INFO  [vvs_service.py]  #119 <3619539:140539587946240>  	Black spk number: 582
+[[2022-05-07 08:02:44]]  INFO  [vvs_service.py]  #52 <3621609:140436654139200>  	Load blacklist files ... 
+[[2022-05-07 08:02:57]]  INFO  [vvs_service.py]  #52 <3622031:140146459055936>  	Load blacklist files ... 
+[[2022-05-07 08:04:16]]  INFO  [vvs_service.py]  #52 <3624161:140129373034304>  	Load blacklist files ... 
+[[2022-05-07 08:04:26]]  INFO  [vvs_service.py]  #124 <3624161:140123375683328>  # => Register
+[[2022-05-07 08:04:26]]  INFO  [vvs_service.py]  #125 <3624161:140123375683328>  	Black spk number: 582
+[[2022-05-07 08:04:42]]  INFO  [vvs_service.py]  #168 <3624161:140123375683328>  	# Msg: Save to dabase success.
+[[2022-05-07 08:04:42]]  INFO  [vvs_service.py]  #171 <3624161:140123375683328>  	# Success: Qualified.
+[[2022-05-07 08:04:42]]  INFO  [vvs_service.py]  #172 <3624161:140123375683328>  	# Time using: 16.8s
+[[2022-05-07 08:05:11]]  INFO  [vvs_service.py]  #124 <3624161:140123384076032>  # => Register
+[[2022-05-07 08:05:11]]  INFO  [vvs_service.py]  #125 <3624161:140123384076032>  	Black spk number: 583
+[[2022-05-07 08:05:35]]  INFO  [vvs_service.py]  #168 <3624161:140123384076032>  	# Msg: Save to dabase success.
+[[2022-05-07 08:05:35]]  INFO  [vvs_service.py]  #171 <3624161:140123384076032>  	# Success: Qualified.
+[[2022-05-07 08:05:35]]  INFO  [vvs_service.py]  #172 <3624161:140123384076032>  	# Time using: 23.8s
+[[2022-05-07 08:06:29]]  INFO  [vvs_service.py]  #52 <3628094:139787153839936>  	Load blacklist files ... 
+[[2022-05-07 08:07:22]]  INFO  [vvs_service.py]  #52 <3629506:140206449887040>  	Load blacklist files ... 
+[[2022-05-07 08:07:28]]  INFO  [vvs_service.py]  #52 <3629863:140459946125120>  	Load blacklist files ... 
+[[2022-05-07 08:07:51]]  INFO  [vvs_service.py]  #52 <3630534:140543004849984>  	Load blacklist files ... 
+[[2022-05-07 08:08:00]]  INFO  [vvs_service.py]  #52 <3630836:140007651739456>  	Load blacklist files ... 
+[[2022-05-07 08:08:10]]  INFO  [vvs_service.py]  #52 <3631095:139633151440704>  	Load blacklist files ... 
+[[2022-05-07 08:09:45]]  INFO  [vvs_service.py]  #52 <3633391:139652595709760>  	Load blacklist files ... 
+[[2022-05-07 08:11:04]]  INFO  [vvs_service.py]  #52 <3636072:140003125798720>  	Load blacklist files ... 
+[[2022-05-07 08:12:09]]  INFO  [vvs_service.py]  #52 <3637776:139868152526656>  	Load blacklist files ... 
+[[2022-05-07 08:13:02]]  INFO  [vvs_service.py]  #52 <3639029:139957819647808>  	Load blacklist files ... 
+[[2022-05-07 08:17:46]]  INFO  [vvs_service.py]  #52 <3647380:140279290320704>  	Load blacklist files ... 
+[[2022-05-07 08:18:03]]  INFO  [vvs_service.py]  #52 <3647931:140667734718272>  	Load blacklist files ... 
+[[2022-05-07 08:18:27]]  INFO  [vvs_service.py]  #53 <3648662:140232349591360>  	Load blacklist files ... 
+[[2022-05-07 08:18:46]]  INFO  [vvs_service.py]  #53 <3649280:140459793815360>  	Load blacklist files ... 
+[[2022-05-07 08:19:19]]  INFO  [vvs_service.py]  #53 <3650245:139829080557376>  	Load blacklist files ... 
+[[2022-05-07 08:19:36]]  INFO  [vvs_service.py]  #53 <3650789:139920081438528>  	Load blacklist files ... 
+[[2022-05-07 08:19:46]]  INFO  [vvs_service.py]  #53 <3651124:139880136439616>  	Load blacklist files ... 
+[[2022-05-07 08:23:49]]  INFO  [vvs_service.py]  #53 <3657841:140137968805696>  	Load blacklist files ... 
+[[2022-05-07 08:23:55]]  INFO  [vvs_service.py]  #78 <3657841:140131958429440>  @ -> Test
+[[2022-05-07 08:23:55]]  INFO  [vvs_service.py]  #79 <3657841:140131958429440>  	Black spk number: 584
+[[2022-05-07 08:24:28]]  INFO  [vvs_service.py]  #53 <3659042:140065668618048>  	Load blacklist files ... 
+[[2022-05-07 08:24:32]]  INFO  [vvs_service.py]  #78 <3659042:140059679483648>  @ -> Test
+[[2022-05-07 08:24:32]]  INFO  [vvs_service.py]  #79 <3659042:140059679483648>  	Black spk number: 584
+[[2022-05-07 08:24:53]]  INFO  [vvs_service.py]  #114 <3659042:140059679483648>  	# Success: Qualified.
+[[2022-05-07 08:24:53]]  INFO  [vvs_service.py]  #115 <3659042:140059679483648>  	# Time using: 20.9s
+[[2022-05-07 08:25:33]]  INFO  [vvs_service.py]  #78 <3659042:140059650373376>  @ -> Test
+[[2022-05-07 08:25:33]]  INFO  [vvs_service.py]  #79 <3659042:140059650373376>  	Black spk number: 584
+[[2022-05-07 08:26:42]]  INFO  [vvs_service.py]  #53 <3662940:140463963944768>  	Load blacklist files ... 
+[[2022-05-07 08:26:48]]  INFO  [vvs_service.py]  #53 <3663086:139892568303424>  	Load blacklist files ... 
+[[2022-05-07 08:26:53]]  INFO  [vvs_service.py]  #78 <3663086:139886570776320>  @ -> Test
+[[2022-05-07 08:26:53]]  INFO  [vvs_service.py]  #79 <3663086:139886570776320>  	Black spk number: 584
+[[2022-05-07 08:28:06]]  INFO  [vvs_service.py]  #114 <3663086:139886570776320>  	# Success: Qualified.
+[[2022-05-07 08:28:06]]  INFO  [vvs_service.py]  #115 <3663086:139886570776320>  	# Time using: 72.3s
+[[2022-05-07 08:28:23]]  INFO  [vvs_service.py]  #78 <3663086:139886579169024>  @ -> Test
+[[2022-05-07 08:28:23]]  INFO  [vvs_service.py]  #79 <3663086:139886579169024>  	Black spk number: 584
+[[2022-05-07 08:29:38]]  INFO  [vvs_service.py]  #114 <3663086:139886579169024>  	# Success: Qualified.
+[[2022-05-07 08:29:38]]  INFO  [vvs_service.py]  #115 <3663086:139886579169024>  	# Time using: 74.3s
+[[2022-05-07 08:30:33]]  INFO  [vvs_service.py]  #53 <3669330:140124683786048>  	Load blacklist files ... 
+[[2022-05-07 08:33:23]]  INFO  [vvs_service.py]  #78 <3669330:140118690203392>  @ -> Test
+[[2022-05-07 08:33:23]]  INFO  [vvs_service.py]  #79 <3669330:140118690203392>  	Black spk number: 584
+[[2022-05-07 08:33:47]]  INFO  [vvs_service.py]  #53 <3674896:139729756030784>  	Load blacklist files ... 
+[[2022-05-07 08:33:48]]  INFO  [vvs_service.py]  #78 <3674896:139723766896384>  @ -> Test
+[[2022-05-07 08:33:48]]  INFO  [vvs_service.py]  #79 <3674896:139723766896384>  	Black spk number: 584
+[[2022-05-07 08:33:54]]  INFO  [vvs_service.py]  #114 <3674896:139723766896384>  	# Success: Qualified.
+[[2022-05-07 08:33:54]]  INFO  [vvs_service.py]  #115 <3674896:139723766896384>  	# Time using: 6.0s
+[[2022-05-07 08:34:41]]  INFO  [vvs_service.py]  #53 <3676537:140004945372992>  	Load blacklist files ... 
+[[2022-05-07 08:34:47]]  INFO  [vvs_service.py]  #78 <3676537:139998943086336>  @ -> Test
+[[2022-05-07 08:34:47]]  INFO  [vvs_service.py]  #79 <3676537:139998943086336>  	Black spk number: 584
+[[2022-05-07 08:34:53]]  INFO  [vvs_service.py]  #114 <3676537:139998943086336>  	# Success: Qualified.
+[[2022-05-07 08:34:53]]  INFO  [vvs_service.py]  #115 <3676537:139998943086336>  	# Time using: 6.1s
+[[2022-05-07 08:35:06]]  INFO  [vvs_service.py]  #78 <3676537:139998951741184>  @ -> Test
+[[2022-05-07 08:35:06]]  INFO  [vvs_service.py]  #79 <3676537:139998951741184>  	Black spk number: 584
+[[2022-05-07 08:35:12]]  INFO  [vvs_service.py]  #114 <3676537:139998951741184>  	# Success: Qualified.
+[[2022-05-07 08:35:12]]  INFO  [vvs_service.py]  #115 <3676537:139998951741184>  	# Time using: 5.7s
+[[2022-05-07 08:35:20]]  INFO  [vvs_service.py]  #53 <3677696:140628322768704>  	Load blacklist files ... 
+[[2022-05-07 08:35:30]]  INFO  [vvs_service.py]  #53 <3678026:140637068605248>  	Load blacklist files ... 
+[[2022-05-07 08:35:43]]  INFO  [vvs_service.py]  #53 <3678424:140104655062848>  	Load blacklist files ... 
+[[2022-05-07 08:35:47]]  INFO  [vvs_service.py]  #53 <3678576:140187082020672>  	Load blacklist files ... 
+[[2022-05-07 08:36:10]]  INFO  [vvs_service.py]  #135 <3678576:140181084493568>  # => Register
+[[2022-05-07 08:36:10]]  INFO  [vvs_service.py]  #136 <3678576:140181084493568>  	Black spk number: 584
+[[2022-05-07 08:36:16]]  INFO  [vvs_service.py]  #179 <3678576:140181084493568>  	# Msg: Save to dabase success.
+[[2022-05-07 08:36:16]]  INFO  [vvs_service.py]  #182 <3678576:140181084493568>  	# Success: Qualified.
+[[2022-05-07 08:36:16]]  INFO  [vvs_service.py]  #183 <3678576:140181084493568>  	# Time using: 5.9s
+[[2022-05-07 08:36:35]]  INFO  [vvs_service.py]  #78 <3678576:140181076100864>  @ -> Test
+[[2022-05-07 08:36:35]]  INFO  [vvs_service.py]  #79 <3678576:140181076100864>  	Black spk number: 585
+[[2022-05-07 08:36:41]]  INFO  [vvs_service.py]  #114 <3678576:140181076100864>  	# Success: Qualified.
+[[2022-05-07 08:36:41]]  INFO  [vvs_service.py]  #115 <3678576:140181076100864>  	# Time using: 5.9s
+[[2022-05-07 08:39:37]]  INFO  [vvs_service.py]  #78 <3678576:140180585428736>  @ -> Test
+[[2022-05-07 08:39:37]]  INFO  [vvs_service.py]  #79 <3678576:140180585428736>  	Black spk number: 585
+[[2022-05-07 08:39:38]]  INFO  [vvs_service.py]  #114 <3678576:140180585428736>  	# Success: Qualified.
+[[2022-05-07 08:39:38]]  INFO  [vvs_service.py]  #115 <3678576:140180585428736>  	# Time using: 1.5s
+[[2022-05-07 08:41:28]]  INFO  [vvs_service.py]  #78 <3678576:140181076100864>  @ -> Test
+[[2022-05-07 08:41:28]]  INFO  [vvs_service.py]  #79 <3678576:140181076100864>  	Black spk number: 585
+[[2022-05-07 08:41:29]]  INFO  [vvs_service.py]  #114 <3678576:140181076100864>  	# Success: Qualified.
+[[2022-05-07 08:41:29]]  INFO  [vvs_service.py]  #115 <3678576:140181076100864>  	# Time using: 1.1s
+[[2022-05-07 08:41:42]]  INFO  [vvs_service.py]  #78 <3678576:140181084493568>  @ -> Test
+[[2022-05-07 08:41:42]]  INFO  [vvs_service.py]  #79 <3678576:140181084493568>  	Black spk number: 585
+[[2022-05-07 08:41:43]]  INFO  [vvs_service.py]  #114 <3678576:140181084493568>  	# Success: Qualified.
+[[2022-05-07 08:41:43]]  INFO  [vvs_service.py]  #115 <3678576:140181084493568>  	# Time using: 1.0s
+[[2022-05-07 08:41:58]]  INFO  [vvs_service.py]  #78 <3678576:140180476389120>  @ -> Test
+[[2022-05-07 08:41:58]]  INFO  [vvs_service.py]  #79 <3678576:140180476389120>  	Black spk number: 585
+[[2022-05-07 08:41:59]]  INFO  [vvs_service.py]  #114 <3678576:140180476389120>  	# Success: Qualified.
+[[2022-05-07 08:41:59]]  INFO  [vvs_service.py]  #115 <3678576:140180476389120>  	# Time using: 1.1s
+[[2022-05-07 08:49:43]]  INFO  [vvs_service.py]  #53 <3701851:139925447235392>  	Load blacklist files ... 
+[[2022-05-07 08:51:09]]  INFO  [vvs_service.py]  #53 <3704287:140182635243328>  	Load blacklist files ... 
+[[2022-05-07 08:51:32]]  INFO  [vvs_service.py]  #53 <3705053:140389810267968>  	Load blacklist files ... 
+[[2022-05-07 08:51:39]]  INFO  [vvs_service.py]  #53 <3705255:140557760898880>  	Load blacklist files ... 
+[[2022-05-07 08:52:14]]  INFO  [vvs_service.py]  #53 <3706428:139928186722112>  	Load blacklist files ... 
+[[2022-05-07 08:54:26]]  INFO  [vvs_service.py]  #53 <3710029:140450160371520>  	Load blacklist files ... 
+[[2022-05-07 09:11:23]]  INFO  [vvs_service.py]  #53 <3739045:140424437782336>  	Load blacklist files ... 
+[[2022-05-07 09:12:56]]  INFO  [vvs_service.py]  #87 <3739045:140418446464768>  @ -> Test
+[[2022-05-07 09:12:56]]  INFO  [vvs_service.py]  #88 <3739045:140418446464768>  	Black spk number: 585
+[[2022-05-07 09:13:19]]  INFO  [vvs_service.py]  #87 <3739045:140418446464768>  @ -> Test
+[[2022-05-07 09:13:19]]  INFO  [vvs_service.py]  #88 <3739045:140418446464768>  	Black spk number: 585
+[[2022-05-07 09:13:21]]  INFO  [vvs_service.py]  #123 <3739045:140418446464768>  	# Success: Qualified.
+[[2022-05-07 09:13:21]]  INFO  [vvs_service.py]  #124 <3739045:140418446464768>  	# Time using: 1.5s
+[[2022-05-07 09:13:52]]  INFO  [vvs_service.py]  #87 <3739045:140418437809920>  @ -> Test
+[[2022-05-07 09:13:52]]  INFO  [vvs_service.py]  #88 <3739045:140418437809920>  	Black spk number: 585
+[[2022-05-07 09:13:54]]  INFO  [vvs_service.py]  #123 <3739045:140418437809920>  	# Success: Qualified.
+[[2022-05-07 09:13:54]]  INFO  [vvs_service.py]  #124 <3739045:140418437809920>  	# Time using: 1.2s
+[[2022-05-07 09:23:08]]  INFO  [vvs_service.py]  #87 <3739045:140418446464768>  @ -> Test
+[[2022-05-07 09:23:08]]  INFO  [vvs_service.py]  #88 <3739045:140418446464768>  	Black spk number: 585
+[[2022-05-07 09:23:10]]  INFO  [vvs_service.py]  #123 <3739045:140418446464768>  	# Success: Qualified.
+[[2022-05-07 09:23:10]]  INFO  [vvs_service.py]  #124 <3739045:140418446464768>  	# Time using: 1.1s
+[[2022-05-07 09:38:07]]  INFO  [vvs_service.py]  #87 <3739045:140418446464768>  @ -> Test
+[[2022-05-07 09:38:07]]  INFO  [vvs_service.py]  #88 <3739045:140418446464768>  	Black spk number: 585
+[[2022-05-07 09:38:09]]  INFO  [vvs_service.py]  #123 <3739045:140418446464768>  	# Success: Qualified.
+[[2022-05-07 09:38:09]]  INFO  [vvs_service.py]  #124 <3739045:140418446464768>  	# Time using: 1.2s
+[[2022-05-07 09:48:06]]  INFO  [vvs_service.py]  #53 <3797954:140496650299200>  	Load blacklist files ... 
+[[2022-05-07 09:48:14]]  INFO  [vvs_service.py]  #53 <3798182:140594286839616>  	Load blacklist files ... 
+[[2022-05-07 09:48:14]]  INFO  [vvs_service.py]  #87 <3798182:140588289312512>  @ -> Test
+[[2022-05-07 09:48:14]]  INFO  [vvs_service.py]  #88 <3798182:140588289312512>  	Black spk number: 585
+[[2022-05-07 09:48:16]]  INFO  [vvs_service.py]  #123 <3798182:140588289312512>  	# Success: Qualified.
+[[2022-05-07 09:48:16]]  INFO  [vvs_service.py]  #124 <3798182:140588289312512>  	# Time using: 1.4s
+[[2022-05-07 09:48:45]]  INFO  [vvs_service.py]  #53 <3799216:140386203064128>  	Load blacklist files ... 
+[[2022-05-07 09:48:59]]  INFO  [vvs_service.py]  #53 <3799570:139718144153408>  	Load blacklist files ... 
+[[2022-05-07 09:49:00]]  INFO  [vvs_service.py]  #87 <3799570:139712146626304>  @ -> Test
+[[2022-05-07 09:49:00]]  INFO  [vvs_service.py]  #88 <3799570:139712146626304>  	Black spk number: 585
+[[2022-05-07 09:49:02]]  INFO  [vvs_service.py]  #113 <3799570:139712146626304>  	# Time using: 1.0s
+[[2022-05-07 09:49:02]]  INFO  [vvs_service.py]  #114 <3799570:139712146626304>  	# Error: Bad quality score:0.601140022277832.s
+[[2022-05-07 09:49:21]]  INFO  [vvs_service.py]  #53 <3800177:140482215647040>  	Load blacklist files ... 
+[[2022-05-07 09:49:24]]  INFO  [vvs_service.py]  #87 <3800177:140476218078976>  @ -> Test
+[[2022-05-07 09:49:24]]  INFO  [vvs_service.py]  #88 <3800177:140476218078976>  	Black spk number: 585
+[[2022-05-07 09:49:26]]  INFO  [vvs_service.py]  #123 <3800177:140476218078976>  	# Success: Qualified.
+[[2022-05-07 09:49:26]]  INFO  [vvs_service.py]  #124 <3800177:140476218078976>  	# Time using: 1.3s
+[[2022-05-07 09:50:00]]  INFO  [vvs_service.py]  #53 <3801352:139927439931200>  	Load blacklist files ... 
