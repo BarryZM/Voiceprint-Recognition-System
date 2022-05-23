@@ -34,6 +34,7 @@ def vad_and_upsample(wav_file,spkid,savepath=None,channel=0):
         torch.tensor: new wav tensor
     """
     wav = read_audio(wav_file, sampling_rate=8000)
+    before_vad_length = len(wav)/8000.
     speech_timestamps = get_speech_timestamps(wav, model, sampling_rate=8000,window_size_samples=512)
     wav_torch = collect_chunks(speech_timestamps, wav)
     resampled_waveform = resampler(wav_torch)
@@ -47,8 +48,9 @@ def vad_and_upsample(wav_file,spkid,savepath=None,channel=0):
         save_name = f"preprocessed_{speech_number}.wav"
         final_save_path = os.path.join(spk_dir, save_name)
 
-        save_audio(final_save_path,resampled_waveform, sampling_rate=16000) 
-    return resampled_waveform
+        save_audio(final_save_path,resampled_waveform, sampling_rate=16000)
+    after_vad_length = len(resampled_waveform)/16000.
+    return resampled_waveform,before_vad_length,after_vad_length
 
 def self_test(wav_torch, spkreg,similarity, sr=16000, split_num=3, min_length=3, similarity_limit=0.7):
     """Quality detection function, self-splitting into multiple fragments and then testing them in pairs.

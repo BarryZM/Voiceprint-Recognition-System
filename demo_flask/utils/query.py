@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 from sympy import re
 
 
-def check_new_record(params, type=1):
+def check_new_record(pre_timestamp,now_timestamp):
     """query record data in cti_cdr_call
 
     Returns:
@@ -43,12 +43,12 @@ def check_new_record(params, type=1):
                     cti_cdr_call.caller_num\
                     FROM cti_cdr_call INNER JOIN cti_record \
                     WHERE (cti_cdr_call.call_uuid = cti_record.customer_uuid) \
-                    AND (cti_record.timestamp>'{timestamp}') \
+                    AND (cti_record.timestamp>'{pre_timestamp}') \
+                    AND (cti_record.timestamp<'{now_timestamp}') \
                     ORDER BY cti_record.timestamp DESC;"
     cur.execute(query_sql)
     res = cur.fetchall()
     return res
-
 
 if __name__ == "__main__":
     timestamp = (datetime.now() + timedelta(hours=-20)).strftime("%Y-%m-%d %H:%M:%S")

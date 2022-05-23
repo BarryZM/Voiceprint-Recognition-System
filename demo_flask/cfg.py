@@ -5,7 +5,7 @@
 # Desc  : Config file.
 
 # Black database data {"spk_id":spk_id,"wav_file":wav_file_path,"embedding":embedding}
-BLACK_LIST = "/mnt/zhaosheng/brain/databases/cti_record_vad_data_vad_10s_limit_0.8.pkl"
+BLACK_LIST = "/si-server/blackbase.pkl"
 
 # test wav files save path
 SAVE_PATH = "/si-server/demo_flask/saved_wavs"
@@ -14,14 +14,14 @@ SAVE_PATH = "/si-server/demo_flask/saved_wavs"
 BASE_WAV_PATH = "/si-server/demo_flask/base_wavs"
 
 # black threshold: Determine whether it is in the black library
-BLACK_TH = 0.5
+BLACK_TH = 0.7
 
 # self test threshold
-SELF_TEST_TH = 0.5
+SELF_TEST_TH = 0.6
 
 # self test fragments number
-TEST_SPLIT_NUM = 2
+TEST_SPLIT_NUM = 4
 
 # self test min length(s) of each fragment
-MIN_LENGTH = 3
+MIN_LENGTH = 5
 
