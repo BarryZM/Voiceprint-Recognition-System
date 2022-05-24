@@ -232,7 +232,13 @@ def register(register_type):
         elif register_type == "url":
             return render_template('register_from_url.html')
 
-    if request.method == "POST":  
+    if request.method == "POST":
+        
+
+
+        global today_right
+        global today_total
+        global black_database
         names_inbase = black_database.keys()
         logger.info("# => Register")
         logger.info(f"\tBlack spk number: {len(names_inbase)}")
@@ -240,6 +246,20 @@ def register(register_type):
 
         # get request.files
         new_spkid = request.form.get("spkid")
+
+        # # 判断说话人文件是否已经存在
+        # if os.path.exists("./base_wavs/raw/{new_spkid}"):
+        #     print(e)
+        #     response = {
+        #         "code": 2000,
+        #         "status": "error",
+        #         "err_msg": ""
+        #     }
+        #     end_time = time.time()
+        #     time_used = end_time - start_time
+        #     logger.info(f"\t# Time using: {np.round(time_used, 1)}s")
+        #     logger.info(f"\t# Error: 文件大小检验失败")
+        #     return json.dumps(response, ensure_ascii=False)
         
         
         if register_type == "file":
@@ -253,9 +273,20 @@ def register(register_type):
         try:
             wav,before_vad_length,after_vad_length,preprocessed_filepath = vad_and_upsample(filepath,savepath=os.path.join(cfg.BASE_WAV_PATH,"preprocessed"),spkid=new_spkid)
         except Exception as e:
-            # !todo 文件大小检验，错误提示返回
-            print(f"File error")
-            return
+            print(e)
+            response = {
+                "code": 2000,
+                "status": "error",
+                "err_msg": str(e)
+            }
+            end_time = time.time()
+            time_used = end_time - start_time
+            logger.info(f"\t# Time using: {np.round(time_used, 1)}s")
+            logger.info(f"\t# Error: 文件大小检验失败")
+            return json.dumps(response, ensure_ascii=False)
+            # # !todo 文件大小检验，错误提示返回
+            # print(f"File error")
+            # return
         pass_test, msg,max_score,mean_score,min_score = self_test(wav, spkreg,similarity, sr=16000, split_num=cfg.TEST_SPLIT_NUM, min_length=cfg.MIN_LENGTH, similarity_limit=cfg.SELF_TEST_TH)
         if not pass_test:
             response = {
@@ -271,20 +302,21 @@ def register(register_type):
 
         embedding = spkreg.encode_batch(wav)[0][0]
         
-        if cfg.AUTO_TESTING_MODE:
-            logger.info(f"\t# Self pre-test!")
-            predict_right = self_check(database=black_database,
-                                        embedding=embedding,
-                                        spkid=new_spkid,
-                                        black_limit=cfg.BLACK_TH,
-                                        similarity=similarity,
-                                        top_num=10)
-            if predict_right:
-                today_right += 1
-                logger.info(f"\t# Self pre-test pass √")
-            else:
-                logger.info(f"\t# Self pre-test error !")
-            today_total += 1
+        if len(black_database.keys()) > 1:
+            if cfg.AUTO_TESTING_MODE:
+                logger.info(f"\t# Self pre-test!")
+                predict_right = self_check(database=black_database,
+                                            embedding=embedding,
+                                            spkid=new_spkid,
+                                            black_limit=cfg.BLACK_TH,
+                                            similarity=similarity,
+                                            top_num=10)
+                if predict_right:
+                    today_right += 1
+                    logger.info(f"\t# Self pre-test pass √")
+                else:
+                    logger.info(f"\t# Self pre-test error !")
+                today_total += 1
 
         add_success = add_to_database(database=black_database,
                                         embedding=embedding,
@@ -361,4 +393,4 @@ def echo(sock):
 
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1', threaded=True, port=8170, debug=True,)
+    app.run(host='127.0.0.1', threaded=False, port=8170, debug=True,)

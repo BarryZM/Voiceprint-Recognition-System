@@ -44,7 +44,7 @@ def self_check(database,embedding,spkid,black_limit,similarity,top_num=10):
     results = sorted(results, key=lambda x:float(x[0])*(-1))
     best_score = float(np.array(results[0][0]))
     return_results["best_score"] = best_score
-    print(f"Best score:{results[0][0]}")
+    print(f"spkid: {spkid} -> Best score:{results[0]}")
 
     inbase = (spkid in database.keys())
     if inbase:

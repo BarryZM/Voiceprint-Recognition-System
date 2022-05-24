@@ -31,9 +31,14 @@ def add_to_database(database,embedding,spkid,wav_file_path,raw_file_path,databas
         return False
     else:
         database[spkid] = {}
+        
     phone_info = getPhoneInfo(spkid)
-    database[spkid]["zip_code"] = phone_info['zip_code']
-    database[spkid]["phone_type"] = phone_info['phone_type']
+    if phone_info:
+        database[spkid]["zip_code"] = phone_info['zip_code']
+        database[spkid]["phone_type"] = phone_info['phone_type']
+    else:
+        database[spkid]["zip_code"] = "None"
+        database[spkid]["phone_type"] = "None"
     database[spkid]["embedding_1"] = embedding.numpy()
     database[spkid]["wav"] = wav_file_path
     database[spkid]["raw"] = raw_file_path

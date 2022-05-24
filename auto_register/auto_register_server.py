@@ -20,7 +20,7 @@ class Config(object):
             'func': 'auto_register_server:task',
             'args': (1, 2),
             'trigger': 'interval',
-            'seconds': 3600
+            'seconds': 10
         }
     ]
     SCHEDULER_API_ENABLED = True
@@ -63,7 +63,7 @@ if __name__ == "__main__":
     scheduler.init_app(app)
     scheduler.start()
 
-    app.run(port=8190)
+    app.run(port=8190,threaded=False)
     # app.config.from_object(Config())
     # scheduler = APScheduler()
     # scheduler.init_app(app)

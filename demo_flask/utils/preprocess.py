@@ -9,7 +9,7 @@ import torchaudio.functional as F
 import torchaudio.transforms as T
 import os
 from utils.scores import get_scores
-
+import soundfile as sf
 USE_ONNX = False
 model, utils = torch.hub.load(repo_or_dir='snakers4/silero-vad',
                               model='silero_vad',
@@ -34,8 +34,12 @@ def vad_and_upsample(wav_file,spkid,savepath=None,channel=0):
     Returns:
         torch.tensor: new wav tensor
     """
-    wav = read_audio(wav_file, sampling_rate=8000)
-    before_vad_length = len(wav)/8000.
+    wav, sr = sf.read(wav_file)
+    # wav = read_audio(wav_file, sampling_rate=8000)
+    print(wav.shape)
+    wav = torch.FloatTensor(wav[7*sr:,1])
+    before_vad_length = len(wav)/sr
+    
     speech_timestamps = get_speech_timestamps(wav, model, sampling_rate=8000,window_size_samples=512)
     wav_torch = collect_chunks(speech_timestamps, wav)
     resampled_waveform = resampler(wav_torch)
@@ -78,7 +82,7 @@ def self_test(wav_torch, spkreg,similarity, sr=16000, split_num=3, min_length=3,
     embedding_list = []
     wav_list = []
     if len(wav_torch)/sr <= split_num*min_length:
-        return False, f"Insufficient duration, the current duration is {len(wav_torch)/sr}s."
+        return False, f"Insufficient duration, the current duration is {len(wav_torch)/sr}s.",0,0,0
     length = int(len(wav_torch)/split_num)
 
     for index in range(split_num):
@@ -99,6 +103,6 @@ def self_test(wav_torch, spkreg,similarity, sr=16000, split_num=3, min_length=3,
             
             if score < similarity_limit:
                 print(f"Score:{score}")
-                return False, f"Bad quality score:{score}."
+                return False, f"Bad quality score:{score}.",0,0,0
     mean_score = scores_sum/scores_num
     return True, "Qualified.", max_score,mean_score,min_score

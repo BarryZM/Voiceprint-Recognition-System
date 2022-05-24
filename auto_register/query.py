@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 import pymysql
 class Query(object):
     def __init__(self):
-        self.pre_timestamp=(datetime.now() + timedelta(minutes=-30)).strftime("%Y-%m-%d %H:%M:%S")
+        self.pre_timestamp=(datetime.now() + timedelta(hours=-30)).strftime("%Y-%m-%d %H:%M:%S")
         self.now_timestamp=(datetime.now()).strftime("%Y-%m-%d %H:%M:%S")
     
     def check_new_record(self):
