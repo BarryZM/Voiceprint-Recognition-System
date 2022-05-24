@@ -33,3 +33,27 @@ def get_scores(database,new_embedding,black_limit,similarity,top_num=10):
     print(return_results)
     print(top_list)
     return return_results,top_list
+
+
+def self_check(database,embedding,spkid,black_limit,similarity,top_num=10):
+    results = []
+    return_results = {}
+    for base_item in database:
+        base_embedding = torch.tensor(database[base_item]["embedding_1"])
+        results.append([similarity(base_embedding, embedding), base_item])
+    results = sorted(results, key=lambda x:float(x[0])*(-1))
+    best_score = float(np.array(results[0][0]))
+    return_results["best_score"] = best_score
+    print(f"Best score:{results[0][0]}")
+
+    inbase = (spkid in database.keys())
+    if inbase:
+        if best_score > black_limit:
+            return_results["inbase"] = 1
+            # top1-top10
+            for index in range(top_num):
+                if results[index][1] == spkid:
+                    return True
+            return False
+    else:
+        return best_score < black_limit

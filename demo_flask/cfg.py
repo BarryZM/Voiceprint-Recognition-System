@@ -25,3 +25,4 @@ TEST_SPLIT_NUM = 4
 # self test min length(s) of each fragment
 MIN_LENGTH = 5
 
+AUTO_TESTING_MODE = True

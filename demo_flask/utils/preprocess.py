@@ -8,6 +8,7 @@ import torchaudio
 import torchaudio.functional as F
 import torchaudio.transforms as T
 import os
+from utils.scores import get_scores
 
 USE_ONNX = False
 model, utils = torch.hub.load(repo_or_dir='snakers4/silero-vad',
@@ -49,8 +50,10 @@ def vad_and_upsample(wav_file,spkid,savepath=None,channel=0):
         final_save_path = os.path.join(spk_dir, save_name)
 
         save_audio(final_save_path,resampled_waveform, sampling_rate=16000)
+    else:
+        final_save_path = None
     after_vad_length = len(resampled_waveform)/16000.
-    return resampled_waveform,before_vad_length,after_vad_length
+    return resampled_waveform,before_vad_length,after_vad_length,final_save_path
 
 def self_test(wav_torch, spkreg,similarity, sr=16000, split_num=3, min_length=3, similarity_limit=0.7):
     """Quality detection function, self-splitting into multiple fragments and then testing them in pairs.
@@ -67,6 +70,11 @@ def self_test(wav_torch, spkreg,similarity, sr=16000, split_num=3, min_length=3,
     Returns:
         _type_: pass or not, message
     """
+    scores_sum = 0
+    scores_num = 0
+    max_score = 0
+    min_score = 1
+
     embedding_list = []
     wav_list = []
     if len(wav_torch)/sr <= split_num*min_length:
@@ -82,7 +90,15 @@ def self_test(wav_torch, spkreg,similarity, sr=16000, split_num=3, min_length=3,
         for embedding2 in embedding_list:
             # TODO:这里的循环还可以优化。
             score = similarity(embedding1, embedding2)
+            scores_sum += score
+            scores_num += 1
+            if score>= max_score:
+                max_score = score
+            if score<= min_score:
+                min_score = score
+            
             if score < similarity_limit:
                 print(f"Score:{score}")
                 return False, f"Bad quality score:{score}."
-    return True, "Qualified."
+    mean_score = scores_sum/scores_num
+    return True, "Qualified.", max_score,mean_score,min_score

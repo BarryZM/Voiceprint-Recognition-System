@@ -12684,3 +12684,1053 @@ VmapMode: fallthrough registered at ../aten/src/ATen/VmapModeRegistrations.cpp:3
 [[2022-05-23 11:38:18]]  INFO  [vvs_service.py]  #282 <394158:140466086734832>  	Black spk number: 220
 [[2022-05-23 11:39:26]]  INFO  [vvs_service.py]  #307 <394158:140466086734832>  	# Time using: 11.2s
 [[2022-05-23 11:39:26]]  INFO  [vvs_service.py]  #308 <394158:140466086734832>  	# Error: Bad quality score:0.5836378335952759.
+[[2022-05-23 11:42:58]]  INFO  [vvs_service.py]  #281 <394158:140466086734832>  # => Register
+[[2022-05-23 11:42:58]]  INFO  [vvs_service.py]  #282 <394158:140466086734832>  	Black spk number: 220
+[[2022-05-23 11:45:33]]  INFO  [vvs_service.py]  #129 <1788492:140472021711856>  	Load blacklist files ... 
+[[2022-05-23 11:46:28]]  INFO  [vvs_service.py]  #281 <1788492:140466086734832>  # => Register
+[[2022-05-23 11:46:28]]  INFO  [vvs_service.py]  #282 <1788492:140466086734832>  	Black spk number: 335
+[[2022-05-23 11:46:51]]  INFO  [vvs_service.py]  #307 <1788492:140466086734832>  	# Time using: 4.4s
+[[2022-05-23 11:46:51]]  INFO  [vvs_service.py]  #308 <1788492:140466086734832>  	# Error: Bad quality score:0.561968207359314.
+[[2022-05-23 11:49:28]]  INFO  [vvs_service.py]  #281 <1788492:140466086734832>  # => Register
+[[2022-05-23 11:49:28]]  INFO  [vvs_service.py]  #282 <1788492:140466086734832>  	Black spk number: 335
+[[2022-05-23 11:50:06]]  INFO  [vvs_service.py]  #307 <1788492:140466086734832>  	# Time using: 5.9s
+[[2022-05-23 11:50:06]]  INFO  [vvs_service.py]  #308 <1788492:140466086734832>  	# Error: Bad quality score:0.5411273837089539.
+[[2022-05-23 11:53:18]]  INFO  [vvs_service.py]  #281 <1788492:140466086734832>  # => Register
+[[2022-05-23 11:53:18]]  INFO  [vvs_service.py]  #282 <1788492:140466086734832>  	Black spk number: 335
+[[2022-05-23 11:54:01]]  INFO  [vvs_service.py]  #307 <1788492:140466086734832>  	# Time using: 8.4s
+[[2022-05-23 11:54:01]]  INFO  [vvs_service.py]  #308 <1788492:140466086734832>  	# Error: Bad quality score:0.5227404832839966.
+[[2022-05-23 11:55:48]]  INFO  [vvs_service.py]  #281 <1788492:140466086734832>  # => Register
+[[2022-05-23 11:55:48]]  INFO  [vvs_service.py]  #282 <1788492:140466086734832>  	Black spk number: 335
+[[2022-05-23 11:56:13]]  INFO  [vvs_service.py]  #307 <1788492:140466086734832>  	# Time using: 5.0s
+[[2022-05-23 11:56:13]]  INFO  [vvs_service.py]  #308 <1788492:140466086734832>  	# Error: Bad quality score:0.3588925004005432.
+[[2022-05-23 11:58:38]]  INFO  [vvs_service.py]  #281 <3119680:140466086607856>  # => Register
+[[2022-05-23 11:58:38]]  INFO  [vvs_service.py]  #282 <3119680:140466086607856>  	Black spk number: 303
+[[2022-05-23 12:01:28]]  INFO  [vvs_service.py]  #281 <161394:140466086743024>  # => Register
+[[2022-05-23 12:01:28]]  INFO  [vvs_service.py]  #282 <161394:140466086743024>  	Black spk number: 335
+[[2022-05-23 12:01:30]]  INFO  [vvs_service.py]  #129 <1807939:140472021711856>  	Load blacklist files ... 
+[[2022-05-23 12:01:41]]  ERROR  [app.py]  #1455 <161394:140466086743024>  Exception on /register/url [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/dist-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/si-server/demo_flask/vvs_service.py", line 297, in register
+    pass_test, msg = self_test(wav, spkreg,similarity, sr=16000, split_num=cfg.TEST_SPLIT_NUM, min_length=cfg.MIN_LENGTH, similarity_limit=cfg.SELF_TEST_TH)
+  File "/si-server/demo_flask/utils/preprocess.py", line 39, in vad_and_upsample
+    wav_torch = collect_chunks(speech_timestamps, wav)
+  File "/home/lyxx/.cache/torch/hub/snakers4_silero-vad_master/utils_vad.py", line 435, in collect_chunks
+    return torch.cat(chunks)
+NotImplementedError: There were no tensor arguments to this function (e.g., you passed an empty list of Tensors), but no fallback function is registered for schema aten::_cat.  This usually means that this function requires a non-empty list of Tensors, or that you (the operator writer) forgot to register a fallback function.  Available functions are [CPU, CUDA, QuantizedCPU, BackendSelect, Named, ADInplaceOrView, AutogradOther, AutogradCPU, AutogradCUDA, AutogradXLA, UNKNOWN_TENSOR_TYPE_ID, AutogradMLC, AutogradHPU, AutogradNestedTensor, AutogradPrivateUse1, AutogradPrivateUse2, AutogradPrivateUse3, Tracer, Autocast, Batched, VmapMode].
+
+CPU: registered at aten/src/ATen/RegisterCPU.cpp:16286 [kernel]
+CUDA: registered at aten/src/ATen/RegisterCUDA.cpp:20674 [kernel]
+QuantizedCPU: registered at aten/src/ATen/RegisterQuantizedCPU.cpp:1025 [kernel]
+BackendSelect: fallthrough registered at ../aten/src/ATen/core/BackendSelectFallbackKernel.cpp:3 [backend fallback]
+Named: registered at ../aten/src/ATen/core/NamedRegistrations.cpp:7 [backend fallback]
+ADInplaceOrView: fallthrough registered at ../aten/src/ATen/core/VariableFallbackKernel.cpp:60 [backend fallback]
+AutogradOther: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradCPU: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradCUDA: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradXLA: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+UNKNOWN_TENSOR_TYPE_ID: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradMLC: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradHPU: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradNestedTensor: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradPrivateUse1: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradPrivateUse2: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradPrivateUse3: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+Tracer: registered at ../torch/csrc/autograd/generated/TraceType_2.cpp:9621 [kernel]
+Autocast: registered at ../aten/src/ATen/autocast_mode.cpp:259 [kernel]
+Batched: registered at ../aten/src/ATen/BatchingRegistrations.cpp:1019 [backend fallback]
+VmapMode: fallthrough registered at ../aten/src/ATen/VmapModeRegistrations.cpp:33 [backend fallback]
+
+[[2022-05-23 12:01:48]]  INFO  [vvs_service.py]  #280 <1807939:140466086738928>  # => Register
+[[2022-05-23 12:01:48]]  INFO  [vvs_service.py]  #281 <1807939:140466086738928>  	Black spk number: 335
+[[2022-05-23 12:02:01]]  INFO  [vvs_service.py]  #306 <1807939:140466086738928>  	# Time using: 3.0s
+[[2022-05-23 12:02:01]]  INFO  [vvs_service.py]  #307 <1807939:140466086738928>  	# Error: Bad quality score:0.5862000584602356.
+[[2022-05-23 12:02:01]]  INFO  [vvs_service.py]  #280 <1807939:140466086738928>  # => Register
+[[2022-05-23 12:02:01]]  INFO  [vvs_service.py]  #281 <1807939:140466086738928>  	Black spk number: 335
+[[2022-05-23 12:02:04]]  ERROR  [app.py]  #1455 <1807939:140466086738928>  Exception on /register/url [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/dist-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/si-server/demo_flask/vvs_service.py", line 296, in register
+    wav,before_vad_length,after_vad_length = vad_and_upsample(filepath,savepath=os.path.join(cfg.BASE_WAV_PATH,"preprocessed"),spkid=new_spkid)
+  File "/si-server/demo_flask/utils/preprocess.py", line 39, in vad_and_upsample
+    wav_torch = collect_chunks(speech_timestamps, wav)
+  File "/home/lyxx/.cache/torch/hub/snakers4_silero-vad_master/utils_vad.py", line 435, in collect_chunks
+    return torch.cat(chunks)
+NotImplementedError: There were no tensor arguments to this function (e.g., you passed an empty list of Tensors), but no fallback function is registered for schema aten::_cat.  This usually means that this function requires a non-empty list of Tensors, or that you (the operator writer) forgot to register a fallback function.  Available functions are [CPU, CUDA, QuantizedCPU, BackendSelect, Named, ADInplaceOrView, AutogradOther, AutogradCPU, AutogradCUDA, AutogradXLA, UNKNOWN_TENSOR_TYPE_ID, AutogradMLC, AutogradHPU, AutogradNestedTensor, AutogradPrivateUse1, AutogradPrivateUse2, AutogradPrivateUse3, Tracer, Autocast, Batched, VmapMode].
+
+CPU: registered at aten/src/ATen/RegisterCPU.cpp:16286 [kernel]
+CUDA: registered at aten/src/ATen/RegisterCUDA.cpp:20674 [kernel]
+QuantizedCPU: registered at aten/src/ATen/RegisterQuantizedCPU.cpp:1025 [kernel]
+BackendSelect: fallthrough registered at ../aten/src/ATen/core/BackendSelectFallbackKernel.cpp:3 [backend fallback]
+Named: registered at ../aten/src/ATen/core/NamedRegistrations.cpp:7 [backend fallback]
+ADInplaceOrView: fallthrough registered at ../aten/src/ATen/core/VariableFallbackKernel.cpp:60 [backend fallback]
+AutogradOther: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradCPU: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradCUDA: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradXLA: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+UNKNOWN_TENSOR_TYPE_ID: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradMLC: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradHPU: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradNestedTensor: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradPrivateUse1: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradPrivateUse2: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradPrivateUse3: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+Tracer: registered at ../torch/csrc/autograd/generated/TraceType_2.cpp:9621 [kernel]
+Autocast: registered at ../aten/src/ATen/autocast_mode.cpp:259 [kernel]
+Batched: registered at ../aten/src/ATen/BatchingRegistrations.cpp:1019 [backend fallback]
+VmapMode: fallthrough registered at ../aten/src/ATen/VmapModeRegistrations.cpp:33 [backend fallback]
+
+[[2022-05-23 12:05:08]]  INFO  [vvs_service.py]  #281 <161394:140466086743024>  # => Register
+[[2022-05-23 12:05:08]]  INFO  [vvs_service.py]  #282 <161394:140466086743024>  	Black spk number: 335
+[[2022-05-23 12:05:48]]  INFO  [vvs_service.py]  #325 <161394:140466086743024>  	# Msg: Save to dabase success.
+[[2022-05-23 12:05:48]]  INFO  [vvs_service.py]  #328 <161394:140466086743024>  	# Success: Qualified.
+[[2022-05-23 12:05:48]]  INFO  [vvs_service.py]  #329 <161394:140466086743024>  	# Time using: 9.4s
+[[2022-05-23 12:05:48]]  INFO  [vvs_service.py]  #281 <4072495:140466086734832>  # => Register
+[[2022-05-23 12:05:48]]  INFO  [vvs_service.py]  #282 <4072495:140466086734832>  	Black spk number: 297
+[[2022-05-23 12:06:13]]  INFO  [vvs_service.py]  #307 <4072495:140466086734832>  	# Time using: 4.5s
+[[2022-05-23 12:06:13]]  INFO  [vvs_service.py]  #308 <4072495:140466086734832>  	# Error: Bad quality score:0.4951658248901367.
+[[2022-05-23 12:06:58]]  INFO  [vvs_service.py]  #281 <1788492:140466086734832>  # => Register
+[[2022-05-23 12:06:58]]  INFO  [vvs_service.py]  #282 <1788492:140466086734832>  	Black spk number: 335
+[[2022-05-23 12:07:11]]  INFO  [vvs_service.py]  #307 <1788492:140466086734832>  	# Time using: 2.8s
+[[2022-05-23 12:07:11]]  INFO  [vvs_service.py]  #308 <1788492:140466086734832>  	# Error: Bad quality score:0.5223070383071899.
+[[2022-05-23 12:08:18]]  INFO  [vvs_service.py]  #280 <1807939:140466086738928>  # => Register
+[[2022-05-23 12:08:18]]  INFO  [vvs_service.py]  #281 <1807939:140466086738928>  	Black spk number: 335
+[[2022-05-23 12:08:59]]  INFO  [vvs_service.py]  #324 <1807939:140466086738928>  	# Msg: Save to dabase success.
+[[2022-05-23 12:08:59]]  INFO  [vvs_service.py]  #327 <1807939:140466086738928>  	# Success: Qualified.
+[[2022-05-23 12:08:59]]  INFO  [vvs_service.py]  #328 <1807939:140466086738928>  	# Time using: 8.4s
+[[2022-05-23 12:09:08]]  INFO  [vvs_service.py]  #280 <1807939:140466086738928>  # => Register
+[[2022-05-23 12:09:08]]  INFO  [vvs_service.py]  #281 <1807939:140466086738928>  	Black spk number: 336
+[[2022-05-23 12:09:33]]  INFO  [vvs_service.py]  #306 <1807939:140466086738928>  	# Time using: 4.4s
+[[2022-05-23 12:09:33]]  INFO  [vvs_service.py]  #307 <1807939:140466086738928>  	# Error: Bad quality score:0.4789440929889679.
+[[2022-05-23 12:09:38]]  INFO  [vvs_service.py]  #280 <1807939:140466086738928>  # => Register
+[[2022-05-23 12:09:38]]  INFO  [vvs_service.py]  #281 <1807939:140466086738928>  	Black spk number: 336
+[[2022-05-23 12:10:35]]  INFO  [vvs_service.py]  #306 <1807939:140466086738928>  	# Time using: 9.8s
+[[2022-05-23 12:10:35]]  INFO  [vvs_service.py]  #307 <1807939:140466086738928>  	# Error: Bad quality score:0.38340023159980774.
+[[2022-05-23 12:10:38]]  INFO  [vvs_service.py]  #281 <161394:140466086743024>  # => Register
+[[2022-05-23 12:10:38]]  INFO  [vvs_service.py]  #282 <161394:140466086743024>  	Black spk number: 336
+[[2022-05-23 12:11:04]]  INFO  [vvs_service.py]  #321 <161394:140466086743024>  	# Time using: 5.5s
+[[2022-05-23 12:11:04]]  INFO  [vvs_service.py]  #322 <161394:140466086743024>  	# Error: Already in database!
+[[2022-05-23 12:11:08]]  INFO  [vvs_service.py]  #280 <1807939:140466086738928>  # => Register
+[[2022-05-23 12:11:08]]  INFO  [vvs_service.py]  #281 <1807939:140466086738928>  	Black spk number: 336
+[[2022-05-23 12:11:28]]  INFO  [vvs_service.py]  #306 <1807939:140466086738928>  	# Time using: 3.3s
+[[2022-05-23 12:11:28]]  INFO  [vvs_service.py]  #307 <1807939:140466086738928>  	# Error: Bad quality score:0.4261987805366516.
+[[2022-05-23 12:12:58]]  INFO  [vvs_service.py]  #281 <1788492:140466086734832>  # => Register
+[[2022-05-23 12:12:58]]  INFO  [vvs_service.py]  #282 <1788492:140466086734832>  	Black spk number: 335
+[[2022-05-23 12:13:43]]  INFO  [vvs_service.py]  #325 <1788492:140466086734832>  	# Msg: Save to dabase success.
+[[2022-05-23 12:13:43]]  INFO  [vvs_service.py]  #328 <1788492:140466086734832>  	# Success: Qualified.
+[[2022-05-23 12:13:43]]  INFO  [vvs_service.py]  #329 <1788492:140466086734832>  	# Time using: 9.4s
+[[2022-05-23 12:13:48]]  INFO  [vvs_service.py]  #280 <1807939:140466086738928>  # => Register
+[[2022-05-23 12:13:48]]  INFO  [vvs_service.py]  #281 <1807939:140466086738928>  	Black spk number: 336
+[[2022-05-23 12:14:22]]  INFO  [vvs_service.py]  #306 <1807939:140466086738928>  	# Time using: 6.7s
+[[2022-05-23 12:14:22]]  INFO  [vvs_service.py]  #307 <1807939:140466086738928>  	# Error: Bad quality score:0.2307678461074829.
+[[2022-05-23 12:14:58]]  INFO  [vvs_service.py]  #281 <161394:140466086743024>  # => Register
+[[2022-05-23 12:14:58]]  INFO  [vvs_service.py]  #282 <161394:140466086743024>  	Black spk number: 336
+[[2022-05-23 12:15:49]]  INFO  [vvs_service.py]  #325 <161394:140466086743024>  	# Msg: Save to dabase success.
+[[2022-05-23 12:15:49]]  INFO  [vvs_service.py]  #328 <161394:140466086743024>  	# Success: Qualified.
+[[2022-05-23 12:15:49]]  INFO  [vvs_service.py]  #329 <161394:140466086743024>  	# Time using: 11.9s
+[[2022-05-23 12:15:58]]  INFO  [vvs_service.py]  #281 <1788492:140466086734832>  # => Register
+[[2022-05-23 12:15:58]]  INFO  [vvs_service.py]  #282 <1788492:140466086734832>  	Black spk number: 336
+[[2022-05-23 12:16:23]]  INFO  [vvs_service.py]  #325 <1788492:140466086734832>  	# Msg: Save to dabase success.
+[[2022-05-23 12:16:23]]  INFO  [vvs_service.py]  #328 <1788492:140466086734832>  	# Success: Qualified.
+[[2022-05-23 12:16:23]]  INFO  [vvs_service.py]  #329 <1788492:140466086734832>  	# Time using: 4.9s
+[[2022-05-23 12:16:23]]  INFO  [vvs_service.py]  #281 <1788492:140466086734832>  # => Register
+[[2022-05-23 12:16:23]]  INFO  [vvs_service.py]  #282 <1788492:140466086734832>  	Black spk number: 337
+[[2022-05-23 12:16:35]]  ERROR  [app.py]  #1455 <1788492:140466086734832>  Exception on /register/url [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/dist-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/si-server/demo_flask/vvs_service.py", line 297, in register
+    pass_test, msg = self_test(wav, spkreg,similarity, sr=16000, split_num=cfg.TEST_SPLIT_NUM, min_length=cfg.MIN_LENGTH, similarity_limit=cfg.SELF_TEST_TH)
+  File "/si-server/demo_flask/utils/preprocess.py", line 39, in vad_and_upsample
+    wav_torch = collect_chunks(speech_timestamps, wav)
+  File "/home/lyxx/.cache/torch/hub/snakers4_silero-vad_master/utils_vad.py", line 435, in collect_chunks
+    return torch.cat(chunks)
+NotImplementedError: There were no tensor arguments to this function (e.g., you passed an empty list of Tensors), but no fallback function is registered for schema aten::_cat.  This usually means that this function requires a non-empty list of Tensors, or that you (the operator writer) forgot to register a fallback function.  Available functions are [CPU, CUDA, QuantizedCPU, BackendSelect, Named, ADInplaceOrView, AutogradOther, AutogradCPU, AutogradCUDA, AutogradXLA, UNKNOWN_TENSOR_TYPE_ID, AutogradMLC, AutogradHPU, AutogradNestedTensor, AutogradPrivateUse1, AutogradPrivateUse2, AutogradPrivateUse3, Tracer, Autocast, Batched, VmapMode].
+
+CPU: registered at aten/src/ATen/RegisterCPU.cpp:16286 [kernel]
+CUDA: registered at aten/src/ATen/RegisterCUDA.cpp:20674 [kernel]
+QuantizedCPU: registered at aten/src/ATen/RegisterQuantizedCPU.cpp:1025 [kernel]
+BackendSelect: fallthrough registered at ../aten/src/ATen/core/BackendSelectFallbackKernel.cpp:3 [backend fallback]
+Named: registered at ../aten/src/ATen/core/NamedRegistrations.cpp:7 [backend fallback]
+ADInplaceOrView: fallthrough registered at ../aten/src/ATen/core/VariableFallbackKernel.cpp:60 [backend fallback]
+AutogradOther: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradCPU: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradCUDA: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradXLA: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+UNKNOWN_TENSOR_TYPE_ID: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradMLC: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradHPU: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradNestedTensor: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradPrivateUse1: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradPrivateUse2: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+AutogradPrivateUse3: registered at ../torch/csrc/autograd/generated/VariableType_2.cpp:9928 [autograd kernel]
+Tracer: registered at ../torch/csrc/autograd/generated/TraceType_2.cpp:9621 [kernel]
+Autocast: registered at ../aten/src/ATen/autocast_mode.cpp:259 [kernel]
+Batched: registered at ../aten/src/ATen/BatchingRegistrations.cpp:1019 [backend fallback]
+VmapMode: fallthrough registered at ../aten/src/ATen/VmapModeRegistrations.cpp:33 [backend fallback]
+
+[[2022-05-23 12:19:38]]  INFO  [vvs_service.py]  #280 <1807939:140466086738928>  # => Register
+[[2022-05-23 12:19:38]]  INFO  [vvs_service.py]  #281 <1807939:140466086738928>  	Black spk number: 336
+[[2022-05-23 12:20:11]]  INFO  [vvs_service.py]  #306 <1807939:140466086738928>  	# Time using: 5.2s
+[[2022-05-23 12:20:11]]  INFO  [vvs_service.py]  #307 <1807939:140466086738928>  	# Error: Bad quality score:0.4259732663631439.
+[[2022-05-23 12:20:48]]  INFO  [vvs_service.py]  #280 <1807939:140466086738928>  # => Register
+[[2022-05-23 12:20:48]]  INFO  [vvs_service.py]  #281 <1807939:140466086738928>  	Black spk number: 336
+[[2022-05-23 12:21:01]]  INFO  [vvs_service.py]  #306 <1807939:140466086738928>  	# Time using: 2.3s
+[[2022-05-23 12:21:01]]  INFO  [vvs_service.py]  #307 <1807939:140466086738928>  	# Error: Bad quality score:0.5065458416938782.
+[[2022-05-23 12:21:38]]  INFO  [vvs_service.py]  #90 <1833471:140591234869056>  	Load blacklist files ... 
+[[2022-05-23 12:22:06]]  INFO  [vvs_service.py]  #90 <1834279:140642170279744>  	Load blacklist files ... 
+[[2022-05-23 12:22:08]]  INFO  [vvs_service.py]  #90 <1834395:140282551277376>  	Load blacklist files ... 
+[[2022-05-23 12:22:48]]  INFO  [vvs_service.py]  #236 <1834395:140276502947584>  # => Register
+[[2022-05-23 12:22:48]]  INFO  [vvs_service.py]  #237 <1834395:140276502947584>  	Black spk number: 337
+[[2022-05-23 12:23:06]]  INFO  [vvs_service.py]  #262 <1834395:140276502947584>  	# Time using: 3.9s
+[[2022-05-23 12:23:06]]  INFO  [vvs_service.py]  #263 <1834395:140276502947584>  	# Error: Bad quality score:0.5065458416938782.
+[[2022-05-23 12:23:06]]  INFO  [vvs_service.py]  #236 <1834395:140276502947584>  # => Register
+[[2022-05-23 12:23:06]]  INFO  [vvs_service.py]  #237 <1834395:140276502947584>  	Black spk number: 337
+[[2022-05-23 12:23:42]]  INFO  [vvs_service.py]  #262 <1834395:140276502947584>  	# Time using: 7.8s
+[[2022-05-23 12:23:42]]  INFO  [vvs_service.py]  #263 <1834395:140276502947584>  	# Error: Bad quality score:0.4259732663631439.
+[[2022-05-23 12:23:42]]  INFO  [vvs_service.py]  #236 <1834395:140276502947584>  # => Register
+[[2022-05-23 12:23:42]]  INFO  [vvs_service.py]  #237 <1834395:140276502947584>  	Black spk number: 337
+[[2022-05-23 12:24:07]]  INFO  [vvs_service.py]  #280 <1834395:140276502947584>  	# Msg: Save to dabase success.
+[[2022-05-23 12:24:07]]  INFO  [vvs_service.py]  #283 <1834395:140276502947584>  	# Success: Qualified.
+[[2022-05-23 12:24:07]]  INFO  [vvs_service.py]  #284 <1834395:140276502947584>  	# Time using: 7.1s
+[[2022-05-23 12:24:07]]  INFO  [vvs_service.py]  #236 <1834395:140276481443584>  # => Register
+[[2022-05-23 12:24:07]]  INFO  [vvs_service.py]  #237 <1834395:140276481443584>  	Black spk number: 338
+[[2022-05-23 12:24:37]]  INFO  [vvs_service.py]  #276 <1834395:140276481443584>  	# Time using: 7.1s
+[[2022-05-23 12:24:37]]  INFO  [vvs_service.py]  #277 <1834395:140276481443584>  	# Error: Already in database!
+[[2022-05-23 12:24:37]]  INFO  [vvs_service.py]  #236 <1834395:140276481443584>  # => Register
+[[2022-05-23 12:24:37]]  INFO  [vvs_service.py]  #237 <1834395:140276481443584>  	Black spk number: 338
+[[2022-05-23 12:26:18]]  INFO  [vvs_service.py]  #236 <1834395:140276481443584>  # => Register
+[[2022-05-23 12:26:18]]  INFO  [vvs_service.py]  #237 <1834395:140276481443584>  	Black spk number: 338
+[[2022-05-23 12:28:18]]  INFO  [vvs_service.py]  #262 <1834395:140276481443584>  	# Time using: 28.7s
+[[2022-05-23 12:28:18]]  INFO  [vvs_service.py]  #263 <1834395:140276481443584>  	# Error: Bad quality score:0.579740047454834.
+[[2022-05-23 12:28:18]]  INFO  [vvs_service.py]  #236 <1834395:140276470429440>  # => Register
+[[2022-05-23 12:28:18]]  INFO  [vvs_service.py]  #237 <1834395:140276470429440>  	Black spk number: 338
+[[2022-05-23 12:29:22]]  INFO  [vvs_service.py]  #262 <1834395:140276470429440>  	# Time using: 17.3s
+[[2022-05-23 12:29:22]]  INFO  [vvs_service.py]  #263 <1834395:140276470429440>  	# Error: Bad quality score:0.39637452363967896.
+[[2022-05-23 12:29:22]]  INFO  [vvs_service.py]  #236 <1834395:140276470429440>  # => Register
+[[2022-05-23 12:29:22]]  INFO  [vvs_service.py]  #237 <1834395:140276470429440>  	Black spk number: 338
+[[2022-05-23 12:29:52]]  INFO  [vvs_service.py]  #280 <1834395:140276470429440>  	# Msg: Save to dabase success.
+[[2022-05-23 12:29:52]]  INFO  [vvs_service.py]  #283 <1834395:140276470429440>  	# Success: Qualified.
+[[2022-05-23 12:29:52]]  INFO  [vvs_service.py]  #284 <1834395:140276470429440>  	# Time using: 9.1s
+[[2022-05-23 12:29:52]]  INFO  [vvs_service.py]  #236 <1834395:140276358620928>  # => Register
+[[2022-05-23 12:29:52]]  INFO  [vvs_service.py]  #237 <1834395:140276358620928>  	Black spk number: 339
+[[2022-05-23 12:30:20]]  INFO  [vvs_service.py]  #276 <1834395:140276358620928>  	# Time using: 9.5s
+[[2022-05-23 12:30:20]]  INFO  [vvs_service.py]  #277 <1834395:140276358620928>  	# Error: Already in database!
+[[2022-05-23 12:30:28]]  INFO  [vvs_service.py]  #236 <1834395:140276358620928>  # => Register
+[[2022-05-23 12:30:28]]  INFO  [vvs_service.py]  #237 <1834395:140276358620928>  	Black spk number: 339
+[[2022-05-23 12:31:09]]  INFO  [vvs_service.py]  #280 <1834395:140276358620928>  	# Msg: Save to dabase success.
+[[2022-05-23 12:31:09]]  INFO  [vvs_service.py]  #283 <1834395:140276358620928>  	# Success: Qualified.
+[[2022-05-23 12:31:09]]  INFO  [vvs_service.py]  #284 <1834395:140276358620928>  	# Time using: 12.1s
+[[2022-05-23 12:31:09]]  INFO  [vvs_service.py]  #236 <1834395:140276358620928>  # => Register
+[[2022-05-23 12:31:09]]  INFO  [vvs_service.py]  #237 <1834395:140276358620928>  	Black spk number: 340
+[[2022-05-23 12:31:58]]  INFO  [vvs_service.py]  #236 <1834395:140276358620928>  # => Register
+[[2022-05-23 12:31:58]]  INFO  [vvs_service.py]  #237 <1834395:140276358620928>  	Black spk number: 340
+[[2022-05-23 12:32:46]]  INFO  [vvs_service.py]  #280 <1834395:140276358620928>  	# Msg: Save to dabase success.
+[[2022-05-23 12:32:46]]  INFO  [vvs_service.py]  #283 <1834395:140276358620928>  	# Success: Qualified.
+[[2022-05-23 12:32:46]]  INFO  [vvs_service.py]  #284 <1834395:140276358620928>  	# Time using: 10.7s
+[[2022-05-23 12:32:46]]  INFO  [vvs_service.py]  #236 <1834395:140276502947584>  # => Register
+[[2022-05-23 12:32:46]]  INFO  [vvs_service.py]  #237 <1834395:140276502947584>  	Black spk number: 341
+[[2022-05-23 12:33:00]]  INFO  [vvs_service.py]  #262 <1834395:140276502947584>  	# Time using: 4.6s
+[[2022-05-23 12:33:00]]  INFO  [vvs_service.py]  #263 <1834395:140276502947584>  	# Error: Bad quality score:0.5367738008499146.
+[[2022-05-23 12:34:48]]  INFO  [vvs_service.py]  #236 <1834395:140276502947584>  # => Register
+[[2022-05-23 12:34:48]]  INFO  [vvs_service.py]  #237 <1834395:140276502947584>  	Black spk number: 341
+[[2022-05-23 12:35:29]]  INFO  [vvs_service.py]  #280 <1834395:140276502947584>  	# Msg: Save to dabase success.
+[[2022-05-23 12:35:29]]  INFO  [vvs_service.py]  #283 <1834395:140276502947584>  	# Success: Qualified.
+[[2022-05-23 12:35:29]]  INFO  [vvs_service.py]  #284 <1834395:140276502947584>  	# Time using: 13.1s
+[[2022-05-23 12:37:58]]  INFO  [vvs_service.py]  #236 <1834395:140276350228224>  # => Register
+[[2022-05-23 12:37:58]]  INFO  [vvs_service.py]  #237 <1834395:140276350228224>  	Black spk number: 342
+[[2022-05-23 12:38:17]]  INFO  [vvs_service.py]  #280 <1834395:140276350228224>  	# Msg: Save to dabase success.
+[[2022-05-23 12:38:17]]  INFO  [vvs_service.py]  #283 <1834395:140276350228224>  	# Success: Qualified.
+[[2022-05-23 12:38:17]]  INFO  [vvs_service.py]  #284 <1834395:140276350228224>  	# Time using: 7.1s
+[[2022-05-23 12:42:18]]  INFO  [vvs_service.py]  #236 <1834395:140276350228224>  # => Register
+[[2022-05-23 12:42:18]]  INFO  [vvs_service.py]  #237 <1834395:140276350228224>  	Black spk number: 343
+[[2022-05-23 12:42:23]]  INFO  [vvs_service.py]  #262 <1834395:140276350228224>  	# Time using: 1.8s
+[[2022-05-23 12:42:23]]  INFO  [vvs_service.py]  #263 <1834395:140276350228224>  	# Error: Insufficient duration, the current duration is 16.13s.
+[[2022-05-23 12:44:58]]  INFO  [vvs_service.py]  #236 <1834395:140276350228224>  # => Register
+[[2022-05-23 12:44:58]]  INFO  [vvs_service.py]  #237 <1834395:140276350228224>  	Black spk number: 343
+[[2022-05-23 12:45:16]]  INFO  [vvs_service.py]  #262 <1834395:140276350228224>  	# Time using: 4.9s
+[[2022-05-23 12:45:16]]  INFO  [vvs_service.py]  #263 <1834395:140276350228224>  	# Error: Bad quality score:0.5421698093414307.
+[[2022-05-23 12:45:58]]  INFO  [vvs_service.py]  #236 <1834395:140276350228224>  # => Register
+[[2022-05-23 12:45:58]]  INFO  [vvs_service.py]  #237 <1834395:140276350228224>  	Black spk number: 343
+[[2022-05-23 12:46:19]]  INFO  [vvs_service.py]  #262 <1834395:140276350228224>  	# Time using: 5.7s
+[[2022-05-23 12:46:19]]  INFO  [vvs_service.py]  #263 <1834395:140276350228224>  	# Error: Bad quality score:0.4757121801376343.
+[[2022-05-23 12:47:18]]  INFO  [vvs_service.py]  #236 <1834395:140276350228224>  # => Register
+[[2022-05-23 12:47:18]]  INFO  [vvs_service.py]  #237 <1834395:140276350228224>  	Black spk number: 343
+[[2022-05-23 12:47:52]]  INFO  [vvs_service.py]  #280 <1834395:140276350228224>  	# Msg: Save to dabase success.
+[[2022-05-23 12:47:52]]  INFO  [vvs_service.py]  #283 <1834395:140276350228224>  	# Success: Qualified.
+[[2022-05-23 12:47:52]]  INFO  [vvs_service.py]  #284 <1834395:140276350228224>  	# Time using: 10.2s
+[[2022-05-23 12:48:58]]  INFO  [vvs_service.py]  #236 <1834395:140276350228224>  # => Register
+[[2022-05-23 12:48:58]]  INFO  [vvs_service.py]  #237 <1834395:140276350228224>  	Black spk number: 344
+[[2022-05-23 12:49:26]]  INFO  [vvs_service.py]  #262 <1834395:140276350228224>  	# Time using: 7.4s
+[[2022-05-23 12:49:26]]  INFO  [vvs_service.py]  #263 <1834395:140276350228224>  	# Error: Bad quality score:0.37417930364608765.
+[[2022-05-23 12:50:08]]  INFO  [vvs_service.py]  #236 <1834395:140276350228224>  # => Register
+[[2022-05-23 12:50:08]]  INFO  [vvs_service.py]  #237 <1834395:140276350228224>  	Black spk number: 344
+[[2022-05-23 12:50:32]]  INFO  [vvs_service.py]  #262 <1834395:140276350228224>  	# Time using: 6.1s
+[[2022-05-23 12:50:32]]  INFO  [vvs_service.py]  #263 <1834395:140276350228224>  	# Error: Bad quality score:0.536308765411377.
+[[2022-05-23 12:50:58]]  INFO  [vvs_service.py]  #236 <1834395:140276350228224>  # => Register
+[[2022-05-23 12:50:58]]  INFO  [vvs_service.py]  #237 <1834395:140276350228224>  	Black spk number: 344
+[[2022-05-23 12:51:22]]  INFO  [vvs_service.py]  #262 <1834395:140276350228224>  	# Time using: 5.6s
+[[2022-05-23 12:51:22]]  INFO  [vvs_service.py]  #263 <1834395:140276350228224>  	# Error: Bad quality score:0.4000672698020935.
+[[2022-05-23 12:55:28]]  INFO  [vvs_service.py]  #236 <1834395:140276341835520>  # => Register
+[[2022-05-23 12:55:28]]  INFO  [vvs_service.py]  #237 <1834395:140276341835520>  	Black spk number: 344
+[[2022-05-23 12:56:03]]  INFO  [vvs_service.py]  #280 <1834395:140276341835520>  	# Msg: Save to dabase success.
+[[2022-05-23 12:56:03]]  INFO  [vvs_service.py]  #283 <1834395:140276341835520>  	# Success: Qualified.
+[[2022-05-23 12:56:03]]  INFO  [vvs_service.py]  #284 <1834395:140276341835520>  	# Time using: 7.6s
+[[2022-05-23 12:56:18]]  INFO  [vvs_service.py]  #236 <1834395:140276367013632>  # => Register
+[[2022-05-23 12:56:18]]  INFO  [vvs_service.py]  #237 <1834395:140276367013632>  	Black spk number: 345
+[[2022-05-23 12:57:53]]  INFO  [vvs_service.py]  #276 <1834395:140276367013632>  	# Time using: 22.7s
+[[2022-05-23 12:57:53]]  INFO  [vvs_service.py]  #277 <1834395:140276367013632>  	# Error: Already in database!
+[[2022-05-23 12:58:18]]  INFO  [vvs_service.py]  #236 <1834395:140275926427392>  # => Register
+[[2022-05-23 12:58:18]]  INFO  [vvs_service.py]  #237 <1834395:140275926427392>  	Black spk number: 345
+[[2022-05-23 13:00:59]]  INFO  [vvs_service.py]  #280 <1834395:140275926427392>  	# Msg: Save to dabase success.
+[[2022-05-23 13:00:59]]  INFO  [vvs_service.py]  #283 <1834395:140275926427392>  	# Success: Qualified.
+[[2022-05-23 13:00:59]]  INFO  [vvs_service.py]  #284 <1834395:140275926427392>  	# Time using: 38.6s
+[[2022-05-23 13:01:08]]  INFO  [vvs_service.py]  #236 <1834395:140276367013632>  # => Register
+[[2022-05-23 13:01:08]]  INFO  [vvs_service.py]  #237 <1834395:140276367013632>  	Black spk number: 346
+[[2022-05-23 13:01:44]]  INFO  [vvs_service.py]  #280 <1834395:140276367013632>  	# Msg: Save to dabase success.
+[[2022-05-23 13:01:44]]  INFO  [vvs_service.py]  #283 <1834395:140276367013632>  	# Success: Qualified.
+[[2022-05-23 13:01:44]]  INFO  [vvs_service.py]  #284 <1834395:140276367013632>  	# Time using: 11.3s
+[[2022-05-23 13:01:58]]  INFO  [vvs_service.py]  #236 <1834395:140276367013632>  # => Register
+[[2022-05-23 13:01:58]]  INFO  [vvs_service.py]  #237 <1834395:140276367013632>  	Black spk number: 347
+[[2022-05-23 13:02:31]]  INFO  [vvs_service.py]  #262 <1834395:140276367013632>  	# Time using: 8.0s
+[[2022-05-23 13:02:31]]  INFO  [vvs_service.py]  #263 <1834395:140276367013632>  	# Error: Bad quality score:0.47906288504600525.
+[[2022-05-23 13:03:08]]  INFO  [vvs_service.py]  #236 <1834395:140276367013632>  # => Register
+[[2022-05-23 13:03:08]]  INFO  [vvs_service.py]  #237 <1834395:140276367013632>  	Black spk number: 347
+[[2022-05-23 13:03:23]]  INFO  [vvs_service.py]  #262 <1834395:140276367013632>  	# Time using: 4.0s
+[[2022-05-23 13:03:23]]  INFO  [vvs_service.py]  #263 <1834395:140276367013632>  	# Error: Bad quality score:0.5743896961212158.
+[[2022-05-23 13:04:28]]  INFO  [vvs_service.py]  #236 <1834395:140276367013632>  # => Register
+[[2022-05-23 13:04:28]]  INFO  [vvs_service.py]  #237 <1834395:140276367013632>  	Black spk number: 347
+[[2022-05-23 13:07:48]]  INFO  [vvs_service.py]  #236 <1834395:140276367013632>  # => Register
+[[2022-05-23 13:07:48]]  INFO  [vvs_service.py]  #237 <1834395:140276367013632>  	Black spk number: 347
+[[2022-05-23 13:08:32]]  INFO  [vvs_service.py]  #262 <1834395:140276367013632>  	# Time using: 8.6s
+[[2022-05-23 13:08:32]]  INFO  [vvs_service.py]  #263 <1834395:140276367013632>  	# Error: Bad quality score:0.5646340847015381.
+[[2022-05-23 13:09:18]]  INFO  [vvs_service.py]  #236 <1834395:140276367013632>  # => Register
+[[2022-05-23 13:09:18]]  INFO  [vvs_service.py]  #237 <1834395:140276367013632>  	Black spk number: 347
+[[2022-05-23 13:09:37]]  INFO  [vvs_service.py]  #262 <1834395:140276367013632>  	# Time using: 4.8s
+[[2022-05-23 13:09:37]]  INFO  [vvs_service.py]  #263 <1834395:140276367013632>  	# Error: Bad quality score:0.589070737361908.
+[[2022-05-23 13:13:28]]  INFO  [vvs_service.py]  #236 <1834395:140276367013632>  # => Register
+[[2022-05-23 13:13:28]]  INFO  [vvs_service.py]  #237 <1834395:140276367013632>  	Black spk number: 347
+[[2022-05-23 13:14:55]]  INFO  [vvs_service.py]  #280 <1834395:140276367013632>  	# Msg: Save to dabase success.
+[[2022-05-23 13:14:55]]  INFO  [vvs_service.py]  #283 <1834395:140276367013632>  	# Success: Qualified.
+[[2022-05-23 13:14:55]]  INFO  [vvs_service.py]  #284 <1834395:140276367013632>  	# Time using: 24.1s
+[[2022-05-23 13:14:58]]  INFO  [vvs_service.py]  #236 <1834395:140276367013632>  # => Register
+[[2022-05-23 13:14:58]]  INFO  [vvs_service.py]  #237 <1834395:140276367013632>  	Black spk number: 348
+[[2022-05-23 13:15:38]]  INFO  [vvs_service.py]  #236 <1834395:140276367013632>  # => Register
+[[2022-05-23 13:15:38]]  INFO  [vvs_service.py]  #237 <1834395:140276367013632>  	Black spk number: 348
+[[2022-05-23 13:15:58]]  INFO  [vvs_service.py]  #262 <1834395:140276367013632>  	# Time using: 5.4s
+[[2022-05-23 13:15:58]]  INFO  [vvs_service.py]  #263 <1834395:140276367013632>  	# Error: Bad quality score:0.4407211244106293.
+[[2022-05-23 13:16:58]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 13:16:58]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 348
+[[2022-05-23 13:17:10]]  INFO  [vvs_service.py]  #262 <1834395:140275790374656>  	# Time using: 3.9s
+[[2022-05-23 13:17:10]]  INFO  [vvs_service.py]  #263 <1834395:140275790374656>  	# Error: Bad quality score:0.5296071171760559.
+[[2022-05-23 13:20:58]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 13:20:58]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 348
+[[2022-05-23 13:21:22]]  INFO  [vvs_service.py]  #262 <1834395:140275790374656>  	# Time using: 5.9s
+[[2022-05-23 13:21:22]]  INFO  [vvs_service.py]  #263 <1834395:140275790374656>  	# Error: Bad quality score:0.5845751166343689.
+[[2022-05-23 13:23:18]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 13:23:18]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 348
+[[2022-05-23 13:23:47]]  INFO  [vvs_service.py]  #280 <1834395:140275790374656>  	# Msg: Save to dabase success.
+[[2022-05-23 13:23:47]]  INFO  [vvs_service.py]  #283 <1834395:140275790374656>  	# Success: Qualified.
+[[2022-05-23 13:23:47]]  INFO  [vvs_service.py]  #284 <1834395:140275790374656>  	# Time using: 7.8s
+[[2022-05-23 13:23:48]]  INFO  [vvs_service.py]  #236 <1834395:140276114913024>  # => Register
+[[2022-05-23 13:23:48]]  INFO  [vvs_service.py]  #237 <1834395:140276114913024>  	Black spk number: 349
+[[2022-05-23 13:24:18]]  INFO  [vvs_service.py]  #262 <1834395:140276114913024>  	# Time using: 7.2s
+[[2022-05-23 13:24:18]]  INFO  [vvs_service.py]  #263 <1834395:140276114913024>  	# Error: Bad quality score:0.43729326128959656.
+[[2022-05-23 13:24:18]]  INFO  [vvs_service.py]  #236 <1834395:140276114913024>  # => Register
+[[2022-05-23 13:24:18]]  INFO  [vvs_service.py]  #237 <1834395:140276114913024>  	Black spk number: 349
+[[2022-05-23 13:24:24]]  INFO  [vvs_service.py]  #262 <1834395:140276114913024>  	# Time using: 2.3s
+[[2022-05-23 13:24:24]]  INFO  [vvs_service.py]  #263 <1834395:140276114913024>  	# Error: Insufficient duration, the current duration is 18.92s.
+[[2022-05-23 13:24:28]]  INFO  [vvs_service.py]  #236 <1834395:140276114913024>  # => Register
+[[2022-05-23 13:24:28]]  INFO  [vvs_service.py]  #237 <1834395:140276114913024>  	Black spk number: 349
+[[2022-05-23 13:24:37]]  INFO  [vvs_service.py]  #262 <1834395:140276114913024>  	# Time using: 2.6s
+[[2022-05-23 13:24:37]]  INFO  [vvs_service.py]  #263 <1834395:140276114913024>  	# Error: Bad quality score:0.2676607370376587.
+[[2022-05-23 13:26:18]]  INFO  [vvs_service.py]  #236 <1834395:140276114913024>  # => Register
+[[2022-05-23 13:26:18]]  INFO  [vvs_service.py]  #237 <1834395:140276114913024>  	Black spk number: 349
+[[2022-05-23 13:26:35]]  INFO  [vvs_service.py]  #262 <1834395:140276114913024>  	# Time using: 4.8s
+[[2022-05-23 13:26:35]]  INFO  [vvs_service.py]  #263 <1834395:140276114913024>  	# Error: Bad quality score:0.5281205773353577.
+[[2022-05-23 13:27:38]]  INFO  [vvs_service.py]  #236 <1834395:140276114913024>  # => Register
+[[2022-05-23 13:27:38]]  INFO  [vvs_service.py]  #237 <1834395:140276114913024>  	Black spk number: 349
+[[2022-05-23 13:28:16]]  INFO  [vvs_service.py]  #262 <1834395:140276114913024>  	# Time using: 9.1s
+[[2022-05-23 13:28:16]]  INFO  [vvs_service.py]  #263 <1834395:140276114913024>  	# Error: Bad quality score:0.5600308179855347.
+[[2022-05-23 13:29:18]]  INFO  [vvs_service.py]  #236 <1834395:140276114913024>  # => Register
+[[2022-05-23 13:29:18]]  INFO  [vvs_service.py]  #237 <1834395:140276114913024>  	Black spk number: 349
+[[2022-05-23 13:29:53]]  INFO  [vvs_service.py]  #262 <1834395:140276114913024>  	# Time using: 8.9s
+[[2022-05-23 13:29:53]]  INFO  [vvs_service.py]  #263 <1834395:140276114913024>  	# Error: Bad quality score:0.5259581208229065.
+[[2022-05-23 13:30:08]]  INFO  [vvs_service.py]  #236 <1834395:140276106520320>  # => Register
+[[2022-05-23 13:30:08]]  INFO  [vvs_service.py]  #237 <1834395:140276106520320>  	Black spk number: 349
+[[2022-05-23 13:30:17]]  INFO  [vvs_service.py]  #262 <1834395:140276106520320>  	# Time using: 3.1s
+[[2022-05-23 13:30:17]]  INFO  [vvs_service.py]  #263 <1834395:140276106520320>  	# Error: Bad quality score:0.5557768940925598.
+[[2022-05-23 13:30:18]]  INFO  [vvs_service.py]  #236 <1834395:140276106520320>  # => Register
+[[2022-05-23 13:30:18]]  INFO  [vvs_service.py]  #237 <1834395:140276106520320>  	Black spk number: 349
+[[2022-05-23 13:33:28]]  INFO  [vvs_service.py]  #236 <1834395:140276106520320>  # => Register
+[[2022-05-23 13:33:28]]  INFO  [vvs_service.py]  #237 <1834395:140276106520320>  	Black spk number: 349
+[[2022-05-23 13:33:51]]  INFO  [vvs_service.py]  #280 <1834395:140276106520320>  	# Msg: Save to dabase success.
+[[2022-05-23 13:33:51]]  INFO  [vvs_service.py]  #283 <1834395:140276106520320>  	# Success: Qualified.
+[[2022-05-23 13:33:51]]  INFO  [vvs_service.py]  #284 <1834395:140276106520320>  	# Time using: 6.4s
+[[2022-05-23 13:35:38]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 13:35:38]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 350
+[[2022-05-23 13:36:41]]  INFO  [vvs_service.py]  #262 <1834395:140275790374656>  	# Time using: 16.4s
+[[2022-05-23 13:36:41]]  INFO  [vvs_service.py]  #263 <1834395:140275790374656>  	# Error: Bad quality score:0.48162660002708435.
+[[2022-05-23 13:37:18]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 13:37:18]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 350
+[[2022-05-23 13:37:37]]  INFO  [vvs_service.py]  #262 <1834395:140275790374656>  	# Time using: 5.7s
+[[2022-05-23 13:37:37]]  INFO  [vvs_service.py]  #263 <1834395:140275790374656>  	# Error: Bad quality score:0.307649701833725.
+[[2022-05-23 13:37:38]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 13:37:38]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 350
+[[2022-05-23 13:38:23]]  INFO  [vvs_service.py]  #262 <1834395:140275790374656>  	# Time using: 10.9s
+[[2022-05-23 13:38:23]]  INFO  [vvs_service.py]  #263 <1834395:140275790374656>  	# Error: Bad quality score:0.5890275239944458.
+[[2022-05-23 13:41:18]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 13:41:18]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 350
+[[2022-05-23 13:41:32]]  INFO  [vvs_service.py]  #262 <1834395:140275790374656>  	# Time using: 4.3s
+[[2022-05-23 13:41:32]]  INFO  [vvs_service.py]  #263 <1834395:140275790374656>  	# Error: Bad quality score:0.4785067141056061.
+[[2022-05-23 13:41:48]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 13:41:48]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 350
+[[2022-05-23 13:42:10]]  INFO  [vvs_service.py]  #276 <1834395:140275790374656>  	# Time using: 6.7s
+[[2022-05-23 13:42:10]]  INFO  [vvs_service.py]  #277 <1834395:140275790374656>  	# Error: Already in database!
+[[2022-05-23 13:42:18]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 13:42:18]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 350
+[[2022-05-23 13:42:19]]  INFO  [vvs_service.py]  #262 <1834395:140275790374656>  	# Time using: 0.8s
+[[2022-05-23 13:42:19]]  INFO  [vvs_service.py]  #263 <1834395:140275790374656>  	# Error: Insufficient duration, the current duration is 1.146s.
+[[2022-05-23 13:44:58]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 13:44:58]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 350
+[[2022-05-23 13:45:22]]  INFO  [vvs_service.py]  #262 <1834395:140275790374656>  	# Time using: 7.1s
+[[2022-05-23 13:45:22]]  INFO  [vvs_service.py]  #263 <1834395:140275790374656>  	# Error: Bad quality score:0.5422844290733337.
+[[2022-05-23 13:48:08]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 13:48:08]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 350
+[[2022-05-23 13:48:45]]  INFO  [vvs_service.py]  #280 <1834395:140275790374656>  	# Msg: Save to dabase success.
+[[2022-05-23 13:48:45]]  INFO  [vvs_service.py]  #283 <1834395:140275790374656>  	# Success: Qualified.
+[[2022-05-23 13:48:45]]  INFO  [vvs_service.py]  #284 <1834395:140275790374656>  	# Time using: 10.6s
+[[2022-05-23 13:49:58]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 13:49:58]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 351
+[[2022-05-23 13:50:00]]  INFO  [vvs_service.py]  #262 <1834395:140275790374656>  	# Time using: 1.4s
+[[2022-05-23 13:50:00]]  INFO  [vvs_service.py]  #263 <1834395:140275790374656>  	# Error: Insufficient duration, the current duration is 6.526s.
+[[2022-05-23 13:52:08]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 13:52:08]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 351
+[[2022-05-23 13:52:30]]  INFO  [vvs_service.py]  #280 <1834395:140275790374656>  	# Msg: Save to dabase success.
+[[2022-05-23 13:52:30]]  INFO  [vvs_service.py]  #283 <1834395:140275790374656>  	# Success: Qualified.
+[[2022-05-23 13:52:30]]  INFO  [vvs_service.py]  #284 <1834395:140275790374656>  	# Time using: 6.3s
+[[2022-05-23 13:53:38]]  INFO  [vvs_service.py]  #236 <1834395:140275703867136>  # => Register
+[[2022-05-23 13:53:38]]  INFO  [vvs_service.py]  #237 <1834395:140275703867136>  	Black spk number: 352
+[[2022-05-23 13:55:38]]  INFO  [vvs_service.py]  #236 <1834395:140275712259840>  # => Register
+[[2022-05-23 13:55:38]]  INFO  [vvs_service.py]  #237 <1834395:140275712259840>  	Black spk number: 353
+[[2022-05-23 13:56:22]]  INFO  [vvs_service.py]  #280 <1834395:140275712259840>  	# Msg: Save to dabase success.
+[[2022-05-23 13:56:22]]  INFO  [vvs_service.py]  #283 <1834395:140275712259840>  	# Success: Qualified.
+[[2022-05-23 13:56:22]]  INFO  [vvs_service.py]  #284 <1834395:140275712259840>  	# Time using: 13.0s
+[[2022-05-23 13:57:38]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 13:57:38]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 354
+[[2022-05-23 13:58:04]]  INFO  [vvs_service.py]  #262 <1834395:140275790374656>  	# Time using: 6.9s
+[[2022-05-23 13:58:04]]  INFO  [vvs_service.py]  #263 <1834395:140275790374656>  	# Error: Bad quality score:0.4540766179561615.
+[[2022-05-23 13:58:28]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 13:58:28]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 354
+[[2022-05-23 13:59:06]]  INFO  [vvs_service.py]  #280 <1834395:140275790374656>  	# Msg: Save to dabase success.
+[[2022-05-23 13:59:06]]  INFO  [vvs_service.py]  #283 <1834395:140275790374656>  	# Success: Qualified.
+[[2022-05-23 13:59:06]]  INFO  [vvs_service.py]  #284 <1834395:140275790374656>  	# Time using: 10.0s
+[[2022-05-23 13:59:48]]  INFO  [vvs_service.py]  #236 <1834395:140276065883904>  # => Register
+[[2022-05-23 13:59:48]]  INFO  [vvs_service.py]  #237 <1834395:140276065883904>  	Black spk number: 355
+[[2022-05-23 14:00:18]]  INFO  [vvs_service.py]  #262 <1834395:140276065883904>  	# Time using: 7.0s
+[[2022-05-23 14:00:18]]  INFO  [vvs_service.py]  #263 <1834395:140276065883904>  	# Error: Bad quality score:0.4594867527484894.
+[[2022-05-23 14:01:38]]  INFO  [vvs_service.py]  #236 <1834395:140276065883904>  # => Register
+[[2022-05-23 14:01:38]]  INFO  [vvs_service.py]  #237 <1834395:140276065883904>  	Black spk number: 355
+[[2022-05-23 14:02:12]]  INFO  [vvs_service.py]  #280 <1834395:140276065883904>  	# Msg: Save to dabase success.
+[[2022-05-23 14:02:12]]  INFO  [vvs_service.py]  #283 <1834395:140276065883904>  	# Success: Qualified.
+[[2022-05-23 14:02:12]]  INFO  [vvs_service.py]  #284 <1834395:140276065883904>  	# Time using: 7.4s
+[[2022-05-23 14:03:08]]  INFO  [vvs_service.py]  #236 <1834395:140276114913024>  # => Register
+[[2022-05-23 14:03:08]]  INFO  [vvs_service.py]  #237 <1834395:140276114913024>  	Black spk number: 356
+[[2022-05-23 14:03:20]]  INFO  [vvs_service.py]  #262 <1834395:140276114913024>  	# Time using: 2.9s
+[[2022-05-23 14:03:20]]  INFO  [vvs_service.py]  #263 <1834395:140276114913024>  	# Error: Bad quality score:0.2906588017940521.
+[[2022-05-23 14:04:58]]  INFO  [vvs_service.py]  #236 <1834395:140276114913024>  # => Register
+[[2022-05-23 14:04:58]]  INFO  [vvs_service.py]  #237 <1834395:140276114913024>  	Black spk number: 356
+[[2022-05-23 14:06:23]]  INFO  [vvs_service.py]  #262 <1834395:140276114913024>  	# Time using: 20.3s
+[[2022-05-23 14:06:23]]  INFO  [vvs_service.py]  #263 <1834395:140276114913024>  	# Error: Bad quality score:0.5581449866294861.
+[[2022-05-23 14:06:28]]  INFO  [vvs_service.py]  #236 <1834395:140275926689536>  # => Register
+[[2022-05-23 14:06:28]]  INFO  [vvs_service.py]  #237 <1834395:140275926689536>  	Black spk number: 356
+[[2022-05-23 14:07:29]]  INFO  [vvs_service.py]  #280 <1834395:140275926689536>  	# Msg: Save to dabase success.
+[[2022-05-23 14:07:29]]  INFO  [vvs_service.py]  #283 <1834395:140275926689536>  	# Success: Qualified.
+[[2022-05-23 14:07:29]]  INFO  [vvs_service.py]  #284 <1834395:140275926689536>  	# Time using: 14.8s
+[[2022-05-23 14:08:48]]  INFO  [vvs_service.py]  #236 <1834395:140275976763136>  # => Register
+[[2022-05-23 14:08:48]]  INFO  [vvs_service.py]  #237 <1834395:140275976763136>  	Black spk number: 357
+[[2022-05-23 14:09:21]]  INFO  [vvs_service.py]  #280 <1834395:140275976763136>  	# Msg: Save to dabase success.
+[[2022-05-23 14:09:21]]  INFO  [vvs_service.py]  #283 <1834395:140275976763136>  	# Success: Qualified.
+[[2022-05-23 14:09:21]]  INFO  [vvs_service.py]  #284 <1834395:140275976763136>  	# Time using: 8.4s
+[[2022-05-23 14:09:28]]  INFO  [vvs_service.py]  #236 <1834395:140275976763136>  # => Register
+[[2022-05-23 14:09:28]]  INFO  [vvs_service.py]  #237 <1834395:140275976763136>  	Black spk number: 358
+[[2022-05-23 14:10:13]]  INFO  [vvs_service.py]  #280 <1834395:140275976763136>  	# Msg: Save to dabase success.
+[[2022-05-23 14:10:13]]  INFO  [vvs_service.py]  #283 <1834395:140275976763136>  	# Success: Qualified.
+[[2022-05-23 14:10:13]]  INFO  [vvs_service.py]  #284 <1834395:140275976763136>  	# Time using: 10.9s
+[[2022-05-23 14:10:48]]  INFO  [vvs_service.py]  #236 <1834395:140275976763136>  # => Register
+[[2022-05-23 14:10:48]]  INFO  [vvs_service.py]  #237 <1834395:140275976763136>  	Black spk number: 359
+[[2022-05-23 14:12:12]]  INFO  [vvs_service.py]  #280 <1834395:140275976763136>  	# Msg: Save to dabase success.
+[[2022-05-23 14:12:12]]  INFO  [vvs_service.py]  #283 <1834395:140275976763136>  	# Success: Qualified.
+[[2022-05-23 14:12:12]]  INFO  [vvs_service.py]  #284 <1834395:140275976763136>  	# Time using: 17.6s
+[[2022-05-23 14:12:18]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 14:12:18]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 360
+[[2022-05-23 14:13:03]]  INFO  [vvs_service.py]  #280 <1834395:140275790374656>  	# Msg: Save to dabase success.
+[[2022-05-23 14:13:03]]  INFO  [vvs_service.py]  #283 <1834395:140275790374656>  	# Success: Qualified.
+[[2022-05-23 14:13:03]]  INFO  [vvs_service.py]  #284 <1834395:140275790374656>  	# Time using: 12.9s
+[[2022-05-23 14:13:48]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 14:13:48]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 361
+[[2022-05-23 14:14:09]]  INFO  [vvs_service.py]  #280 <1834395:140275790374656>  	# Msg: Save to dabase success.
+[[2022-05-23 14:14:09]]  INFO  [vvs_service.py]  #283 <1834395:140275790374656>  	# Success: Qualified.
+[[2022-05-23 14:14:09]]  INFO  [vvs_service.py]  #284 <1834395:140275790374656>  	# Time using: 5.8s
+[[2022-05-23 14:14:18]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 14:14:18]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 362
+[[2022-05-23 14:15:06]]  INFO  [vvs_service.py]  #280 <1834395:140275790374656>  	# Msg: Save to dabase success.
+[[2022-05-23 14:15:06]]  INFO  [vvs_service.py]  #283 <1834395:140275790374656>  	# Success: Qualified.
+[[2022-05-23 14:15:06]]  INFO  [vvs_service.py]  #284 <1834395:140275790374656>  	# Time using: 11.6s
+[[2022-05-23 14:15:08]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 14:15:08]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 363
+[[2022-05-23 14:15:38]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 14:15:38]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 363
+[[2022-05-23 14:17:09]]  INFO  [vvs_service.py]  #280 <1834395:140275790374656>  	# Msg: Save to dabase success.
+[[2022-05-23 14:17:09]]  INFO  [vvs_service.py]  #283 <1834395:140275790374656>  	# Success: Qualified.
+[[2022-05-23 14:17:09]]  INFO  [vvs_service.py]  #284 <1834395:140275790374656>  	# Time using: 21.8s
+[[2022-05-23 14:17:18]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 14:17:18]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 364
+[[2022-05-23 14:17:44]]  INFO  [vvs_service.py]  #262 <1834395:140275790374656>  	# Time using: 7.9s
+[[2022-05-23 14:17:44]]  INFO  [vvs_service.py]  #263 <1834395:140275790374656>  	# Error: Bad quality score:0.47490981221199036.
+[[2022-05-23 14:18:28]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 14:18:28]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 364
+[[2022-05-23 14:18:41]]  INFO  [vvs_service.py]  #262 <1834395:140275790374656>  	# Time using: 3.9s
+[[2022-05-23 14:18:41]]  INFO  [vvs_service.py]  #263 <1834395:140275790374656>  	# Error: Bad quality score:0.4376007914543152.
+[[2022-05-23 14:20:18]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 14:20:18]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 364
+[[2022-05-23 14:20:41]]  INFO  [vvs_service.py]  #262 <1834395:140275790374656>  	# Time using: 5.6s
+[[2022-05-23 14:20:41]]  INFO  [vvs_service.py]  #263 <1834395:140275790374656>  	# Error: Bad quality score:0.4193207621574402.
+[[2022-05-23 14:21:38]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 14:21:38]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 364
+[[2022-05-23 14:23:01]]  INFO  [vvs_service.py]  #280 <1834395:140275790374656>  	# Msg: Save to dabase success.
+[[2022-05-23 14:23:01]]  INFO  [vvs_service.py]  #283 <1834395:140275790374656>  	# Success: Qualified.
+[[2022-05-23 14:23:01]]  INFO  [vvs_service.py]  #284 <1834395:140275790374656>  	# Time using: 19.6s
+[[2022-05-23 14:23:08]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 14:23:08]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 365
+[[2022-05-23 14:23:23]]  INFO  [vvs_service.py]  #262 <1834395:140275790374656>  	# Time using: 4.7s
+[[2022-05-23 14:23:23]]  INFO  [vvs_service.py]  #263 <1834395:140275790374656>  	# Error: Bad quality score:0.37843191623687744.
+[[2022-05-23 14:23:23]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 14:23:23]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 365
+[[2022-05-23 14:23:27]]  INFO  [vvs_service.py]  #262 <1834395:140275790374656>  	# Time using: 1.4s
+[[2022-05-23 14:23:27]]  INFO  [vvs_service.py]  #263 <1834395:140275790374656>  	# Error: Insufficient duration, the current duration is 9.704s.
+[[2022-05-23 14:23:28]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 14:23:28]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 365
+[[2022-05-23 14:23:49]]  INFO  [vvs_service.py]  #262 <1834395:140275790374656>  	# Time using: 4.8s
+[[2022-05-23 14:23:49]]  INFO  [vvs_service.py]  #263 <1834395:140275790374656>  	# Error: Bad quality score:0.3214286267757416.
+[[2022-05-23 14:24:08]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 14:24:08]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 365
+[[2022-05-23 14:24:36]]  INFO  [vvs_service.py]  #280 <1834395:140275790374656>  	# Msg: Save to dabase success.
+[[2022-05-23 14:24:36]]  INFO  [vvs_service.py]  #283 <1834395:140275790374656>  	# Success: Qualified.
+[[2022-05-23 14:24:36]]  INFO  [vvs_service.py]  #284 <1834395:140275790374656>  	# Time using: 7.2s
+[[2022-05-23 14:24:48]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 14:24:48]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 366
+[[2022-05-23 14:25:18]]  INFO  [vvs_service.py]  #262 <1834395:140275790374656>  	# Time using: 7.3s
+[[2022-05-23 14:25:18]]  INFO  [vvs_service.py]  #263 <1834395:140275790374656>  	# Error: Bad quality score:0.2733939588069916.
+[[2022-05-23 14:25:18]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 14:25:18]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 366
+[[2022-05-23 14:25:33]]  INFO  [vvs_service.py]  #262 <1834395:140275790374656>  	# Time using: 4.3s
+[[2022-05-23 14:25:33]]  INFO  [vvs_service.py]  #263 <1834395:140275790374656>  	# Error: Bad quality score:0.5772449374198914.
+[[2022-05-23 14:26:58]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 14:26:58]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 366
+[[2022-05-23 14:27:58]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 14:27:58]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 366
+[[2022-05-23 14:29:48]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 14:29:48]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 366
+[[2022-05-23 14:30:25]]  INFO  [vvs_service.py]  #280 <1834395:140275790374656>  	# Msg: Save to dabase success.
+[[2022-05-23 14:30:25]]  INFO  [vvs_service.py]  #283 <1834395:140275790374656>  	# Success: Qualified.
+[[2022-05-23 14:30:25]]  INFO  [vvs_service.py]  #284 <1834395:140275790374656>  	# Time using: 8.5s
+[[2022-05-23 14:30:28]]  INFO  [vvs_service.py]  #236 <1834395:140275926689536>  # => Register
+[[2022-05-23 14:30:28]]  INFO  [vvs_service.py]  #237 <1834395:140275926689536>  	Black spk number: 367
+[[2022-05-23 14:30:50]]  INFO  [vvs_service.py]  #280 <1834395:140275926689536>  	# Msg: Save to dabase success.
+[[2022-05-23 14:30:50]]  INFO  [vvs_service.py]  #283 <1834395:140275926689536>  	# Success: Qualified.
+[[2022-05-23 14:30:50]]  INFO  [vvs_service.py]  #284 <1834395:140275926689536>  	# Time using: 6.6s
+[[2022-05-23 14:30:50]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 14:30:50]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 368
+[[2022-05-23 14:31:17]]  INFO  [vvs_service.py]  #262 <1834395:140275790374656>  	# Time using: 5.9s
+[[2022-05-23 14:31:17]]  INFO  [vvs_service.py]  #263 <1834395:140275790374656>  	# Error: Bad quality score:0.5889305472373962.
+[[2022-05-23 14:37:38]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 14:37:38]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 368
+[[2022-05-23 14:39:29]]  INFO  [vvs_service.py]  #236 <1834395:140275790374656>  # => Register
+[[2022-05-23 14:39:29]]  INFO  [vvs_service.py]  #237 <1834395:140275790374656>  	Black spk number: 368
+[[2022-05-23 14:39:57]]  INFO  [vvs_service.py]  #262 <1834395:140275790374656>  	# Time using: 6.2s
+[[2022-05-23 14:39:57]]  INFO  [vvs_service.py]  #263 <1834395:140275790374656>  	# Error: Bad quality score:0.25150802731513977.
+[[2022-05-23 14:39:58]]  INFO  [vvs_service.py]  #236 <1834395:140275667941120>  # => Register
+[[2022-05-23 14:39:58]]  INFO  [vvs_service.py]  #237 <1834395:140275667941120>  	Black spk number: 368
+[[2022-05-23 14:40:26]]  INFO  [vvs_service.py]  #262 <1834395:140275667941120>  	# Time using: 5.9s
+[[2022-05-23 14:40:26]]  INFO  [vvs_service.py]  #263 <1834395:140275667941120>  	# Error: Bad quality score:0.5182734131813049.
+[[2022-05-23 14:40:48]]  INFO  [vvs_service.py]  #236 <1834395:140275667941120>  # => Register
+[[2022-05-23 14:40:48]]  INFO  [vvs_service.py]  #237 <1834395:140275667941120>  	Black spk number: 368
+[[2022-05-23 14:41:04]]  INFO  [vvs_service.py]  #262 <1834395:140275667941120>  	# Time using: 3.6s
+[[2022-05-23 14:41:04]]  INFO  [vvs_service.py]  #263 <1834395:140275667941120>  	# Error: Bad quality score:0.5943453311920166.
+[[2022-05-23 14:42:48]]  INFO  [vvs_service.py]  #236 <1834395:140275667941120>  # => Register
+[[2022-05-23 14:42:48]]  INFO  [vvs_service.py]  #237 <1834395:140275667941120>  	Black spk number: 368
+[[2022-05-23 14:42:53]]  INFO  [vvs_service.py]  #262 <1834395:140275667941120>  	# Time using: 1.7s
+[[2022-05-23 14:42:53]]  INFO  [vvs_service.py]  #263 <1834395:140275667941120>  	# Error: Insufficient duration, the current duration is 6.922s.
+[[2022-05-23 14:45:28]]  INFO  [vvs_service.py]  #236 <1834395:140275667941120>  # => Register
+[[2022-05-23 14:45:28]]  INFO  [vvs_service.py]  #237 <1834395:140275667941120>  	Black spk number: 368
+[[2022-05-23 14:46:05]]  INFO  [vvs_service.py]  #262 <1834395:140275667941120>  	# Time using: 7.4s
+[[2022-05-23 14:46:05]]  INFO  [vvs_service.py]  #263 <1834395:140275667941120>  	# Error: Bad quality score:0.4542807936668396.
+[[2022-05-23 14:46:38]]  INFO  [vvs_service.py]  #236 <1834395:140275667941120>  # => Register
+[[2022-05-23 14:46:38]]  INFO  [vvs_service.py]  #237 <1834395:140275667941120>  	Black spk number: 368
+[[2022-05-23 14:47:09]]  INFO  [vvs_service.py]  #276 <1834395:140275667941120>  	# Time using: 7.2s
+[[2022-05-23 14:47:09]]  INFO  [vvs_service.py]  #277 <1834395:140275667941120>  	# Error: Already in database!
+[[2022-05-23 14:47:18]]  INFO  [vvs_service.py]  #236 <1834395:140275667941120>  # => Register
+[[2022-05-23 14:47:18]]  INFO  [vvs_service.py]  #237 <1834395:140275667941120>  	Black spk number: 368
+[[2022-05-23 14:47:43]]  INFO  [vvs_service.py]  #280 <1834395:140275667941120>  	# Msg: Save to dabase success.
+[[2022-05-23 14:47:43]]  INFO  [vvs_service.py]  #283 <1834395:140275667941120>  	# Success: Qualified.
+[[2022-05-23 14:47:43]]  INFO  [vvs_service.py]  #284 <1834395:140275667941120>  	# Time using: 5.3s
+[[2022-05-23 14:48:58]]  INFO  [vvs_service.py]  #236 <1834395:140275976763136>  # => Register
+[[2022-05-23 14:48:58]]  INFO  [vvs_service.py]  #237 <1834395:140275976763136>  	Black spk number: 369
+[[2022-05-23 14:49:13]]  INFO  [vvs_service.py]  #262 <1834395:140275976763136>  	# Time using: 3.7s
+[[2022-05-23 14:49:13]]  INFO  [vvs_service.py]  #263 <1834395:140275976763136>  	# Error: Bad quality score:0.4877544641494751.
+[[2022-05-23 14:49:18]]  INFO  [vvs_service.py]  #236 <1834395:140275976763136>  # => Register
+[[2022-05-23 14:49:18]]  INFO  [vvs_service.py]  #237 <1834395:140275976763136>  	Black spk number: 369
+[[2022-05-23 14:49:49]]  INFO  [vvs_service.py]  #276 <1834395:140275976763136>  	# Time using: 6.7s
+[[2022-05-23 14:49:49]]  INFO  [vvs_service.py]  #277 <1834395:140275976763136>  	# Error: Already in database!
+[[2022-05-23 14:49:58]]  INFO  [vvs_service.py]  #236 <1834395:140275976763136>  # => Register
+[[2022-05-23 14:49:58]]  INFO  [vvs_service.py]  #237 <1834395:140275976763136>  	Black spk number: 369
+[[2022-05-23 14:50:47]]  INFO  [vvs_service.py]  #280 <1834395:140275976763136>  	# Msg: Save to dabase success.
+[[2022-05-23 14:50:47]]  INFO  [vvs_service.py]  #283 <1834395:140275976763136>  	# Success: Qualified.
+[[2022-05-23 14:50:47]]  INFO  [vvs_service.py]  #284 <1834395:140275976763136>  	# Time using: 10.6s
+[[2022-05-23 14:51:28]]  INFO  [vvs_service.py]  #236 <1834395:140275976763136>  # => Register
+[[2022-05-23 14:51:28]]  INFO  [vvs_service.py]  #237 <1834395:140275976763136>  	Black spk number: 370
+[[2022-05-23 14:52:00]]  INFO  [vvs_service.py]  #262 <1834395:140275976763136>  	# Time using: 7.6s
+[[2022-05-23 14:52:00]]  INFO  [vvs_service.py]  #263 <1834395:140275976763136>  	# Error: Bad quality score:0.5196282863616943.
+[[2022-05-23 14:52:08]]  INFO  [vvs_service.py]  #236 <1834395:140275976763136>  # => Register
+[[2022-05-23 14:52:08]]  INFO  [vvs_service.py]  #237 <1834395:140275976763136>  	Black spk number: 370
+[[2022-05-23 14:59:28]]  INFO  [vvs_service.py]  #236 <1834395:140275976763136>  # => Register
+[[2022-05-23 14:59:28]]  INFO  [vvs_service.py]  #237 <1834395:140275976763136>  	Black spk number: 370
+[[2022-05-23 15:02:01]]  INFO  [vvs_service.py]  #280 <1834395:140275976763136>  	# Msg: Save to dabase success.
+[[2022-05-23 15:02:01]]  INFO  [vvs_service.py]  #283 <1834395:140275976763136>  	# Success: Qualified.
+[[2022-05-23 15:02:01]]  INFO  [vvs_service.py]  #284 <1834395:140275976763136>  	# Time using: 35.4s
+[[2022-05-23 15:02:08]]  INFO  [vvs_service.py]  #236 <1834395:140275684726528>  # => Register
+[[2022-05-23 15:02:08]]  INFO  [vvs_service.py]  #237 <1834395:140275684726528>  	Black spk number: 371
+[[2022-05-23 15:02:31]]  INFO  [vvs_service.py]  #280 <1834395:140275684726528>  	# Msg: Save to dabase success.
+[[2022-05-23 15:02:31]]  INFO  [vvs_service.py]  #283 <1834395:140275684726528>  	# Success: Qualified.
+[[2022-05-23 15:02:31]]  INFO  [vvs_service.py]  #284 <1834395:140275684726528>  	# Time using: 8.8s
+[[2022-05-23 15:02:31]]  INFO  [vvs_service.py]  #236 <1834395:140275684726528>  # => Register
+[[2022-05-23 15:02:31]]  INFO  [vvs_service.py]  #237 <1834395:140275684726528>  	Black spk number: 372
+[[2022-05-23 15:02:51]]  INFO  [vvs_service.py]  #280 <1834395:140275684726528>  	# Msg: Save to dabase success.
+[[2022-05-23 15:02:51]]  INFO  [vvs_service.py]  #283 <1834395:140275684726528>  	# Success: Qualified.
+[[2022-05-23 15:02:51]]  INFO  [vvs_service.py]  #284 <1834395:140275684726528>  	# Time using: 5.4s
+[[2022-05-23 15:02:51]]  INFO  [vvs_service.py]  #236 <1834395:140275926689536>  # => Register
+[[2022-05-23 15:02:51]]  INFO  [vvs_service.py]  #237 <1834395:140275926689536>  	Black spk number: 373
+[[2022-05-23 15:03:41]]  INFO  [vvs_service.py]  #276 <1834395:140275926689536>  	# Time using: 14.8s
+[[2022-05-23 15:03:41]]  INFO  [vvs_service.py]  #277 <1834395:140275926689536>  	# Error: Already in database!
+[[2022-05-23 15:03:48]]  INFO  [vvs_service.py]  #236 <1834395:140275667941120>  # => Register
+[[2022-05-23 15:03:48]]  INFO  [vvs_service.py]  #237 <1834395:140275667941120>  	Black spk number: 373
+[[2022-05-23 15:05:25]]  INFO  [vvs_service.py]  #262 <1834395:140275667941120>  	# Time using: 24.2s
+[[2022-05-23 15:05:25]]  INFO  [vvs_service.py]  #263 <1834395:140275667941120>  	# Error: Bad quality score:0.34523361921310425.
+[[2022-05-23 15:08:58]]  INFO  [vvs_service.py]  #236 <1834395:140275667941120>  # => Register
+[[2022-05-23 15:08:58]]  INFO  [vvs_service.py]  #237 <1834395:140275667941120>  	Black spk number: 373
+[[2022-05-23 15:09:25]]  INFO  [vvs_service.py]  #262 <1834395:140275667941120>  	# Time using: 7.4s
+[[2022-05-23 15:09:25]]  INFO  [vvs_service.py]  #263 <1834395:140275667941120>  	# Error: Bad quality score:0.5948297381401062.
+[[2022-05-23 15:10:08]]  INFO  [vvs_service.py]  #236 <1834395:140275667941120>  # => Register
+[[2022-05-23 15:10:08]]  INFO  [vvs_service.py]  #237 <1834395:140275667941120>  	Black spk number: 373
+[[2022-05-23 15:11:15]]  INFO  [vvs_service.py]  #280 <1834395:140275667941120>  	# Msg: Save to dabase success.
+[[2022-05-23 15:11:15]]  INFO  [vvs_service.py]  #283 <1834395:140275667941120>  	# Success: Qualified.
+[[2022-05-23 15:11:15]]  INFO  [vvs_service.py]  #284 <1834395:140275667941120>  	# Time using: 17.1s
+[[2022-05-23 15:11:48]]  INFO  [vvs_service.py]  #236 <1834395:140275926689536>  # => Register
+[[2022-05-23 15:11:48]]  INFO  [vvs_service.py]  #237 <1834395:140275926689536>  	Black spk number: 374
+[[2022-05-23 15:12:35]]  INFO  [vvs_service.py]  #280 <1834395:140275926689536>  	# Msg: Save to dabase success.
+[[2022-05-23 15:12:35]]  INFO  [vvs_service.py]  #283 <1834395:140275926689536>  	# Success: Qualified.
+[[2022-05-23 15:12:35]]  INFO  [vvs_service.py]  #284 <1834395:140275926689536>  	# Time using: 12.1s
+[[2022-05-23 15:12:38]]  INFO  [vvs_service.py]  #236 <1834395:140275684726528>  # => Register
+[[2022-05-23 15:12:38]]  INFO  [vvs_service.py]  #237 <1834395:140275684726528>  	Black spk number: 375
+[[2022-05-23 15:13:18]]  INFO  [vvs_service.py]  #262 <1834395:140275684726528>  	# Time using: 10.2s
+[[2022-05-23 15:13:18]]  INFO  [vvs_service.py]  #263 <1834395:140275684726528>  	# Error: Bad quality score:0.31529054045677185.
+[[2022-05-23 15:15:18]]  INFO  [vvs_service.py]  #236 <1834395:140275684726528>  # => Register
+[[2022-05-23 15:15:18]]  INFO  [vvs_service.py]  #237 <1834395:140275684726528>  	Black spk number: 375
+[[2022-05-23 15:16:07]]  INFO  [vvs_service.py]  #262 <1834395:140275684726528>  	# Time using: 10.7s
+[[2022-05-23 15:16:07]]  INFO  [vvs_service.py]  #263 <1834395:140275684726528>  	# Error: Bad quality score:0.5697697401046753.
+[[2022-05-23 15:16:08]]  INFO  [vvs_service.py]  #236 <1834395:140275684726528>  # => Register
+[[2022-05-23 15:16:08]]  INFO  [vvs_service.py]  #237 <1834395:140275684726528>  	Black spk number: 375
+[[2022-05-23 15:16:45]]  INFO  [vvs_service.py]  #276 <1834395:140275684726528>  	# Time using: 8.5s
+[[2022-05-23 15:16:45]]  INFO  [vvs_service.py]  #277 <1834395:140275684726528>  	# Error: Already in database!
+[[2022-05-23 15:17:18]]  INFO  [vvs_service.py]  #236 <1834395:140275684726528>  # => Register
+[[2022-05-23 15:17:18]]  INFO  [vvs_service.py]  #237 <1834395:140275684726528>  	Black spk number: 375
+[[2022-05-23 15:17:37]]  INFO  [vvs_service.py]  #262 <1834395:140275684726528>  	# Time using: 4.4s
+[[2022-05-23 15:17:37]]  INFO  [vvs_service.py]  #263 <1834395:140275684726528>  	# Error: Bad quality score:0.57948899269104.
+[[2022-05-23 15:18:38]]  INFO  [vvs_service.py]  #236 <1834395:140275684726528>  # => Register
+[[2022-05-23 15:18:38]]  INFO  [vvs_service.py]  #237 <1834395:140275684726528>  	Black spk number: 375
+[[2022-05-23 15:18:54]]  INFO  [vvs_service.py]  #262 <1834395:140275684726528>  	# Time using: 3.7s
+[[2022-05-23 15:18:54]]  INFO  [vvs_service.py]  #263 <1834395:140275684726528>  	# Error: Bad quality score:0.34266960620880127.
+[[2022-05-23 15:18:54]]  INFO  [vvs_service.py]  #236 <1834395:140275684726528>  # => Register
+[[2022-05-23 15:18:54]]  INFO  [vvs_service.py]  #237 <1834395:140275684726528>  	Black spk number: 375
+[[2022-05-23 15:20:27]]  INFO  [vvs_service.py]  #280 <1834395:140275684726528>  	# Msg: Save to dabase success.
+[[2022-05-23 15:20:27]]  INFO  [vvs_service.py]  #283 <1834395:140275684726528>  	# Success: Qualified.
+[[2022-05-23 15:20:27]]  INFO  [vvs_service.py]  #284 <1834395:140275684726528>  	# Time using: 23.0s
+[[2022-05-23 15:20:28]]  INFO  [vvs_service.py]  #236 <1834395:140275684726528>  # => Register
+[[2022-05-23 15:20:28]]  INFO  [vvs_service.py]  #237 <1834395:140275684726528>  	Black spk number: 376
+[[2022-05-23 15:20:42]]  INFO  [vvs_service.py]  #262 <1834395:140275684726528>  	# Time using: 4.8s
+[[2022-05-23 15:20:42]]  INFO  [vvs_service.py]  #263 <1834395:140275684726528>  	# Error: Bad quality score:0.47915300726890564.
+[[2022-05-23 15:20:42]]  INFO  [vvs_service.py]  #236 <1834395:140275684726528>  # => Register
+[[2022-05-23 15:20:42]]  INFO  [vvs_service.py]  #237 <1834395:140275684726528>  	Black spk number: 376
+[[2022-05-23 15:22:48]]  INFO  [vvs_service.py]  #236 <1834395:140275684726528>  # => Register
+[[2022-05-23 15:22:48]]  INFO  [vvs_service.py]  #237 <1834395:140275684726528>  	Black spk number: 377
+[[2022-05-23 15:24:38]]  INFO  [vvs_service.py]  #236 <1834395:140275684726528>  # => Register
+[[2022-05-23 15:24:38]]  INFO  [vvs_service.py]  #237 <1834395:140275684726528>  	Black spk number: 377
+[[2022-05-23 15:25:55]]  INFO  [vvs_service.py]  #280 <1834395:140275684726528>  	# Msg: Save to dabase success.
+[[2022-05-23 15:25:55]]  INFO  [vvs_service.py]  #283 <1834395:140275684726528>  	# Success: Qualified.
+[[2022-05-23 15:25:55]]  INFO  [vvs_service.py]  #284 <1834395:140275684726528>  	# Time using: 21.0s
+[[2022-05-23 15:25:58]]  INFO  [vvs_service.py]  #236 <1834395:140275703867136>  # => Register
+[[2022-05-23 15:25:58]]  INFO  [vvs_service.py]  #237 <1834395:140275703867136>  	Black spk number: 378
+[[2022-05-23 15:27:08]]  INFO  [vvs_service.py]  #236 <1834395:140275703867136>  # => Register
+[[2022-05-23 15:27:08]]  INFO  [vvs_service.py]  #237 <1834395:140275703867136>  	Black spk number: 378
+[[2022-05-23 15:27:28]]  INFO  [vvs_service.py]  #280 <1834395:140275703867136>  	# Msg: Save to dabase success.
+[[2022-05-23 15:27:28]]  INFO  [vvs_service.py]  #283 <1834395:140275703867136>  	# Success: Qualified.
+[[2022-05-23 15:27:28]]  INFO  [vvs_service.py]  #284 <1834395:140275703867136>  	# Time using: 5.8s
+[[2022-05-23 15:27:28]]  INFO  [vvs_service.py]  #236 <1834395:140275676333824>  # => Register
+[[2022-05-23 15:27:28]]  INFO  [vvs_service.py]  #237 <1834395:140275676333824>  	Black spk number: 379
+[[2022-05-23 15:27:50]]  INFO  [vvs_service.py]  #280 <1834395:140275676333824>  	# Msg: Save to dabase success.
+[[2022-05-23 15:27:50]]  INFO  [vvs_service.py]  #283 <1834395:140275676333824>  	# Success: Qualified.
+[[2022-05-23 15:27:50]]  INFO  [vvs_service.py]  #284 <1834395:140275676333824>  	# Time using: 6.6s
+[[2022-05-23 15:27:58]]  INFO  [vvs_service.py]  #236 <1834395:140275676333824>  # => Register
+[[2022-05-23 15:27:58]]  INFO  [vvs_service.py]  #237 <1834395:140275676333824>  	Black spk number: 380
+[[2022-05-23 15:28:30]]  INFO  [vvs_service.py]  #262 <1834395:140275676333824>  	# Time using: 8.4s
+[[2022-05-23 15:28:30]]  INFO  [vvs_service.py]  #263 <1834395:140275676333824>  	# Error: Bad quality score:0.46349528431892395.
+[[2022-05-23 15:28:38]]  INFO  [vvs_service.py]  #236 <1834395:140275676333824>  # => Register
+[[2022-05-23 15:28:38]]  INFO  [vvs_service.py]  #237 <1834395:140275676333824>  	Black spk number: 380
+[[2022-05-23 15:31:08]]  INFO  [vvs_service.py]  #236 <1834395:140275676333824>  # => Register
+[[2022-05-23 15:31:08]]  INFO  [vvs_service.py]  #237 <1834395:140275676333824>  	Black spk number: 380
+[[2022-05-23 15:31:43]]  INFO  [vvs_service.py]  #280 <1834395:140275676333824>  	# Msg: Save to dabase success.
+[[2022-05-23 15:31:43]]  INFO  [vvs_service.py]  #283 <1834395:140275676333824>  	# Success: Qualified.
+[[2022-05-23 15:31:43]]  INFO  [vvs_service.py]  #284 <1834395:140275676333824>  	# Time using: 9.6s
+[[2022-05-23 15:32:48]]  INFO  [vvs_service.py]  #236 <1834395:140275712259840>  # => Register
+[[2022-05-23 15:32:48]]  INFO  [vvs_service.py]  #237 <1834395:140275712259840>  	Black spk number: 381
+[[2022-05-23 15:33:54]]  INFO  [vvs_service.py]  #276 <1834395:140275712259840>  	# Time using: 20.2s
+[[2022-05-23 15:33:54]]  INFO  [vvs_service.py]  #277 <1834395:140275712259840>  	# Error: Already in database!
+[[2022-05-23 15:35:48]]  INFO  [vvs_service.py]  #236 <1834395:140275677640448>  # => Register
+[[2022-05-23 15:35:48]]  INFO  [vvs_service.py]  #237 <1834395:140275677640448>  	Black spk number: 381
+[[2022-05-23 15:36:26]]  INFO  [vvs_service.py]  #280 <1834395:140275677640448>  	# Msg: Save to dabase success.
+[[2022-05-23 15:36:26]]  INFO  [vvs_service.py]  #283 <1834395:140275677640448>  	# Success: Qualified.
+[[2022-05-23 15:36:26]]  INFO  [vvs_service.py]  #284 <1834395:140275677640448>  	# Time using: 11.0s
+[[2022-05-23 15:37:28]]  INFO  [vvs_service.py]  #236 <1834395:140275677640448>  # => Register
+[[2022-05-23 15:37:28]]  INFO  [vvs_service.py]  #237 <1834395:140275677640448>  	Black spk number: 382
+[[2022-05-23 15:37:46]]  INFO  [vvs_service.py]  #262 <1834395:140275677640448>  	# Time using: 5.4s
+[[2022-05-23 15:37:46]]  INFO  [vvs_service.py]  #263 <1834395:140275677640448>  	# Error: Bad quality score:0.44976434111595154.
+[[2022-05-23 15:41:48]]  INFO  [vvs_service.py]  #236 <1834395:140275677640448>  # => Register
+[[2022-05-23 15:41:48]]  INFO  [vvs_service.py]  #237 <1834395:140275677640448>  	Black spk number: 382
+[[2022-05-23 15:42:48]]  INFO  [vvs_service.py]  #236 <1834395:140275677640448>  # => Register
+[[2022-05-23 15:42:48]]  INFO  [vvs_service.py]  #237 <1834395:140275677640448>  	Black spk number: 383
+[[2022-05-23 15:43:38]]  INFO  [vvs_service.py]  #236 <1834395:140275677640448>  # => Register
+[[2022-05-23 15:43:38]]  INFO  [vvs_service.py]  #237 <1834395:140275677640448>  	Black spk number: 383
+[[2022-05-23 15:45:08]]  INFO  [vvs_service.py]  #280 <1834395:140275677640448>  	# Msg: Save to dabase success.
+[[2022-05-23 15:45:08]]  INFO  [vvs_service.py]  #283 <1834395:140275677640448>  	# Success: Qualified.
+[[2022-05-23 15:45:08]]  INFO  [vvs_service.py]  #284 <1834395:140275677640448>  	# Time using: 20.2s
+[[2022-05-23 15:45:18]]  INFO  [vvs_service.py]  #236 <1834395:140275677640448>  # => Register
+[[2022-05-23 15:45:18]]  INFO  [vvs_service.py]  #237 <1834395:140275677640448>  	Black spk number: 384
+[[2022-05-23 15:45:43]]  INFO  [vvs_service.py]  #262 <1834395:140275677640448>  	# Time using: 7.4s
+[[2022-05-23 15:45:43]]  INFO  [vvs_service.py]  #263 <1834395:140275677640448>  	# Error: Bad quality score:0.32243624329566956.
+[[2022-05-23 15:48:28]]  INFO  [vvs_service.py]  #236 <1834395:140275677640448>  # => Register
+[[2022-05-23 15:48:28]]  INFO  [vvs_service.py]  #237 <1834395:140275677640448>  	Black spk number: 384
+[[2022-05-23 15:48:57]]  INFO  [vvs_service.py]  #262 <1834395:140275677640448>  	# Time using: 7.1s
+[[2022-05-23 15:48:57]]  INFO  [vvs_service.py]  #263 <1834395:140275677640448>  	# Error: Bad quality score:0.3005366027355194.
+[[2022-05-23 15:49:28]]  INFO  [vvs_service.py]  #236 <1834395:140275677640448>  # => Register
+[[2022-05-23 15:49:28]]  INFO  [vvs_service.py]  #237 <1834395:140275677640448>  	Black spk number: 384
+[[2022-05-23 15:50:09]]  INFO  [vvs_service.py]  #262 <1834395:140275677640448>  	# Time using: 9.7s
+[[2022-05-23 15:50:09]]  INFO  [vvs_service.py]  #263 <1834395:140275677640448>  	# Error: Bad quality score:0.3609336018562317.
+[[2022-05-23 15:53:08]]  INFO  [vvs_service.py]  #236 <1834395:140275677640448>  # => Register
+[[2022-05-23 15:53:08]]  INFO  [vvs_service.py]  #237 <1834395:140275677640448>  	Black spk number: 384
+[[2022-05-23 15:55:28]]  INFO  [vvs_service.py]  #236 <1834395:140275712259840>  # => Register
+[[2022-05-23 15:55:28]]  INFO  [vvs_service.py]  #237 <1834395:140275712259840>  	Black spk number: 385
+[[2022-05-23 15:55:48]]  INFO  [vvs_service.py]  #262 <1834395:140275712259840>  	# Time using: 6.6s
+[[2022-05-23 15:55:48]]  INFO  [vvs_service.py]  #263 <1834395:140275712259840>  	# Error: Bad quality score:0.2311093509197235.
+[[2022-05-23 15:57:38]]  INFO  [vvs_service.py]  #236 <1834395:140275712259840>  # => Register
+[[2022-05-23 15:57:38]]  INFO  [vvs_service.py]  #237 <1834395:140275712259840>  	Black spk number: 385
+[[2022-05-23 15:58:29]]  INFO  [vvs_service.py]  #262 <1834395:140275712259840>  	# Time using: 9.9s
+[[2022-05-23 15:58:29]]  INFO  [vvs_service.py]  #263 <1834395:140275712259840>  	# Error: Bad quality score:0.5957381129264832.
+[[2022-05-23 15:58:39]]  INFO  [vvs_service.py]  #236 <1834395:140275712259840>  # => Register
+[[2022-05-23 15:58:39]]  INFO  [vvs_service.py]  #237 <1834395:140275712259840>  	Black spk number: 385
+[[2022-05-23 16:00:28]]  INFO  [vvs_service.py]  #236 <1834395:140275712259840>  # => Register
+[[2022-05-23 16:00:28]]  INFO  [vvs_service.py]  #237 <1834395:140275712259840>  	Black spk number: 385
+[[2022-05-23 16:01:04]]  INFO  [vvs_service.py]  #262 <1834395:140275712259840>  	# Time using: 7.8s
+[[2022-05-23 16:01:04]]  INFO  [vvs_service.py]  #263 <1834395:140275712259840>  	# Error: Bad quality score:0.45846864581108093.
+[[2022-05-23 16:01:08]]  INFO  [vvs_service.py]  #236 <1834395:140275712259840>  # => Register
+[[2022-05-23 16:01:08]]  INFO  [vvs_service.py]  #237 <1834395:140275712259840>  	Black spk number: 385
+[[2022-05-23 16:01:38]]  INFO  [vvs_service.py]  #280 <1834395:140275712259840>  	# Msg: Save to dabase success.
+[[2022-05-23 16:01:38]]  INFO  [vvs_service.py]  #283 <1834395:140275712259840>  	# Success: Qualified.
+[[2022-05-23 16:01:38]]  INFO  [vvs_service.py]  #284 <1834395:140275712259840>  	# Time using: 8.5s
+[[2022-05-23 16:03:08]]  INFO  [vvs_service.py]  #236 <1834395:140275712259840>  # => Register
+[[2022-05-23 16:03:08]]  INFO  [vvs_service.py]  #237 <1834395:140275712259840>  	Black spk number: 386
+[[2022-05-23 16:03:42]]  INFO  [vvs_service.py]  #262 <1834395:140275712259840>  	# Time using: 7.8s
+[[2022-05-23 16:03:42]]  INFO  [vvs_service.py]  #263 <1834395:140275712259840>  	# Error: Bad quality score:0.4819531738758087.
+[[2022-05-23 16:03:42]]  INFO  [vvs_service.py]  #236 <1834395:140275712259840>  # => Register
+[[2022-05-23 16:03:42]]  INFO  [vvs_service.py]  #237 <1834395:140275712259840>  	Black spk number: 386
+[[2022-05-23 16:04:10]]  INFO  [vvs_service.py]  #262 <1834395:140275712259840>  	# Time using: 6.7s
+[[2022-05-23 16:04:10]]  INFO  [vvs_service.py]  #263 <1834395:140275712259840>  	# Error: Bad quality score:0.5479928851127625.
+[[2022-05-23 16:04:48]]  INFO  [vvs_service.py]  #236 <1834395:140275712259840>  # => Register
+[[2022-05-23 16:04:48]]  INFO  [vvs_service.py]  #237 <1834395:140275712259840>  	Black spk number: 386
+[[2022-05-23 16:08:28]]  INFO  [vvs_service.py]  #236 <1834395:140275712259840>  # => Register
+[[2022-05-23 16:08:28]]  INFO  [vvs_service.py]  #237 <1834395:140275712259840>  	Black spk number: 386
+[[2022-05-23 16:09:15]]  INFO  [vvs_service.py]  #262 <1834395:140275712259840>  	# Time using: 9.1s
+[[2022-05-23 16:09:15]]  INFO  [vvs_service.py]  #263 <1834395:140275712259840>  	# Error: Bad quality score:0.46416351199150085.
+[[2022-05-23 16:09:18]]  INFO  [vvs_service.py]  #236 <1834395:140275712259840>  # => Register
+[[2022-05-23 16:09:18]]  INFO  [vvs_service.py]  #237 <1834395:140275712259840>  	Black spk number: 386
+[[2022-05-23 17:20:33]]  INFO  [vvs_service.py]  #93 <2215632:140520740251456>  	Load blacklist files ... 
+[[2022-05-23 17:20:36]]  INFO  [vvs_service.py]  #93 <2215777:140517459842880>  	Load blacklist files ... 
+[[2022-05-23 17:20:38]]  INFO  [vvs_service.py]  #245 <2215777:140511404095232>  # => Register
+[[2022-05-23 17:20:38]]  INFO  [vvs_service.py]  #246 <2215777:140511404095232>  	Black spk number: 386
+[[2022-05-23 17:20:49]]  INFO  [vvs_service.py]  #271 <2215777:140511404095232>  	# Time using: 3.7s
+[[2022-05-23 17:20:49]]  INFO  [vvs_service.py]  #272 <2215777:140511404095232>  	# Error: Bad quality score:0.3993719518184662.
+[[2022-05-23 17:20:58]]  INFO  [vvs_service.py]  #245 <2215777:140511404095232>  # => Register
+[[2022-05-23 17:20:58]]  INFO  [vvs_service.py]  #246 <2215777:140511404095232>  	Black spk number: 386
+[[2022-05-23 17:21:46]]  INFO  [vvs_service.py]  #93 <2217475:139978630543168>  	Load blacklist files ... 
+[[2022-05-23 17:21:48]]  INFO  [vvs_service.py]  #245 <2217475:139972582221568>  # => Register
+[[2022-05-23 17:21:48]]  INFO  [vvs_service.py]  #246 <2217475:139972582221568>  	Black spk number: 386
+[[2022-05-23 17:22:08]]  INFO  [vvs_service.py]  #271 <2217475:139972582221568>  	# Time using: 6.4s
+[[2022-05-23 17:22:08]]  INFO  [vvs_service.py]  #272 <2217475:139972582221568>  	# Error: Bad quality score:0.43266674876213074.
+[[2022-05-23 17:22:38]]  INFO  [vvs_service.py]  #245 <2217475:139972582221568>  # => Register
+[[2022-05-23 17:22:38]]  INFO  [vvs_service.py]  #246 <2217475:139972582221568>  	Black spk number: 386
+[[2022-05-23 17:22:57]]  INFO  [vvs_service.py]  #271 <2217475:139972582221568>  	# Time using: 5.7s
+[[2022-05-23 17:22:57]]  INFO  [vvs_service.py]  #272 <2217475:139972582221568>  	# Error: Bad quality score:0.4257940351963043.
+[[2022-05-23 17:24:14]]  INFO  [vvs_service.py]  #245 <2217475:139972421109504>  # => Register
+[[2022-05-23 17:24:14]]  INFO  [vvs_service.py]  #246 <2217475:139972421109504>  	Black spk number: 386
+[[2022-05-23 17:24:33]]  INFO  [vvs_service.py]  #271 <2217475:139972421109504>  	# Time using: 5.3s
+[[2022-05-23 17:24:33]]  INFO  [vvs_service.py]  #272 <2217475:139972421109504>  	# Error: Bad quality score:0.4257940351963043.
+[[2022-05-23 17:24:33]]  INFO  [vvs_service.py]  #245 <2217475:139972412716800>  # => Register
+[[2022-05-23 17:24:33]]  INFO  [vvs_service.py]  #246 <2217475:139972412716800>  	Black spk number: 386
+[[2022-05-23 17:24:55]]  INFO  [vvs_service.py]  #271 <2217475:139972412716800>  	# Time using: 7.0s
+[[2022-05-23 17:24:55]]  INFO  [vvs_service.py]  #272 <2217475:139972412716800>  	# Error: Bad quality score:0.43266674876213074.
+[[2022-05-23 17:24:55]]  INFO  [vvs_service.py]  #245 <2217475:139972543850240>  # => Register
+[[2022-05-23 17:24:55]]  INFO  [vvs_service.py]  #246 <2217475:139972543850240>  	Black spk number: 386
+[[2022-05-23 17:25:06]]  INFO  [vvs_service.py]  #271 <2217475:139972543850240>  	# Time using: 3.6s
+[[2022-05-23 17:25:06]]  INFO  [vvs_service.py]  #272 <2217475:139972543850240>  	# Error: Bad quality score:0.3993719518184662.
+[[2022-05-23 17:25:06]]  INFO  [vvs_service.py]  #245 <2217475:139972437894912>  # => Register
+[[2022-05-23 17:25:06]]  INFO  [vvs_service.py]  #246 <2217475:139972437894912>  	Black spk number: 386
+[[2022-05-23 17:25:14]]  INFO  [vvs_service.py]  #245 <2217475:139972532311808>  # => Register
+[[2022-05-23 17:25:14]]  INFO  [vvs_service.py]  #246 <2217475:139972532311808>  	Black spk number: 386
+[[2022-05-23 17:25:43]]  INFO  [vvs_service.py]  #271 <2217475:139972532311808>  	# Time using: 8.1s
+[[2022-05-23 17:25:43]]  INFO  [vvs_service.py]  #272 <2217475:139972532311808>  	# Error: Bad quality score:0.580435037612915.
+[[2022-05-23 17:26:04]]  INFO  [vvs_service.py]  #245 <2217475:139972532311808>  # => Register
+[[2022-05-23 17:26:04]]  INFO  [vvs_service.py]  #246 <2217475:139972532311808>  	Black spk number: 386
+[[2022-05-23 17:26:20]]  INFO  [vvs_service.py]  #271 <2217475:139972532311808>  	# Time using: 5.1s
+[[2022-05-23 17:26:20]]  INFO  [vvs_service.py]  #272 <2217475:139972532311808>  	# Error: Bad quality score:0.5714154839515686.
+[[2022-05-23 17:27:54]]  INFO  [vvs_service.py]  #245 <2217475:139972552242944>  # => Register
+[[2022-05-23 17:27:54]]  INFO  [vvs_service.py]  #246 <2217475:139972552242944>  	Black spk number: 386
+[[2022-05-23 17:28:03]]  INFO  [vvs_service.py]  #271 <2217475:139972552242944>  	# Time using: 3.4s
+[[2022-05-23 17:28:03]]  INFO  [vvs_service.py]  #272 <2217475:139972552242944>  	# Error: Bad quality score:0.503190279006958.
+[[2022-05-23 17:37:11]]  INFO  [vvs_service.py]  #93 <5661:140715747768128>  	Load blacklist files ... 
+[[2022-05-23 17:37:13]]  INFO  [vvs_service.py]  #93 <5785:139840402425664>  	Load blacklist files ... 
+[[2022-05-23 17:37:33]]  INFO  [vvs_service.py]  #245 <5785:139834353841920>  # => Register
+[[2022-05-23 17:37:33]]  INFO  [vvs_service.py]  #246 <5785:139834353841920>  	Black spk number: 386
+[[2022-05-23 17:37:42]]  INFO  [vvs_service.py]  #271 <5785:139834353841920>  	# Time using: 3.2s
+[[2022-05-23 17:37:42]]  INFO  [vvs_service.py]  #272 <5785:139834353841920>  	# Error: Bad quality score:0.503190279006958.
+[[2022-05-23 17:37:42]]  INFO  [vvs_service.py]  #245 <5785:139834353841920>  # => Register
+[[2022-05-23 17:37:42]]  INFO  [vvs_service.py]  #246 <5785:139834353841920>  	Black spk number: 386
+[[2022-05-23 17:37:58]]  INFO  [vvs_service.py]  #271 <5785:139834353841920>  	# Time using: 5.1s
+[[2022-05-23 17:37:58]]  INFO  [vvs_service.py]  #272 <5785:139834353841920>  	# Error: Bad quality score:0.5714154839515686.
+[[2022-05-23 17:37:58]]  INFO  [vvs_service.py]  #245 <5785:139834353841920>  # => Register
+[[2022-05-23 17:37:58]]  INFO  [vvs_service.py]  #246 <5785:139834353841920>  	Black spk number: 386
+[[2022-05-23 17:38:22]]  INFO  [vvs_service.py]  #271 <5785:139834353841920>  	# Time using: 7.7s
+[[2022-05-23 17:38:22]]  INFO  [vvs_service.py]  #272 <5785:139834353841920>  	# Error: Bad quality score:0.580435037612915.
+[[2022-05-23 17:38:22]]  INFO  [vvs_service.py]  #245 <5785:139834353841920>  # => Register
+[[2022-05-23 17:38:22]]  INFO  [vvs_service.py]  #246 <5785:139834353841920>  	Black spk number: 386
+[[2022-05-23 17:38:39]]  INFO  [vvs_service.py]  #271 <5785:139834353841920>  	# Time using: 5.2s
+[[2022-05-23 17:38:39]]  INFO  [vvs_service.py]  #272 <5785:139834353841920>  	# Error: Bad quality score:0.4257940351963043.
+[[2022-05-23 17:38:39]]  INFO  [vvs_service.py]  #245 <5785:139834353841920>  # => Register
+[[2022-05-23 17:38:39]]  INFO  [vvs_service.py]  #246 <5785:139834353841920>  	Black spk number: 386
+[[2022-05-23 17:38:57]]  INFO  [vvs_service.py]  #271 <5785:139834353841920>  	# Time using: 5.7s
+[[2022-05-23 17:38:57]]  INFO  [vvs_service.py]  #272 <5785:139834353841920>  	# Error: Bad quality score:0.43266674876213074.
+[[2022-05-23 17:38:57]]  INFO  [vvs_service.py]  #245 <5785:139834353841920>  # => Register
+[[2022-05-23 17:38:57]]  INFO  [vvs_service.py]  #246 <5785:139834353841920>  	Black spk number: 386
+[[2022-05-23 17:39:07]]  INFO  [vvs_service.py]  #271 <5785:139834353841920>  	# Time using: 3.5s
+[[2022-05-23 17:39:07]]  INFO  [vvs_service.py]  #272 <5785:139834353841920>  	# Error: Bad quality score:0.3993719518184662.
+[[2022-05-23 17:39:07]]  INFO  [vvs_service.py]  #245 <5785:139834353841920>  # => Register
+[[2022-05-23 17:39:07]]  INFO  [vvs_service.py]  #246 <5785:139834353841920>  	Black spk number: 386
+[[2022-05-23 17:40:32]]  INFO  [vvs_service.py]  #93 <10260:139845821261632>  	Load blacklist files ... 
+[[2022-05-23 17:40:35]]  INFO  [vvs_service.py]  #93 <10376:140312723191616>  	Load blacklist files ... 
+[[2022-05-23 17:41:37]]  INFO  [vvs_service.py]  #245 <10376:140306674607872>  # => Register
+[[2022-05-23 17:41:37]]  INFO  [vvs_service.py]  #246 <10376:140306674607872>  	Black spk number: 386
+[[2022-05-23 17:41:46]]  INFO  [vvs_service.py]  #271 <10376:140306674607872>  	# Time using: 3.1s
+[[2022-05-23 17:41:46]]  INFO  [vvs_service.py]  #272 <10376:140306674607872>  	# Error: Bad quality score:0.503190279006958.
+[[2022-05-23 17:41:46]]  INFO  [vvs_service.py]  #245 <10376:140306674607872>  # => Register
+[[2022-05-23 17:41:46]]  INFO  [vvs_service.py]  #246 <10376:140306674607872>  	Black spk number: 386
+[[2022-05-23 17:42:01]]  INFO  [vvs_service.py]  #271 <10376:140306674607872>  	# Time using: 4.5s
+[[2022-05-23 17:42:01]]  INFO  [vvs_service.py]  #272 <10376:140306674607872>  	# Error: Bad quality score:0.5714154839515686.
+[[2022-05-23 17:42:01]]  INFO  [vvs_service.py]  #245 <10376:140306674607872>  # => Register
+[[2022-05-23 17:42:01]]  INFO  [vvs_service.py]  #246 <10376:140306674607872>  	Black spk number: 386
+[[2022-05-23 17:42:26]]  INFO  [vvs_service.py]  #271 <10376:140306674607872>  	# Time using: 7.7s
+[[2022-05-23 17:42:26]]  INFO  [vvs_service.py]  #272 <10376:140306674607872>  	# Error: Bad quality score:0.580435037612915.
+[[2022-05-23 17:42:26]]  INFO  [vvs_service.py]  #245 <10376:140306674607872>  # => Register
+[[2022-05-23 17:42:26]]  INFO  [vvs_service.py]  #246 <10376:140306674607872>  	Black spk number: 386
+[[2022-05-23 17:42:42]]  INFO  [vvs_service.py]  #271 <10376:140306674607872>  	# Time using: 5.4s
+[[2022-05-23 17:42:42]]  INFO  [vvs_service.py]  #272 <10376:140306674607872>  	# Error: Bad quality score:0.4257940351963043.
+[[2022-05-23 17:42:42]]  INFO  [vvs_service.py]  #245 <10376:140306674607872>  # => Register
+[[2022-05-23 17:42:42]]  INFO  [vvs_service.py]  #246 <10376:140306674607872>  	Black spk number: 386
+[[2022-05-23 17:43:01]]  INFO  [vvs_service.py]  #271 <10376:140306674607872>  	# Time using: 5.6s
+[[2022-05-23 17:43:01]]  INFO  [vvs_service.py]  #272 <10376:140306674607872>  	# Error: Bad quality score:0.43266674876213074.
+[[2022-05-23 17:43:01]]  INFO  [vvs_service.py]  #245 <10376:140306674607872>  # => Register
+[[2022-05-23 17:43:01]]  INFO  [vvs_service.py]  #246 <10376:140306674607872>  	Black spk number: 386
+[[2022-05-23 17:43:14]]  INFO  [vvs_service.py]  #271 <10376:140306674607872>  	# Time using: 3.6s
+[[2022-05-23 17:43:14]]  INFO  [vvs_service.py]  #272 <10376:140306674607872>  	# Error: Bad quality score:0.3993719518184662.
+[[2022-05-23 17:43:14]]  INFO  [vvs_service.py]  #245 <10376:140306674607872>  # => Register
+[[2022-05-23 17:43:14]]  INFO  [vvs_service.py]  #246 <10376:140306674607872>  	Black spk number: 386
+[[2022-05-23 17:46:19]]  INFO  [vvs_service.py]  #93 <18213:139994183001920>  	Load blacklist files ... 
+[[2022-05-23 17:47:02]]  INFO  [vvs_service.py]  #245 <18213:139988134364928>  # => Register
+[[2022-05-23 17:47:02]]  INFO  [vvs_service.py]  #246 <18213:139988134364928>  	Black spk number: 386
+[[2022-05-23 17:47:10]]  INFO  [vvs_service.py]  #276 <18213:139988134364928>  	# Time using: 2.9s
+[[2022-05-23 17:47:10]]  INFO  [vvs_service.py]  #277 <18213:139988134364928>  	# Error: Bad quality score:0.503190279006958.
+[[2022-05-23 17:47:10]]  INFO  [vvs_service.py]  #245 <18213:139988134364928>  # => Register
+[[2022-05-23 17:47:10]]  INFO  [vvs_service.py]  #246 <18213:139988134364928>  	Black spk number: 386
+[[2022-05-23 17:47:25]]  INFO  [vvs_service.py]  #276 <18213:139988134364928>  	# Time using: 4.9s
+[[2022-05-23 17:47:25]]  INFO  [vvs_service.py]  #277 <18213:139988134364928>  	# Error: Bad quality score:0.5714154839515686.
+[[2022-05-23 17:47:25]]  INFO  [vvs_service.py]  #245 <18213:139987981907712>  # => Register
+[[2022-05-23 17:47:25]]  INFO  [vvs_service.py]  #246 <18213:139987981907712>  	Black spk number: 386
+[[2022-05-23 17:47:50]]  INFO  [vvs_service.py]  #276 <18213:139987981907712>  	# Time using: 8.0s
+[[2022-05-23 17:47:50]]  INFO  [vvs_service.py]  #277 <18213:139987981907712>  	# Error: Bad quality score:0.580435037612915.
+[[2022-05-23 17:47:50]]  INFO  [vvs_service.py]  #245 <18213:139987981907712>  # => Register
+[[2022-05-23 17:47:50]]  INFO  [vvs_service.py]  #246 <18213:139987981907712>  	Black spk number: 386
+[[2022-05-23 17:48:07]]  INFO  [vvs_service.py]  #276 <18213:139987981907712>  	# Time using: 5.0s
+[[2022-05-23 17:48:07]]  INFO  [vvs_service.py]  #277 <18213:139987981907712>  	# Error: Bad quality score:0.4257940351963043.
+[[2022-05-23 17:48:07]]  INFO  [vvs_service.py]  #245 <18213:139987990300416>  # => Register
+[[2022-05-23 17:48:07]]  INFO  [vvs_service.py]  #246 <18213:139987990300416>  	Black spk number: 386
+[[2022-05-23 17:48:25]]  INFO  [vvs_service.py]  #276 <18213:139987990300416>  	# Time using: 6.1s
+[[2022-05-23 17:48:25]]  INFO  [vvs_service.py]  #277 <18213:139987990300416>  	# Error: Bad quality score:0.43266674876213074.
+[[2022-05-23 17:48:25]]  INFO  [vvs_service.py]  #245 <18213:139987990300416>  # => Register
+[[2022-05-23 17:48:25]]  INFO  [vvs_service.py]  #246 <18213:139987990300416>  	Black spk number: 386
+[[2022-05-23 17:48:36]]  INFO  [vvs_service.py]  #276 <18213:139987990300416>  	# Time using: 3.4s
+[[2022-05-23 17:48:36]]  INFO  [vvs_service.py]  #277 <18213:139987990300416>  	# Error: Bad quality score:0.3993719518184662.
+[[2022-05-23 17:48:36]]  INFO  [vvs_service.py]  #245 <18213:139987990300416>  # => Register
+[[2022-05-23 17:48:36]]  INFO  [vvs_service.py]  #246 <18213:139987990300416>  	Black spk number: 386
+[[2022-05-24 09:35:42]]  INFO  [vvs_service.py]  #245 <18213:139987998693120>  # => Register
+[[2022-05-24 09:35:42]]  INFO  [vvs_service.py]  #246 <18213:139987998693120>  	Black spk number: 386
+[[2022-05-24 09:36:11]]  INFO  [vvs_service.py]  #283 <18213:139987998693120>  	# Self pre-test!
+[[2022-05-24 09:37:02]]  INFO  [vvs_service.py]  #245 <18213:139987998693120>  # => Register
+[[2022-05-24 09:37:02]]  INFO  [vvs_service.py]  #246 <18213:139987998693120>  	Black spk number: 386
+[[2022-05-24 09:37:27]]  INFO  [vvs_service.py]  #276 <18213:139987998693120>  	# Time using: 7.4s
+[[2022-05-24 09:37:27]]  INFO  [vvs_service.py]  #277 <18213:139987998693120>  	# Error: Bad quality score:0.41911453008651733.
+[[2022-05-24 09:37:42]]  INFO  [vvs_service.py]  #245 <18213:139987964860160>  # => Register
+[[2022-05-24 09:37:42]]  INFO  [vvs_service.py]  #246 <18213:139987964860160>  	Black spk number: 386
+[[2022-05-24 09:38:05]]  INFO  [vvs_service.py]  #276 <18213:139987964860160>  	# Time using: 8.0s
+[[2022-05-24 09:38:05]]  INFO  [vvs_service.py]  #277 <18213:139987964860160>  	# Error: Bad quality score:0.5798774361610413.
+[[2022-05-24 09:38:12]]  INFO  [vvs_service.py]  #245 <18213:139987964860160>  # => Register
+[[2022-05-24 09:38:12]]  INFO  [vvs_service.py]  #246 <18213:139987964860160>  	Black spk number: 386
+[[2022-05-24 09:39:52]]  INFO  [vvs_service.py]  #245 <18213:139987964860160>  # => Register
+[[2022-05-24 09:39:52]]  INFO  [vvs_service.py]  #246 <18213:139987964860160>  	Black spk number: 386
+[[2022-05-24 09:40:11]]  INFO  [vvs_service.py]  #276 <18213:139987964860160>  	# Time using: 5.1s
+[[2022-05-24 09:40:11]]  INFO  [vvs_service.py]  #277 <18213:139987964860160>  	# Error: Bad quality score:0.31758201122283936.
+[[2022-05-24 09:40:12]]  INFO  [vvs_service.py]  #245 <18213:139987973515008>  # => Register
+[[2022-05-24 09:40:12]]  INFO  [vvs_service.py]  #246 <18213:139987973515008>  	Black spk number: 386
+[[2022-05-24 09:40:24]]  INFO  [vvs_service.py]  #276 <18213:139987973515008>  	# Time using: 4.2s
+[[2022-05-24 09:40:24]]  INFO  [vvs_service.py]  #277 <18213:139987973515008>  	# Error: Bad quality score:0.30696091055870056.
+[[2022-05-24 09:43:02]]  INFO  [vvs_service.py]  #245 <18213:139987973515008>  # => Register
+[[2022-05-24 09:43:02]]  INFO  [vvs_service.py]  #246 <18213:139987973515008>  	Black spk number: 386
+[[2022-05-24 09:43:40]]  INFO  [vvs_service.py]  #276 <18213:139987973515008>  	# Time using: 8.9s
+[[2022-05-24 09:43:40]]  INFO  [vvs_service.py]  #277 <18213:139987973515008>  	# Error: Bad quality score:0.353686660528183.
+[[2022-05-24 09:43:40]]  INFO  [vvs_service.py]  #245 <18213:139986779756288>  # => Register
+[[2022-05-24 09:43:40]]  INFO  [vvs_service.py]  #246 <18213:139986779756288>  	Black spk number: 386
+[[2022-05-24 09:43:58]]  INFO  [vvs_service.py]  #276 <18213:139986779756288>  	# Time using: 5.0s
+[[2022-05-24 09:43:58]]  INFO  [vvs_service.py]  #277 <18213:139986779756288>  	# Error: Bad quality score:0.5780689120292664.
+[[2022-05-24 09:44:22]]  INFO  [vvs_service.py]  #245 <18213:139987973515008>  # => Register
+[[2022-05-24 09:44:22]]  INFO  [vvs_service.py]  #246 <18213:139987973515008>  	Black spk number: 386
+[[2022-05-24 09:44:23]]  INFO  [vvs_service.py]  #93 <38034:140126682883904>  	Load blacklist files ... 
+[[2022-05-24 09:44:37]]  INFO  [vvs_service.py]  #276 <18213:139987973515008>  	# Time using: 4.5s
+[[2022-05-24 09:44:37]]  INFO  [vvs_service.py]  #277 <18213:139987973515008>  	# Error: Bad quality score:0.5804835557937622.
+[[2022-05-24 09:44:56]]  INFO  [vvs_service.py]  #245 <18213:139987998693120>  # => Register
+[[2022-05-24 09:44:56]]  INFO  [vvs_service.py]  #246 <18213:139987998693120>  	Black spk number: 386
+[[2022-05-24 09:45:35]]  INFO  [vvs_service.py]  #276 <18213:139987998693120>  	# Time using: 10.2s
+[[2022-05-24 09:45:35]]  INFO  [vvs_service.py]  #277 <18213:139987998693120>  	# Error: Bad quality score:0.5377896428108215.
+[[2022-05-24 09:45:35]]  INFO  [vvs_service.py]  #245 <18213:139987981907712>  # => Register
+[[2022-05-24 09:45:35]]  INFO  [vvs_service.py]  #246 <18213:139987981907712>  	Black spk number: 386
+[[2022-05-24 09:45:51]]  INFO  [vvs_service.py]  #276 <18213:139987981907712>  	# Time using: 4.5s
+[[2022-05-24 09:45:51]]  INFO  [vvs_service.py]  #277 <18213:139987981907712>  	# Error: Bad quality score:0.5804835557937622.
+[[2022-05-24 09:45:51]]  INFO  [vvs_service.py]  #245 <18213:139987998693120>  # => Register
+[[2022-05-24 09:45:51]]  INFO  [vvs_service.py]  #246 <18213:139987998693120>  	Black spk number: 386
+[[2022-05-24 09:46:28]]  INFO  [vvs_service.py]  #276 <18213:139987998693120>  	# Time using: 9.2s
+[[2022-05-24 09:46:28]]  INFO  [vvs_service.py]  #277 <18213:139987998693120>  	# Error: Bad quality score:0.353686660528183.
+[[2022-05-24 09:46:28]]  INFO  [vvs_service.py]  #245 <18213:139987964860160>  # => Register
+[[2022-05-24 09:46:28]]  INFO  [vvs_service.py]  #246 <18213:139987964860160>  	Black spk number: 386
+[[2022-05-24 09:46:45]]  INFO  [vvs_service.py]  #276 <18213:139987964860160>  	# Time using: 5.5s
+[[2022-05-24 09:46:45]]  INFO  [vvs_service.py]  #277 <18213:139987964860160>  	# Error: Bad quality score:0.5780689120292664.
+[[2022-05-24 09:46:45]]  INFO  [vvs_service.py]  #245 <18213:139987964860160>  # => Register
+[[2022-05-24 09:46:45]]  INFO  [vvs_service.py]  #246 <18213:139987964860160>  	Black spk number: 386
+[[2022-05-24 09:46:59]]  INFO  [vvs_service.py]  #276 <18213:139987964860160>  	# Time using: 3.9s
+[[2022-05-24 09:46:59]]  INFO  [vvs_service.py]  #277 <18213:139987964860160>  	# Error: Bad quality score:0.30696091055870056.
+[[2022-05-24 09:46:59]]  INFO  [vvs_service.py]  #245 <18213:139987990300416>  # => Register
+[[2022-05-24 09:46:59]]  INFO  [vvs_service.py]  #246 <18213:139987990300416>  	Black spk number: 386
+[[2022-05-24 09:47:20]]  INFO  [vvs_service.py]  #276 <18213:139987990300416>  	# Time using: 6.0s
+[[2022-05-24 09:47:20]]  INFO  [vvs_service.py]  #277 <18213:139987990300416>  	# Error: Bad quality score:0.31758201122283936.
+[[2022-05-24 09:47:20]]  INFO  [vvs_service.py]  #245 <18213:139987973515008>  # => Register
+[[2022-05-24 09:47:20]]  INFO  [vvs_service.py]  #246 <18213:139987973515008>  	Black spk number: 386
+[[2022-05-24 09:47:46]]  INFO  [vvs_service.py]  #276 <18213:139987973515008>  	# Time using: 7.6s
+[[2022-05-24 09:47:46]]  INFO  [vvs_service.py]  #277 <18213:139987973515008>  	# Error: Bad quality score:0.5798774361610413.
+[[2022-05-24 09:47:46]]  INFO  [vvs_service.py]  #245 <18213:139986808600320>  # => Register
+[[2022-05-24 09:47:46]]  INFO  [vvs_service.py]  #246 <18213:139986808600320>  	Black spk number: 386
+[[2022-05-24 09:48:12]]  INFO  [vvs_service.py]  #276 <18213:139986808600320>  	# Time using: 7.3s
+[[2022-05-24 09:48:12]]  INFO  [vvs_service.py]  #277 <18213:139986808600320>  	# Error: Bad quality score:0.41911453008651733.
+[[2022-05-24 09:48:12]]  INFO  [vvs_service.py]  #245 <18213:139988114347776>  # => Register
+[[2022-05-24 09:48:12]]  INFO  [vvs_service.py]  #246 <18213:139988114347776>  	Black spk number: 386
+[[2022-05-24 09:48:41]]  INFO  [vvs_service.py]  #283 <18213:139988114347776>  	# Self pre-test!
+[[2022-05-24 09:48:46]]  INFO  [vvs_service.py]  #245 <18213:139988114347776>  # => Register
+[[2022-05-24 09:48:46]]  INFO  [vvs_service.py]  #246 <18213:139988114347776>  	Black spk number: 386
+[[2022-05-24 09:49:33]]  INFO  [vvs_service.py]  #276 <18213:139988114347776>  	# Time using: 12.6s
+[[2022-05-24 09:49:33]]  INFO  [vvs_service.py]  #277 <18213:139988114347776>  	# Error: Bad quality score:0.4323389232158661.
+[[2022-05-24 09:49:33]]  INFO  [vvs_service.py]  #245 <18213:139988104644352>  # => Register
+[[2022-05-24 09:49:33]]  INFO  [vvs_service.py]  #246 <18213:139988104644352>  	Black spk number: 386
+[[2022-05-24 09:49:56]]  INFO  [vvs_service.py]  #276 <18213:139988104644352>  	# Time using: 6.5s
+[[2022-05-24 09:49:56]]  INFO  [vvs_service.py]  #277 <18213:139988104644352>  	# Error: Bad quality score:0.560790479183197.
+[[2022-05-24 09:49:56]]  INFO  [vvs_service.py]  #245 <18213:139988104644352>  # => Register
+[[2022-05-24 09:49:56]]  INFO  [vvs_service.py]  #246 <18213:139988104644352>  	Black spk number: 386
+[[2022-05-24 09:50:11]]  INFO  [vvs_service.py]  #283 <18213:139988104644352>  	# Self pre-test!
+[[2022-05-24 09:50:16]]  INFO  [vvs_service.py]  #245 <18213:139988104644352>  # => Register
+[[2022-05-24 09:50:16]]  INFO  [vvs_service.py]  #246 <18213:139988104644352>  	Black spk number: 386
+[[2022-05-24 09:50:31]]  INFO  [vvs_service.py]  #283 <18213:139988104644352>  	# Self pre-test!
+[[2022-05-24 09:51:06]]  INFO  [vvs_service.py]  #245 <18213:139988104644352>  # => Register
+[[2022-05-24 09:51:06]]  INFO  [vvs_service.py]  #246 <18213:139988104644352>  	Black spk number: 386
+[[2022-05-24 09:51:59]]  INFO  [vvs_service.py]  #283 <18213:139988104644352>  	# Self pre-test!
+[[2022-05-24 09:53:26]]  INFO  [vvs_service.py]  #245 <18213:139988104644352>  # => Register
+[[2022-05-24 09:53:26]]  INFO  [vvs_service.py]  #246 <18213:139988104644352>  	Black spk number: 386
+[[2022-05-24 09:54:00]]  INFO  [vvs_service.py]  #276 <18213:139988104644352>  	# Time using: 8.9s
+[[2022-05-24 09:54:00]]  INFO  [vvs_service.py]  #277 <18213:139988104644352>  	# Error: Bad quality score:0.2727588415145874.
+[[2022-05-24 09:54:06]]  INFO  [vvs_service.py]  #245 <18213:139988104644352>  # => Register
+[[2022-05-24 09:54:06]]  INFO  [vvs_service.py]  #246 <18213:139988104644352>  	Black spk number: 386
+[[2022-05-24 09:54:56]]  INFO  [vvs_service.py]  #276 <18213:139988104644352>  	# Time using: 11.8s
+[[2022-05-24 09:54:56]]  INFO  [vvs_service.py]  #277 <18213:139988104644352>  	# Error: Bad quality score:0.4957060217857361.
+[[2022-05-24 09:55:06]]  INFO  [vvs_service.py]  #245 <18213:139988104644352>  # => Register
+[[2022-05-24 09:55:06]]  INFO  [vvs_service.py]  #246 <18213:139988104644352>  	Black spk number: 386
+[[2022-05-24 09:55:25]]  INFO  [vvs_service.py]  #283 <18213:139988104644352>  	# Self pre-test!
+[[2022-05-24 09:55:36]]  INFO  [vvs_service.py]  #245 <18213:139988104644352>  # => Register
+[[2022-05-24 09:55:36]]  INFO  [vvs_service.py]  #246 <18213:139988104644352>  	Black spk number: 386
+[[2022-05-24 10:11:07]]  INFO  [vvs_service.py]  #93 <57385:140043966113600>  	Load blacklist files ... 
+[[2022-05-24 10:11:11]]  INFO  [vvs_service.py]  #93 <57486:140697516037952>  	Load blacklist files ... 
+[[2022-05-24 10:11:29]]  INFO  [vvs_service.py]  #245 <57486:140691460224768>  # => Register
+[[2022-05-24 10:11:29]]  INFO  [vvs_service.py]  #246 <57486:140691460224768>  	Black spk number: 386
+[[2022-05-24 10:12:11]]  INFO  [vvs_service.py]  #283 <57486:140691460224768>  	# Self pre-test!
+[[2022-05-24 10:12:44]]  INFO  [vvs_service.py]  #93 <59461:139915609069376>  	Load blacklist files ... 
+[[2022-05-24 10:12:48]]  INFO  [vvs_service.py]  #93 <59575:140258748020544>  	Load blacklist files ... 
+[[2022-05-24 10:12:49]]  INFO  [vvs_service.py]  #245 <59575:140252692272896>  # => Register
+[[2022-05-24 10:12:49]]  INFO  [vvs_service.py]  #246 <59575:140252692272896>  	Black spk number: 386
+[[2022-05-24 10:13:09]]  INFO  [vvs_service.py]  #276 <59575:140252692272896>  	# Time using: 5.6s
+[[2022-05-24 10:13:09]]  INFO  [vvs_service.py]  #277 <59575:140252692272896>  	# Error: Bad quality score:0.5849875211715698.
+[[2022-05-24 10:13:09]]  INFO  [vvs_service.py]  #245 <59575:140252664473344>  # => Register
+[[2022-05-24 10:13:09]]  INFO  [vvs_service.py]  #246 <59575:140252664473344>  	Black spk number: 386
+[[2022-05-24 10:13:22]]  INFO  [vvs_service.py]  #283 <59575:140252664473344>  	# Self pre-test!
+[[2022-05-24 10:13:29]]  INFO  [vvs_service.py]  #245 <59575:140252664473344>  # => Register
+[[2022-05-24 10:13:29]]  INFO  [vvs_service.py]  #246 <59575:140252664473344>  	Black spk number: 386
+[[2022-05-24 10:50:38]]  INFO  [vvs_service.py]  #92 <19166:139789069977408>  	Load blacklist files ... 
+[[2022-05-24 10:50:38]]  INFO  [vvs_service.py]  #96 <19166:139789069977408>  	Load blacklist success!
+[[2022-05-24 10:50:41]]  INFO  [vvs_service.py]  #92 <19310:140288791758656>  	Load blacklist files ... 
+[[2022-05-24 10:50:41]]  INFO  [vvs_service.py]  #96 <19310:140288791758656>  	Load blacklist success!

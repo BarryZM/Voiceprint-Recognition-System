@@ -15,14 +15,14 @@ import os
 # SpeechBrain
 from speechbrain.pretrained import SpeakerRecognition
 
-from datetime import datetime, timedelta
+
 
 # utils
 from utils.database import add_to_database
-from utils.save import save_wav_from_url,save_wav_from_file,save_embedding
+from utils.save import save_wav_from_url,save_wav_from_file
 from utils.preprocess import self_test,vad_and_upsample
-from utils.scores import get_scores
-from utils.query import check_new_record
+from utils.scores import get_scores,self_check
+
 
 import socketio
 # config file
@@ -45,23 +45,24 @@ from flask import Flask
 from gevent import pywsgi
 from geventwebsocket.handler import WebSocketHandler
 
-# sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/' + '..'))
-# sys.path.append("..")
-# monkey.patch_all()
 
 from datetime import datetime
 from flask_apscheduler import APScheduler
 
 scheduler = APScheduler()
+
+# 初始化
+client_list = []
 ws_dict={}
+today_right = 0 # 今日注册且正确人数
+today_total = 0 # 今日注册人数
+
 # cosine
 similarity = torch.nn.CosineSimilarity(dim=-1, eps=1e-6)
 
 # embedding model
 spkreg = SpeakerRecognition.from_hparams(
     source="speechbrain/spkrec-ecapa-voxceleb", savedir="/mnt/zhaosheng/brain/notebooks/pretrained_ecapa")
-
-client_list = []
 
 # log
 logger = logging.getLogger(__name__)
@@ -83,81 +84,33 @@ from flask_sock import Sock
 app = Flask(__name__)
 sock = Sock(app)
 
-# app = Flask(__name__)
-
-class Config(object):
-    JOBS = [
-        {
-            'id': 'job1',
-            'func': 'vvs_service:task',
-            'args': (1, 2),
-            'trigger': 'interval',
-            'seconds': 10
-        }
-    ]
-    SCHEDULER_API_ENABLED = True
-
-pre_timestamp = ""
-def task(a, b):
-    pass
-    # # 定时任务，自动注册
-    # print("开始自动注册")
-    # pre_timestamp = (datetime.now() + timedelta(minutes=-5)).strftime("%Y-%m-%d %H:%M:%S")
-    # now_timestamp = (datetime.now()).strftime("%Y-%m-%d %H:%M:%S")
-    # result = check_new_record(pre_timestamp,now_timestamp)
-    # print(len(result))
-    # print(result[0])
-    # for item in result:
-    #     record_file_name= item["record_file_name"]
-    #     caller_num= item["caller_num"]
-    #     url = f"http://116.62.120.233/mpccApi/common/downloadFile.json?type=0&addr={record_file_name}"
-    #     filename = record_file_name.split("/")[-1]
-    #     save_path = f"root/{caller_num}/{filename}"
-
-    #     print(f"Registering:\n\t-> URL {url}\n\t-> SPKID {caller_num}\n\t-> Save Path {save_path}")
-
-    # print(str(datetime.datetime.now()) + ' execute task ' + '{}+{}={}'.format(a, b, a + b))
-
-# app = Flask(__name__)
 CORS(app, supports_credentials=True,
         origins="*", methods="*", allow_headers="*")
 
-# sockets = Sockets(app)
-now = time.strftime('%Y-%m-%d-%H-%M-%S', time.localtime(time.time()))
 
-
+# Load blackbase
 logger.info("\tLoad blacklist files ... ")
-with open(cfg.BLACK_LIST, 'rb') as base:
-    black_database = pickle.load(base)
+if os.path.exists(cfg.BLACK_LIST):
+    with open(cfg.BLACK_LIST, 'rb') as base:
+        black_database = pickle.load(base)
+    logger.info("\tLoad blacklist success!")
+else:
+    black_database = {}
+    logger.info(f"\tLoad blacklist Error! No such file:{cfg.BLACK_LIST}")
 
 
+# 主页
 @app.route("/", methods=["GET"])
 def index():
     spks = list(black_database.keys())
-    
     spks_num = len(spks)
     kwargs = {
         "spks_num": spks_num,
         "spks":spks
     }
-
     return render_template('index.html',**kwargs)
 
-@app.route('/websocket')
-def websocket():
-    client_socket = request.environ.get('wsgi.websocket')  # type:WebSocket
-    client_list.append(client_socket)
-    # print(len(client_list), client_list)
-    while 1:
-        msg_from_cli = client_socket.receive()
-        # print(msg_from_cli)
-        #收到任何一个客户端的信息都进行全部转发（注意如果某个客户端连接断开，在遍历发送时连接不存在会报错，需要异常处理）
-        for client in client_list:
-            try:
-                client.send(msg_from_cli)
-            except Exception as e:
-                continue
-            
+# Websocket实时更新注册人数等信息         
 @app.route('/info', methods=["GET","POST"])
 def getInfo():
     client_socket=request.environ.get('wsgi.websocket')
@@ -176,8 +129,6 @@ def getInfo():
             "number": number,
             "err_msg": "null"
         }
-
-
         # 收到任何一个客户端的信息都进行全部转发（注意如果某个客户端连接断开，在遍历发送时连接不存在会报错，需要异常处理）
         for client in client_list:
             try:
@@ -186,6 +137,7 @@ def getInfo():
             except Exception as e:
                 print(e)
 
+# 声纹对比模块
 @app.route("/test/<test_type>", methods=["POST","GET"])
 def test(test_type):
     if request.method == "GET":
@@ -194,15 +146,12 @@ def test(test_type):
         elif test_type == "url":
             return render_template('score_from_url.html')
     if request.method == "POST":
-        names_inbase = black_database.keys()
-        logger.info("@ -> Test")
-        logger.info(f"\tBlack spk number: {len(names_inbase)}")
-        
-
         # get request.files
         new_spkid = flask.request.form.get("spkid")
-
-
+        names_inbase = black_database.keys()
+        logger.info("@ -> Test {new_spkid}")
+        logger.info(f"\tBlack spk number: {len(names_inbase)}")
+        
         if test_type == "file":
             new_file = request.files["wav_file"]
             filepath,speech_number = save_wav_from_file(new_file,new_spkid,os.path.join(cfg.SAVE_PATH,"raw"))
@@ -225,9 +174,15 @@ def test(test_type):
             logger.info(f"\t# Error: {msg}s")
             return json.dumps(response, ensure_ascii=False)
 
-        embedding = spkreg.encode_batch(wav)[0][0]
 
-        scores,top_list = get_scores(black_database,embedding,cfg.BLACK_TH,similarity,top_num=10)
+
+        embedding = spkreg.encode_batch(wav)[0][0]
+        
+        scores,top_list = get_scores(black_database,
+                                    embedding,
+                                    cfg.BLACK_TH,
+                                    similarity,
+                                    top_num=10)
 
         end_time = time.time()
         time_used = end_time - start_time
@@ -245,6 +200,7 @@ def test(test_type):
         print(response)
         return json.dumps(response, ensure_ascii=False)
 
+# 声纹库信息获取
 @app.route("/namelist", methods=["GET"])
 def namelist():
     if request.method == "GET":
@@ -267,6 +223,7 @@ def namelist():
         print(response)
         return json.dumps(response, ensure_ascii=False)
 
+# 声纹注册模块
 @app.route("/register/<register_type>", methods=["POST","GET"])
 def register(register_type):
     if request.method == "GET":
@@ -275,7 +232,6 @@ def register(register_type):
         elif register_type == "url":
             return render_template('register_from_url.html')
 
-    
     if request.method == "POST":  
         names_inbase = black_database.keys()
         logger.info("# => Register")
@@ -294,8 +250,13 @@ def register(register_type):
             filepath,speech_number = save_wav_from_url(new_url,new_spkid,os.path.join(cfg.BASE_WAV_PATH,"raw"))
         start_time = time.time()
         # Preprocess: vad + upsample to 16k + self test
-        wav,before_vad_length,after_vad_length = vad_and_upsample(filepath,savepath=os.path.join(cfg.BASE_WAV_PATH,"preprocessed"),spkid=new_spkid)
-        pass_test, msg = self_test(wav, spkreg,similarity, sr=16000, split_num=cfg.TEST_SPLIT_NUM, min_length=cfg.MIN_LENGTH, similarity_limit=cfg.SELF_TEST_TH)
+        try:
+            wav,before_vad_length,after_vad_length,preprocessed_filepath = vad_and_upsample(filepath,savepath=os.path.join(cfg.BASE_WAV_PATH,"preprocessed"),spkid=new_spkid)
+        except Exception as e:
+            # !todo 文件大小检验，错误提示返回
+            print(f"File error")
+            return
+        pass_test, msg,max_score,mean_score,min_score = self_test(wav, spkreg,similarity, sr=16000, split_num=cfg.TEST_SPLIT_NUM, min_length=cfg.MIN_LENGTH, similarity_limit=cfg.SELF_TEST_TH)
         if not pass_test:
             response = {
                 "code": 2000,
@@ -309,7 +270,31 @@ def register(register_type):
             return json.dumps(response, ensure_ascii=False)
 
         embedding = spkreg.encode_batch(wav)[0][0]
-        add_success = add_to_database(database=black_database,embedding=embedding,spkid=new_spkid,wav_file_path=filepath,database_filepath=cfg.BLACK_LIST)
+        
+        if cfg.AUTO_TESTING_MODE:
+            logger.info(f"\t# Self pre-test!")
+            predict_right = self_check(database=black_database,
+                                        embedding=embedding,
+                                        spkid=new_spkid,
+                                        black_limit=cfg.BLACK_TH,
+                                        similarity=similarity,
+                                        top_num=10)
+            if predict_right:
+                today_right += 1
+                logger.info(f"\t# Self pre-test pass √")
+            else:
+                logger.info(f"\t# Self pre-test error !")
+            today_total += 1
+
+        add_success = add_to_database(database=black_database,
+                                        embedding=embedding,
+                                        spkid=new_spkid,
+                                        wav_file_path=preprocessed_filepath,
+                                        raw_file_path=filepath,
+                                        database_filepath=cfg.BLACK_LIST,
+                                        max_score=max_score,
+                                        mean_score=mean_score,
+                                        min_score=min_score)
         if not add_success:
             response = {
                 "code": 2000,
@@ -338,6 +323,7 @@ def register(register_type):
 
         return json.dumps(response, ensure_ascii=False)
 
+# websocket test
 @app.route("/conn_ws")
 def ws_app():
     print("开始建立ws链接")
@@ -350,6 +336,7 @@ def ws_app():
         print(user_socket)
     return "200 okkk"
 
+# Websocket实时更新注册人数等信息   
 @sock.route('/echo')
 def echo(sock):
     while True:
@@ -374,28 +361,4 @@ def echo(sock):
 
 
 if __name__ == "__main__":
-    # http_server = WSGIServer(('127.0.0.1', 8170), application=app, handler_class=WebSocketHandler)
-    # http_server.serve_forever()
-    app.config.from_object(Config())
-    scheduler = APScheduler()
-    scheduler.init_app(app)
-    scheduler.start()
-    # sockets = Sockets(app)
-
     app.run(host='127.0.0.1', threaded=True, port=8170, debug=True,)
-    # host="0.0.0.0"
-
-    # server = pywsgi.WSGIServer(('127.0.0.1', 8170), app, handler_class=WebSocketHandler)
-    # print('server start')
-    # server.serve_forever()
-
-    # from gevent import pywsgi
-    # from geventwebsocket.handler import WebSocketHandler
-    # server = pywsgi.WSGIServer(('127.0.0.1', 8170), app, handler_class=WebSocketHandler)
-    # logging.info('server start')
-    # server.serve_forever()
-
-    # http_serv=WSGIServer(("127.0.0.1",8170),app,handler_class=WebSocketHandler)
-    # http_serv.serve_forever()
-
-    # socketio.run(app, debug=True,host='127.0.0.1',port=8170)

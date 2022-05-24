@@ -20,7 +20,7 @@ class Config(object):
             'func': 'auto_register_server:task',
             'args': (1, 2),
             'trigger': 'interval',
-            'seconds': 10
+            'seconds': 3600
         }
     ]
     SCHEDULER_API_ENABLED = True
