@@ -1,8 +1,8 @@
 from datetime import datetime, timedelta
 import pymysql
 class Query(object):
-    def __init__(self):
-        self.pre_timestamp=(datetime.now() + timedelta(hours=-30)).strftime("%Y-%m-%d %H:%M:%S")
+    def __init__(self,deltahours=-24):
+        self.pre_timestamp=(datetime.now() + timedelta(hours=deltahours)).strftime("%Y-%m-%d %H:%M:%S")
         self.now_timestamp=(datetime.now()).strftime("%Y-%m-%d %H:%M:%S")
     
     def check_new_record(self):
@@ -40,6 +40,7 @@ class Query(object):
                         FROM cti_cdr_call INNER JOIN cti_record \
                         WHERE (cti_cdr_call.call_uuid = cti_record.customer_uuid) \
                         AND (cti_record.timestamp>'{self.pre_timestamp}') \
+                        AND (cti_cdr_call.caller_num>'10000000000') \
                         AND (cti_record.timestamp<'{self.now_timestamp}') \
                         ORDER BY cti_record.timestamp DESC;"
         cur.execute(query_sql)

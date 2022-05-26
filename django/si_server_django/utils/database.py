@@ -26,13 +26,13 @@ def add_to_database(database,embedding,spkid,wav_file_path,raw_file_path,databas
     #     "mean_socre":自我检验平均分
     #     "min_socre":自我检验最低分
     # }
-    phone_info = getPhoneInfo(spkid)
+
     if spkid in database.keys():
-        return False,phone_info
+        return False
     else:
         database[spkid] = {}
         
-    
+    phone_info = getPhoneInfo(spkid)
     if phone_info:
         database[spkid]["zip_code"] = phone_info['zip_code']
         database[spkid]["phone_type"] = phone_info['phone_type']
@@ -51,4 +51,4 @@ def add_to_database(database,embedding,spkid,wav_file_path,raw_file_path,databas
 
     with open(database_filepath, 'wb') as f:
         pickle.dump(database, f)
-    return True,phone_info
+    return True

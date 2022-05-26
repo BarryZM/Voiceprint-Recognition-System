@@ -59,8 +59,6 @@ if __name__ == "__main__":
         record_file_name= item["record_file_name"]
         caller_num= item["caller_num"]
         url = f"http://116.62.120.233/mpccApi/common/downloadFile.json?type=0&addr={record_file_name}"
-        begintime = item["begintime"]
-        endtime = item["endtime"]
         filename = record_file_name.split("/")[-1]
         save_path = f"root/{caller_num}/{filename}"
 

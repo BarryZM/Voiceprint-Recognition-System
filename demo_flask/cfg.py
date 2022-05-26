@@ -14,7 +14,7 @@ SAVE_PATH = "/si-server/demo_flask/saved_wavs"
 BASE_WAV_PATH = "/si-server/demo_flask/base_wavs"
 
 # black threshold: Determine whether it is in the black library
-BLACK_TH = 0.7
+BLACK_TH = 0.82
 
 # self test threshold
 SELF_TEST_TH = 0.6

@@ -38,7 +38,7 @@ def get_scores(database,new_embedding,black_limit,similarity,top_num=10):
 def self_check(database,embedding,spkid,black_limit,similarity,top_num=10):
     results = []
     return_results = {}
-    for base_item in database.keys():
+    for base_item in database:
         base_embedding = torch.tensor(database[base_item]["embedding_1"])
         results.append([similarity(base_embedding, embedding), base_item])
     results = sorted(results, key=lambda x:float(x[0])*(-1))
