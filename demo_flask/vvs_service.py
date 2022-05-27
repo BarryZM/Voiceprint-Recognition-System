@@ -2,6 +2,7 @@ from email.policy import default
 from hashlib import new
 from logging.handlers import RotatingFileHandler
 import json
+from platform import python_version_tuple
 import time
 import logging
 from flask import Flask, request, jsonify,render_template
@@ -23,6 +24,7 @@ from utils.preprocess import self_test,vad_and_upsample
 from utils.scores import get_scores,self_check
 from utils.orm import init_info,add_hit,add_register,add_self_test,add_right,add_test,add_error,add_speaker,add_log
 from utils.phone import getPhoneInfo
+from utils.query import query_speaker,query_hit_phone,query_hit_location,query_database_info,query_date_info
 # config file
 import cfg
 
@@ -246,110 +248,39 @@ def test(test_type):
 @app.route("/namelist", methods=["GET"])
 def namelist():
     if request.method == "GET":
-        # TODO: 返回前十个人的手机号，状态，通话开始时间，通话时长
-        return_info = []
-        qset = Speaker.query.order_by(desc(Speaker.register_time)).all()
-        for index,item in enumerate(qset):
-            if index == 10:
-                break
-            return_info.append({
-                "phone":item.phone,
-                "call_begintime":item.call_begintime.strftime("%Y-%m-%d %H:%M:%S"),
-                "call_endtime":item.call_begintime.strftime("%Y-%m-%d %H:%M:%S")
-            })
-
-        numbers = len(qset)
-
-        response = {
-            "code": 2000,
-            "status": "success",
-            "names_10": return_info,
-            "numbers": numbers,
-            "err_msg": "null",
-        }
-        print(response)
-        return json.dumps(response, ensure_ascii=False)
-
+        return query_speaker()
 
 @sock.route('/namelist_ws')
 def namelist_ws(sock):
     while True:
-        data = sock.receive()
-        print(data)
-        while True:
-            time.sleep(3)
-            return_info = []
-            qset = Speaker.query.order_by(desc(Speaker.register_time)).all()
-            for index,item in enumerate(qset):
-                if index == 10:
-                    break
-                return_info.append({
-                    "phone":item.phone,
-                    "call_begintime":item.call_begintime.strftime("%Y-%m-%d %H:%M:%S"),
-                    "call_endtime":item.call_begintime.strftime("%Y-%m-%d %H:%M:%S")
-                })
+        sock.send(query_speaker())
+        time.sleep(3)
 
-            numbers = len(qset)
+# 比中信息（说话人）
+@app.route("/hit_phone_info", methods=["GET"])
+def hit_phone_info():
+    if request.method == "GET":
+        return query_hit_phone()
 
-            response = {
-                "code": 2000,
-                "status": "success",
-                "names_10": return_info,
-                "numbers": numbers,
-                "err_msg": "null",
-            }
-            print(response)
-            # return json.dumps(response, ensure_ascii=False)
-            sock.send(json.dumps(response, ensure_ascii=False))
+@sock.route('/hit_phone_info_ws')
+def hit_phone_info_ws(sock):
+    while True:
+        sock.send(query_hit_phone())
+        time.sleep(3)
 
 
-# 比中信息
+# 比中信息(地域)
 @app.route("/hit_info", methods=["GET"])
 def hit_info():
     if request.method == "GET":
-        # TODO: 返回各个省份的比重数量
-        return_info = []
-
-        query = db.session.query(Log.province.distinct().label("province"))
-        provinces = [row.province for row in query.all()]
-        # print(provinces)
-        for province in provinces:
-            number = len(Log.query.filter_by(province=province).all())
-            return_info.append([province,number])
-       
-        response = {
-            "code": 2000,
-            "status": "success",
-            "hit": return_info,
-        }
-        print(response)
-        return json.dumps(response, ensure_ascii=False)
+        return query_hit_location()
 
 
 @sock.route('/hit_info_ws')
 def hit_info_ws(sock):
     while True:
-        data = sock.receive()
-        print(data)
-        while True:
-            time.sleep(3)
-            return_info = []
-
-            query = db.session.query(Log.province.distinct().label("province"))
-            provinces = [row.province for row in query.all()]
-            # print(provinces)
-            for province in provinces:
-                number = len(Log.query.filter_by(province=province).all())
-                return_info.append([province,number])
-        
-            response = {
-                "code": 2000,
-                "status": "success",
-                "hit": return_info,
-            }
-            print(response)
-            # return json.dumps(response, ensure_ascii=False)
-            sock.send(json.dumps(response, ensure_ascii=False))
+        sock.send(query_hit_location())
+        time.sleep(3)
 
 
 # 声纹注册模块
@@ -507,118 +438,26 @@ def register(register_type):
 @sock.route('/database_info_ws')
 def database_info_ws(sock):
     while True:
-        data = sock.receive()
-        print(data)
-        while True:
-            time.sleep(3)
-            total_register = int(Info.query.with_entities(func.sum(Info.register).label('total')).first().total)
-            total_test = int(Info.query.with_entities(func.sum(Info.test).label('total')).first().total)
-            total_hit = int(Info.query.with_entities(func.sum(Info.hit).label('total')).first().total)
-            total_self_test = int(Info.query.with_entities(func.sum(Info.self_test).label('total')).first().total)
-            total_self_test_right = int(Info.query.with_entities(func.sum(Info.right).label('total')).first().total)
-            response = {
-                    "code": 2000,
-                    "status": "success",
-                    "err_msg": "null",
-                    "register":total_register,
-                    "test":total_test,
-                    "hit":total_hit,
-                    "self_test":total_self_test,
-                    "self_test_right":total_self_test_right
-                }
-            # return json.dumps(response, ensure_ascii=False)
-            sock.send(json.dumps(response, ensure_ascii=False))
+        sock.send(query_database_info())
+        time.sleep(3)
 
 # 声纹数据库总体信息
 @app.route("/database_info",methods=["GET"])
 def database_info():
-    total_register = int(Info.query.with_entities(func.sum(Info.register).label('total')).first().total)
-    total_test = int(Info.query.with_entities(func.sum(Info.test).label('total')).first().total)
-    total_hit = int(Info.query.with_entities(func.sum(Info.hit).label('total')).first().total)
-    total_self_test = int(Info.query.with_entities(func.sum(Info.self_test).label('total')).first().total)
-    total_self_test_right = int(Info.query.with_entities(func.sum(Info.right).label('total')).first().total)
-    response = {
-            "code": 2000,
-            "status": "success",
-            "err_msg": "null",
-            "register":total_register,
-            "test":total_test,
-            "hit":total_hit,
-            "self_test":total_self_test,
-            "self_test_right":total_self_test_right
-        }
-    return json.dumps(response, ensure_ascii=False)
+    return query_database_info()
 
 @sock.route('/date_info_ws')
 def date_info_ws(sock):
     while True:
-        data = sock.receive()
-        print(data)
-        while True:
-            time.sleep(3)
-            date = time.strftime("%Y%m%d",time.localtime(time.time()))
-            register = int(Info.query.filter_by(date=date).first().register)
-            test     = int(Info.query.filter_by(date=date).first().test)
-            hit      = int(Info.query.filter_by(date=date).first().hit)
-            self_test= int(Info.query.filter_by(date=date).first().self_test)
-            right    = int(Info.query.filter_by(date=date).first().right)
-            register_error_1 = int(Info.query.filter_by(date=date).first().register_error_1)
-            register_error_2 = int(Info.query.filter_by(date=date).first().register_error_2)
-            register_error_3 = int(Info.query.filter_by(date=date).first().register_error_3)
-            test_error_1 = int(Info.query.filter_by(date=date).first().test_error_1)
-            test_error_2 = int(Info.query.filter_by(date=date).first().test_error_2)
-            test_error_3 = int(Info.query.filter_by(date=date).first().test_error_3)
-            response = {
-                    "code": 2000,
-                    "status": "success",
-                    "err_msg": "null",
-                    "register":register,
-                    "test":test,
-                    "hit":hit,
-                    "self_test":self_test,
-                    "right":right,
-                    "register_error_1":register_error_1,
-                    "register_error_2":register_error_2,
-                    "register_error_3":register_error_3,
-                    "test_error_1":test_error_1,
-                    "test_error_2":test_error_2,
-                    "test_error_3":test_error_3,
-                }
-            # return json.dumps(response, ensure_ascii=False)
-            sock.send(json.dumps(response, ensure_ascii=False))
+        date = time.strftime("%Y%m%d",time.localtime(time.time()))
+        sock.send(query_date_info(date))
+        time.sleep(3)
 
 # 每日概况信息
 @app.route("/date_info", methods=["POST"])
 def date_info():
     date = flask.request.form.get("date")
-    register = int(Info.query.filter_by(date=date).first().register)
-    test     = int(Info.query.filter_by(date=date).first().test)
-    hit      = int(Info.query.filter_by(date=date).first().hit)
-    self_test= int(Info.query.filter_by(date=date).first().self_test)
-    right    = int(Info.query.filter_by(date=date).first().right)
-    register_error_1 = int(Info.query.filter_by(date=date).first().register_error_1)
-    register_error_2 = int(Info.query.filter_by(date=date).first().register_error_2)
-    register_error_3 = int(Info.query.filter_by(date=date).first().register_error_3)
-    test_error_1 = int(Info.query.filter_by(date=date).first().test_error_1)
-    test_error_2 = int(Info.query.filter_by(date=date).first().test_error_2)
-    test_error_3 = int(Info.query.filter_by(date=date).first().test_error_3)
-    response = {
-            "code": 2000,
-            "status": "success",
-            "err_msg": "null",
-            "register":register,
-            "test":test,
-            "hit":hit,
-            "self_test":self_test,
-            "right":right,
-            "register_error_1":register_error_1,
-            "register_error_2":register_error_2,
-            "register_error_3":register_error_3,
-            "test_error_1":test_error_1,
-            "test_error_2":test_error_2,
-            "test_error_3":test_error_3,
-        }
-    return json.dumps(response, ensure_ascii=False)
+    return query_date_info(date)
 
 
 if __name__ == "__main__":
