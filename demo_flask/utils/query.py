@@ -5,13 +5,8 @@
 
 import pymysql
 from datetime import datetime, timedelta
-
-from sympy import re
 import json
 
-
-# class Query_Ali(object):
-#     def __init__(self):
 
 def check_new_record(pre_timestamp,now_timestamp):
     """query record data in cti_cdr_call
@@ -133,7 +128,7 @@ def query_hit_phone():
     cur.execute(query_sql)
     res = cur.fetchall()
     
-    print(res)
+
     return_dict = {}
     for data in res:
         return_dict[data["phone"]]={
@@ -147,7 +142,7 @@ def query_hit_phone():
         "status": "success",
         "hit": return_dict,
     }
-    print(response)
+
     return json.dumps(response, ensure_ascii=False)
 
 def query_hit_location():
@@ -215,7 +210,6 @@ def query_database_info():
                     WHERE action_type=1 AND err_type=0;"
     cur.execute(query_sql)
     res = cur.fetchall()
-    print(res)
     total_test = int(res[0].get("total_test",0))
     
     # Register
@@ -223,7 +217,6 @@ def query_database_info():
                     WHERE action_type=2 AND err_type=0;"
     cur.execute(query_sql)
     res = cur.fetchall()
-    print(res)
     total_register = int(res[0].get("total_register",0))
 
     # Hit
@@ -231,7 +224,6 @@ def query_database_info():
                     WHERE action_type=4 AND err_type=0;"
     cur.execute(query_sql)
     res = cur.fetchall()
-    print(res)
     total_hit = int(res[0].get("total_hit",0))
 
     # self_test
@@ -239,7 +231,6 @@ def query_database_info():
                     WHERE action_type=3;"
     cur.execute(query_sql)
     res = cur.fetchall()
-    print(res)
     total_self_test = int(res[0].get("total_self_test",0))
 
     # self_test_right
@@ -247,7 +238,6 @@ def query_database_info():
                     WHERE action_type=3 AND err_type=0;"
     cur.execute(query_sql)
     res = cur.fetchall()
-    print(res)
     total_right = int(res[0].get("total_self_test_right",0))
 
     response = {
@@ -289,7 +279,6 @@ def query_date_info(date):
                     WHERE action_type=1 AND err_type=0 AND date='{date};"
     cur.execute(query_sql)
     res = cur.fetchall()
-    print(res)
     test = int(res[0].get("total_test",0))
     
     # Register
@@ -297,7 +286,6 @@ def query_date_info(date):
                     WHERE action_type=2 AND err_type=0 AND date='{date};"
     cur.execute(query_sql)
     res = cur.fetchall()
-    print(res)
     register = int(res[0].get("total_register",0))
 
     # Hit
@@ -305,7 +293,6 @@ def query_date_info(date):
                     WHERE action_type=4 AND err_type=0 AND date='{date};"
     cur.execute(query_sql)
     res = cur.fetchall()
-    print(res)
     hit = int(res[0].get("total_hit",0))
 
     # self_test
@@ -313,15 +300,12 @@ def query_date_info(date):
                     WHERE action_type=3 AND date='{date};"
     cur.execute(query_sql)
     res = cur.fetchall()
-    print(res)
     self_test = int(res[0].get("total_self_test",0))
 
     # self_test_right
-    query_sql = "SELECT count(*) as total_self_test_right FROM log \
-                    WHERE action_type=3 AND err_type=0 AND date='{date};"
+    query_sql = "SELECT count(*) as total_self_test_right FROM log WHERE action_type=3 AND err_type=0 AND date='{date};"
     cur.execute(query_sql)
     res = cur.fetchall()
-    print(res)
     right = int(res[0].get("total_self_test_right",0))
 
 
@@ -395,7 +379,7 @@ def check_url_already_exists(url):
     )
     cur = conn.cursor()
 
-    query_sql = f"SELECT * FROM speaker WHERE file_url='{url}';"
+    query_sql = f"SELECT * FROM log WHERE file_url='{url}';"
     cur.execute(query_sql)
     res = cur.fetchall()
     if len(res) != 0:
@@ -403,7 +387,7 @@ def check_url_already_exists(url):
     else:
         return False
 
-def add_to_log(phone, action_type, err_type, message):
+def add_to_log(phone, action_type, err_type, message,file_url):
     msg_db = {
             "host": "zhaosheng.mysql.rds.aliyuncs.com",
             "port": 27546,
@@ -423,7 +407,7 @@ def add_to_log(phone, action_type, err_type, message):
     )
     cur = conn.cursor()
 
-    query_sql = f"INSERT INTO log (phone, action_type,time,err_type, message) VALUES ('{phone}', '{action_type}', curtime(),'{err_type}', '{message}');"
+    query_sql = f"INSERT INTO log (phone, action_type,time,err_type, message,file_url) VALUES ('{phone}', '{action_type}', curtime(),'{err_type}', '{message}','{file_url}');"
     cur.execute(query_sql)
     conn.commit()
     print(query_sql)

@@ -1,0 +1,149 @@
+[2022-06-01 16:30:05 +0800] [211232] [INFO] Starting gunicorn 20.1.0
+[2022-06-01 16:30:05 +0800] [211232] [INFO] Listening at: http://127.0.0.1:8180 (211232)
+[2022-06-01 16:30:05 +0800] [211232] [INFO] Using worker: gevent
+[2022-06-01 16:30:05 +0800] [211234] [INFO] Booting worker with pid: 211234
+[2022-06-01 16:30:05 +0800] [211235] [INFO] Booting worker with pid: 211235
+[2022-06-01 16:30:05 +0800] [211236] [INFO] Booting worker with pid: 211236
+[2022-06-01 16:30:05 +0800] [211237] [INFO] Booting worker with pid: 211237
+[2022-06-01 16:30:30 +0800] [211232] [INFO] Handling signal: int
+[2022-06-01 16:30:30 +0800] [211236] [INFO] Worker exiting (pid: 211236)
+[2022-06-01 16:30:30 +0800] [211234] [INFO] Worker exiting (pid: 211234)
+[2022-06-01 16:30:30 +0800] [211235] [INFO] Worker exiting (pid: 211235)
+[2022-06-01 16:30:30 +0800] [211237] [INFO] Worker exiting (pid: 211237)
+[2022-06-01 16:30:31 +0800] [211232] [WARNING] Worker with pid 211237 was terminated due to signal 2
+[2022-06-01 16:30:31 +0800] [211232] [WARNING] Worker with pid 211236 was terminated due to signal 2
+[2022-06-01 16:30:31 +0800] [211232] [WARNING] Worker with pid 211235 was terminated due to signal 2
+[2022-06-01 16:30:31 +0800] [211232] [WARNING] Worker with pid 211234 was terminated due to signal 2
+[2022-06-01 16:30:31 +0800] [211232] [INFO] Shutting down: Master
+[2022-06-01 16:31:11 +0800] [212942] [INFO] Starting gunicorn 20.1.0
+[2022-06-01 16:31:11 +0800] [212942] [INFO] Listening at: http://127.0.0.1:8180 (212942)
+[2022-06-01 16:31:11 +0800] [212942] [INFO] Using worker: gevent
+[2022-06-01 16:31:11 +0800] [212959] [INFO] Booting worker with pid: 212959
+[2022-06-01 16:31:11 +0800] [212960] [INFO] Booting worker with pid: 212960
+[2022-06-01 16:31:11 +0800] [212961] [INFO] Booting worker with pid: 212961
+[2022-06-01 16:31:11 +0800] [212962] [INFO] Booting worker with pid: 212962
+[2022-06-01 16:34:01 +0800] [212942] [INFO] Handling signal: term
+[2022-06-01 16:34:01 +0800] [212961] [INFO] Worker exiting (pid: 212961)
+[2022-06-01 16:34:02 +0800] [212959] [INFO] Worker exiting (pid: 212959)
+[2022-06-01 16:34:02 +0800] [212962] [INFO] Worker exiting (pid: 212962)
+[2022-06-01 16:34:02 +0800] [212960] [INFO] Worker exiting (pid: 212960)
+[2022-06-01 16:34:02 +0800] [212942] [INFO] Shutting down: Master
+[2022-06-01 16:34:03 +0800] [216599] [INFO] Starting gunicorn 20.1.0
+[2022-06-01 16:34:03 +0800] [216599] [INFO] Listening at: http://127.0.0.1:8180 (216599)
+[2022-06-01 16:34:03 +0800] [216599] [INFO] Using worker: gevent
+[2022-06-01 16:34:03 +0800] [216610] [INFO] Booting worker with pid: 216610
+[2022-06-01 16:34:03 +0800] [216611] [INFO] Booting worker with pid: 216611
+[2022-06-01 16:34:03 +0800] [216612] [INFO] Booting worker with pid: 216612
+[2022-06-01 16:34:03 +0800] [216613] [INFO] Booting worker with pid: 216613
+[2022-06-01 16:42:37 +0800] [216599] [INFO] Handling signal: term
+[2022-06-01 16:42:37 +0800] [216613] [INFO] Worker exiting (pid: 216613)
+[2022-06-01 16:42:37 +0800] [216611] [INFO] Worker exiting (pid: 216611)
+[2022-06-01 16:42:37 +0800] [216610] [INFO] Worker exiting (pid: 216610)
+[2022-06-01 16:42:38 +0800] [216612] [INFO] Worker exiting (pid: 216612)
+[2022-06-01 16:42:38 +0800] [216599] [INFO] Shutting down: Master
+[2022-06-01 16:42:39 +0800] [342597] [INFO] Starting gunicorn 20.1.0
+[2022-06-01 16:42:39 +0800] [342597] [INFO] Listening at: http://127.0.0.1:8180 (342597)
+[2022-06-01 16:42:39 +0800] [342597] [INFO] Using worker: gevent
+[2022-06-01 16:42:39 +0800] [342608] [INFO] Booting worker with pid: 342608
+[2022-06-01 16:42:39 +0800] [342609] [INFO] Booting worker with pid: 342609
+[2022-06-01 16:42:39 +0800] [342613] [INFO] Booting worker with pid: 342613
+[2022-06-01 16:42:39 +0800] [342614] [INFO] Booting worker with pid: 342614
+[2022-06-01 17:56:56 +0800] [342597] [INFO] Handling signal: term
+[2022-06-01 17:56:57 +0800] [342609] [INFO] Worker exiting (pid: 342609)
+[2022-06-01 17:56:57 +0800] [342608] [INFO] Worker exiting (pid: 342608)
+[2022-06-01 17:56:57 +0800] [342614] [INFO] Worker exiting (pid: 342614)
+[2022-06-01 17:56:57 +0800] [342613] [INFO] Worker exiting (pid: 342613)
+[2022-06-01 17:56:58 +0800] [342597] [INFO] Shutting down: Master
+[2022-06-01 17:56:58 +0800] [785594] [INFO] Starting gunicorn 20.1.0
+[2022-06-01 17:56:58 +0800] [785594] [INFO] Listening at: http://127.0.0.1:8180 (785594)
+[2022-06-01 17:56:58 +0800] [785594] [INFO] Using worker: gevent
+[2022-06-01 17:56:58 +0800] [785602] [INFO] Booting worker with pid: 785602
+[2022-06-01 17:56:58 +0800] [785603] [INFO] Booting worker with pid: 785603
+[2022-06-01 17:56:58 +0800] [785604] [INFO] Booting worker with pid: 785604
+[2022-06-01 17:56:58 +0800] [785605] [INFO] Booting worker with pid: 785605
+[2022-06-01 17:57:16,062] ERROR in app: Exception on /register/url [POST]
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/si-dev/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/opt/anaconda3/envs/si-dev/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/opt/anaconda3/envs/si-dev/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/opt/anaconda3/envs/si-dev/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/opt/anaconda3/envs/si-dev/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/zhaosheng/VAF-System/demo_flask/vvs_service.py", line 203, in register
+    add_to_log(phone=new_spkid, action_type=2, err_type=1, message=f"{msg}")
+TypeError: add_to_log() missing 1 required positional argument: 'file_url'
+[2022-06-01 17:57:33,731] ERROR in app: Exception on /register/url [POST]
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/si-dev/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/opt/anaconda3/envs/si-dev/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/opt/anaconda3/envs/si-dev/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/opt/anaconda3/envs/si-dev/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/opt/anaconda3/envs/si-dev/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/zhaosheng/VAF-System/demo_flask/vvs_service.py", line 203, in register
+    add_to_log(phone=new_spkid, action_type=2, err_type=1, message=f"{msg}")
+TypeError: add_to_log() missing 1 required positional argument: 'file_url'
+[2022-06-01 17:58:07,694] ERROR in app: Exception on /register/url [POST]
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/si-dev/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/opt/anaconda3/envs/si-dev/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/opt/anaconda3/envs/si-dev/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/opt/anaconda3/envs/si-dev/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/opt/anaconda3/envs/si-dev/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/zhaosheng/VAF-System/demo_flask/vvs_service.py", line 203, in register
+    add_to_log(phone=new_spkid, action_type=2, err_type=1, message=f"{msg}")
+TypeError: add_to_log() missing 1 required positional argument: 'file_url'
+[2022-06-01 17:58:26,777] ERROR in app: Exception on /register/url [POST]
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/si-dev/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/opt/anaconda3/envs/si-dev/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/opt/anaconda3/envs/si-dev/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/opt/anaconda3/envs/si-dev/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/opt/anaconda3/envs/si-dev/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/home/zhaosheng/VAF-System/demo_flask/vvs_service.py", line 203, in register
+    add_to_log(phone=new_spkid, action_type=2, err_type=1, message=f"{msg}")
+TypeError: add_to_log() missing 1 required positional argument: 'file_url'
+[2022-06-01 18:01:45 +0800] [785594] [INFO] Handling signal: term
+[2022-06-01 18:01:45 +0800] [785604] [INFO] Worker exiting (pid: 785604)
+[2022-06-01 18:01:46 +0800] [785605] [INFO] Worker exiting (pid: 785605)
+[2022-06-01 18:01:46 +0800] [785603] [INFO] Worker exiting (pid: 785603)
+[2022-06-01 18:01:46 +0800] [785602] [INFO] Worker exiting (pid: 785602)
+[2022-06-01 18:01:47 +0800] [785594] [INFO] Shutting down: Master
+[2022-06-01 18:01:47 +0800] [1088907] [INFO] Starting gunicorn 20.1.0
+[2022-06-01 18:01:47 +0800] [1088907] [INFO] Listening at: http://127.0.0.1:8180 (1088907)
+[2022-06-01 18:01:47 +0800] [1088907] [INFO] Using worker: gevent
+[2022-06-01 18:01:47 +0800] [1088918] [INFO] Booting worker with pid: 1088918
+[2022-06-01 18:01:47 +0800] [1088919] [INFO] Booting worker with pid: 1088919
+[2022-06-01 18:01:47 +0800] [1088920] [INFO] Booting worker with pid: 1088920
+[2022-06-01 18:01:47 +0800] [1088921] [INFO] Booting worker with pid: 1088921
+[2022-06-01 18:03:28 +0800] [1088907] [INFO] Handling signal: term
+[2022-06-01 18:03:28 +0800] [1088919] [INFO] Worker exiting (pid: 1088919)
+[2022-06-01 18:03:28 +0800] [1088920] [INFO] Worker exiting (pid: 1088920)
+[2022-06-01 18:03:28 +0800] [1088918] [INFO] Worker exiting (pid: 1088918)
+[2022-06-01 18:03:28 +0800] [1088921] [INFO] Worker exiting (pid: 1088921)
+[2022-06-01 18:03:29 +0800] [1088907] [INFO] Shutting down: Master
+[2022-06-01 18:03:29 +0800] [1238069] [INFO] Starting gunicorn 20.1.0
+[2022-06-01 18:03:29 +0800] [1238069] [INFO] Listening at: http://127.0.0.1:8180 (1238069)
+[2022-06-01 18:03:29 +0800] [1238069] [INFO] Using worker: gevent
+[2022-06-01 18:03:29 +0800] [1238077] [INFO] Booting worker with pid: 1238077
+[2022-06-01 18:03:29 +0800] [1238078] [INFO] Booting worker with pid: 1238078
+[2022-06-01 18:03:29 +0800] [1238079] [INFO] Booting worker with pid: 1238079
+[2022-06-01 18:03:29 +0800] [1238080] [INFO] Booting worker with pid: 1238080

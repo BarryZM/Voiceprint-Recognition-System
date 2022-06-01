@@ -1,0 +1,193 @@
+[[2022-06-01 14:04:35]]  INFO  [vvs_service.py]  #60 <3179527:140013637420864>  	Load blacklist files ... 
+[[2022-06-01 14:04:35]]  INFO  [vvs_service.py]  #64 <3179527:140013637420864>  	Load blacklist success!
+[[2022-06-01 14:06:23]]  INFO  [vvs_service.py]  #62 <3181341:140381327734592>  	Load blacklist files ... 
+[[2022-06-01 14:06:24]]  INFO  [vvs_service.py]  #66 <3181341:140381327734592>  	Load blacklist success!
+[[2022-06-01 14:06:37]]  INFO  [vvs_service.py]  #62 <3181678:140085606704960>  	Load blacklist files ... 
+[[2022-06-01 14:06:37]]  INFO  [vvs_service.py]  #66 <3181678:140085606704960>  	Load blacklist success!
+[[2022-06-01 14:06:41]]  INFO  [vvs_service.py]  #62 <3181851:140473047111488>  	Load blacklist files ... 
+[[2022-06-01 14:06:41]]  INFO  [vvs_service.py]  #66 <3181851:140473047111488>  	Load blacklist success!
+[[2022-06-01 14:07:11]]  INFO  [vvs_service.py]  #62 <3182458:140413617076032>  	Load blacklist files ... 
+[[2022-06-01 14:07:11]]  INFO  [vvs_service.py]  #66 <3182458:140413617076032>  	Load blacklist success!
+[[2022-06-01 14:13:26]]  INFO  [vvs_service.py]  #49 <3188291:140303925327680>  	Load blacklist files ... 
+[[2022-06-01 14:13:26]]  INFO  [vvs_service.py]  #53 <3188291:140303925327680>  	Load blacklist success!
+[[2022-06-01 14:13:30]]  INFO  [vvs_service.py]  #49 <3188479:140641309538112>  	Load blacklist files ... 
+[[2022-06-01 14:13:30]]  INFO  [vvs_service.py]  #53 <3188479:140641309538112>  	Load blacklist success!
+[[2022-06-01 14:14:35]]  INFO  [vvs_service.py]  #46 <3189988:140297710106432>  	Load blacklist files ... 
+[[2022-06-01 14:14:35]]  INFO  [vvs_service.py]  #50 <3189988:140297710106432>  	Load blacklist success!
+[[2022-06-01 14:14:48]]  INFO  [vvs_service.py]  #45 <3190413:140475125671744>  	Load blacklist files ... 
+[[2022-06-01 14:14:48]]  INFO  [vvs_service.py]  #49 <3190413:140475125671744>  	Load blacklist success!
+[[2022-06-01 14:15:58]]  INFO  [vvs_service.py]  #45 <3191706:140214638937920>  	Load blacklist files ... 
+[[2022-06-01 14:15:58]]  INFO  [vvs_service.py]  #49 <3191706:140214638937920>  	Load blacklist success!
+[[2022-06-01 14:16:02]]  INFO  [vvs_service.py]  #45 <3191887:140672082659136>  	Load blacklist files ... 
+[[2022-06-01 14:16:02]]  INFO  [vvs_service.py]  #49 <3191887:140672082659136>  	Load blacklist success!
+[[2022-06-01 14:20:33]]  INFO  [vvs_service.py]  #45 <3196194:140336150406976>  	Load blacklist files ... 
+[[2022-06-01 14:20:33]]  INFO  [vvs_service.py]  #49 <3196194:140336150406976>  	Load blacklist success!
+[[2022-06-01 14:39:33]]  INFO  [vvs_service.py]  #45 <3214608:140669153834816>  	Load blacklist files ... 
+[[2022-06-01 14:39:33]]  INFO  [vvs_service.py]  #49 <3214608:140669153834816>  	Load blacklist success!
+[[2022-06-01 14:39:36]]  INFO  [vvs_service.py]  #45 <3214784:140690084878144>  	Load blacklist files ... 
+[[2022-06-01 14:39:36]]  INFO  [vvs_service.py]  #49 <3214784:140690084878144>  	Load blacklist success!
+[[2022-06-01 14:48:57]]  INFO  [vvs_service.py]  #45 <3223009:140315033880384>  	Load blacklist files ... 
+[[2022-06-01 14:48:57]]  INFO  [vvs_service.py]  #49 <3223009:140315033880384>  	Load blacklist success!
+[[2022-06-01 14:52:05]]  INFO  [vvs_service.py]  #149 <3223009:140310752556800>  # => Register
+[[2022-06-01 14:52:05]]  INFO  [vvs_service.py]  #150 <3223009:140310752556800>  	Black spk number: 282
+[[2022-06-01 14:52:15]]  INFO  [vvs_service.py]  #149 <3223009:140310752556800>  # => Register
+[[2022-06-01 14:52:15]]  INFO  [vvs_service.py]  #150 <3223009:140310752556800>  	Black spk number: 282
+[[2022-06-01 14:52:42]]  INFO  [vvs_service.py]  #149 <3223009:140310752556800>  # => Register
+[[2022-06-01 14:52:42]]  INFO  [vvs_service.py]  #150 <3223009:140310752556800>  	Black spk number: 282
+[[2022-06-01 14:55:00]]  INFO  [vvs_service.py]  #45 <3230966:140359496681280>  	Load blacklist files ... 
+[[2022-06-01 14:55:00]]  INFO  [vvs_service.py]  #49 <3230966:140359496681280>  	Load blacklist success!
+[[2022-06-01 14:55:03]]  INFO  [vvs_service.py]  #149 <3230966:140355215357696>  # => Register
+[[2022-06-01 14:55:03]]  INFO  [vvs_service.py]  #150 <3230966:140355215357696>  	Black spk number: 282
+[[2022-06-01 14:58:47]]  INFO  [vvs_service.py]  #149 <3230966:140355215357696>  # => Register
+[[2022-06-01 14:58:47]]  INFO  [vvs_service.py]  #150 <3230966:140355215357696>  	Black spk number: 282
+[[2022-06-01 14:59:36]]  INFO  [vvs_service.py]  #45 <3235505:139899113760576>  	Load blacklist files ... 
+[[2022-06-01 14:59:36]]  INFO  [vvs_service.py]  #49 <3235505:139899113760576>  	Load blacklist success!
+[[2022-06-01 15:02:55]]  INFO  [vvs_service.py]  #45 <3238512:140462221961024>  	Load blacklist files ... 
+[[2022-06-01 15:02:55]]  INFO  [vvs_service.py]  #49 <3238512:140462221961024>  	Load blacklist success!
+[[2022-06-01 15:02:58]]  INFO  [vvs_service.py]  #45 <3238751:140490301056832>  	Load blacklist files ... 
+[[2022-06-01 15:02:58]]  INFO  [vvs_service.py]  #49 <3238751:140490301056832>  	Load blacklist success!
+[[2022-06-01 15:02:58]]  INFO  [vvs_service.py]  #149 <3238751:140486019475200>  # => Register
+[[2022-06-01 15:02:58]]  INFO  [vvs_service.py]  #150 <3238751:140486019475200>  	Black spk number: 282
+[[2022-06-01 15:03:10]]  INFO  [vvs_service.py]  #149 <3238751:140486061422336>  # => Register
+[[2022-06-01 15:03:10]]  INFO  [vvs_service.py]  #150 <3238751:140486061422336>  	Black spk number: 282
+[[2022-06-01 15:04:48]]  INFO  [vvs_service.py]  #203 <3238751:140486019475200>  	# Time using: 11.7s
+[[2022-06-01 15:04:48]]  INFO  [vvs_service.py]  #204 <3238751:140486019475200>  	# Error: Bad quality score:0.5336906313896179.
+[[2022-06-01 15:06:27]]  INFO  [vvs_service.py]  #149 <3238751:140486061422336>  # => Register
+[[2022-06-01 15:06:27]]  INFO  [vvs_service.py]  #150 <3238751:140486061422336>  	Black spk number: 282
+[[2022-06-01 15:07:04]]  INFO  [vvs_service.py]  #45 <3449780:139743426086720>  	Load blacklist files ... 
+[[2022-06-01 15:07:04]]  INFO  [vvs_service.py]  #49 <3449780:139743426086720>  	Load blacklist success!
+[[2022-06-01 15:07:10]]  INFO  [vvs_service.py]  #149 <3449780:139739144505088>  # => Register
+[[2022-06-01 15:07:10]]  INFO  [vvs_service.py]  #150 <3449780:139739144505088>  	Black spk number: 282
+[[2022-06-01 15:11:59]]  INFO  [vvs_service.py]  #233 <3449780:139739144505088>  	# Pre-test pass √
+[[2022-06-01 15:11:59]]  INFO  [vvs_service.py]  #234 <3449780:139739144505088>  	# Pre-test msg:不在黑库中,且正确
+[[2022-06-01 15:11:59]]  INFO  [vvs_service.py]  #276 <3449780:139739144505088>  	# Msg: Save to dabase success, class:15
+[[2022-06-01 15:11:59]]  INFO  [vvs_service.py]  #279 <3449780:139739144505088>  	# Success: Qualified.
+[[2022-06-01 15:11:59]]  INFO  [vvs_service.py]  #280 <3449780:139739144505088>  	# Time using: 76.3s
+[[2022-06-01 15:13:04]]  INFO  [vvs_service.py]  #45 <3696133:140426893936448>  	Load blacklist files ... 
+[[2022-06-01 15:13:04]]  INFO  [vvs_service.py]  #49 <3696133:140426893936448>  	Load blacklist success!
+[[2022-06-01 15:17:04]]  INFO  [vvs_service.py]  #149 <3696133:140422612354816>  # => Register
+[[2022-06-01 15:17:04]]  INFO  [vvs_service.py]  #150 <3696133:140422612354816>  	Black spk number: 283
+[[2022-06-01 15:17:15]]  INFO  [vvs_service.py]  #45 <3700359:139632937633600>  	Load blacklist files ... 
+[[2022-06-01 15:17:15]]  INFO  [vvs_service.py]  #49 <3700359:139632937633600>  	Load blacklist success!
+[[2022-06-01 15:18:33]]  INFO  [vvs_service.py]  #45 <3700525:140014064858944>  	Load blacklist files ... 
+[[2022-06-01 15:18:34]]  INFO  [vvs_service.py]  #49 <3700525:140014064858944>  	Load blacklist success!
+[[2022-06-01 15:18:34]]  INFO  [vvs_service.py]  #149 <3700525:140009783277312>  # => Register
+[[2022-06-01 15:18:34]]  INFO  [vvs_service.py]  #150 <3700525:140009783277312>  	Black spk number: 283
+[[2022-06-01 15:18:34]]  INFO  [vvs_service.py]  #149 <3700525:140009825224448>  # => Register
+[[2022-06-01 15:18:34]]  INFO  [vvs_service.py]  #150 <3700525:140009825224448>  	Black spk number: 283
+[[2022-06-01 15:18:45]]  INFO  [vvs_service.py]  #149 <3700525:140009825224448>  # => Register
+[[2022-06-01 15:18:45]]  INFO  [vvs_service.py]  #150 <3700525:140009825224448>  	Black spk number: 283
+[[2022-06-01 15:19:13]]  INFO  [vvs_service.py]  #233 <3700525:140009825224448>  	# Pre-test pass √
+[[2022-06-01 15:19:13]]  INFO  [vvs_service.py]  #234 <3700525:140009825224448>  	# Pre-test msg:不在黑库中,且正确
+[[2022-06-01 15:19:13]]  INFO  [vvs_service.py]  #276 <3700525:140009825224448>  	# Msg: Save to dabase success, class:141
+[[2022-06-01 15:19:13]]  INFO  [vvs_service.py]  #279 <3700525:140009825224448>  	# Success: Qualified.
+[[2022-06-01 15:19:13]]  INFO  [vvs_service.py]  #280 <3700525:140009825224448>  	# Time using: 28.2s
+[[2022-06-01 15:23:46]]  INFO  [vvs_service.py]  #149 <3700525:140010907457280>  # => Register
+[[2022-06-01 15:23:46]]  INFO  [vvs_service.py]  #150 <3700525:140010907457280>  	Black spk number: 284
+[[2022-06-01 15:23:46]]  INFO  [vvs_service.py]  #168 <3700525:140010907457280>  	# Error:已注册过该音频
+[[2022-06-01 15:24:18]]  INFO  [vvs_service.py]  #149 <3700525:140010907457280>  # => Register
+[[2022-06-01 15:24:18]]  INFO  [vvs_service.py]  #150 <3700525:140010907457280>  	Black spk number: 284
+[[2022-06-01 15:24:18]]  INFO  [vvs_service.py]  #168 <3700525:140010907457280>  	# Error:已注册过该音频
+[[2022-06-01 15:51:13]]  INFO  [vvs_service.py]  #45 <3880024:139844556846912>  	Load blacklist files ... 
+[[2022-06-01 15:51:13]]  INFO  [vvs_service.py]  #49 <3880024:139844556846912>  	Load blacklist success!
+[[2022-06-01 15:51:16]]  INFO  [vvs_service.py]  #45 <3881224:140292307183424>  	Load blacklist files ... 
+[[2022-06-01 15:51:16]]  INFO  [vvs_service.py]  #49 <3881224:140292307183424>  	Load blacklist success!
+[[2022-06-01 15:55:28]]  INFO  [vvs_service.py]  #152 <3884952:140562040071936>  # => Register
+[[2022-06-01 15:55:28]]  INFO  [vvs_service.py]  #170 <3884952:140562040071936>  	# Error:已注册过该音频
+[[2022-06-01 15:55:44]]  INFO  [vvs_service.py]  #152 <3884952:140562040071936>  # => Register
+[[2022-06-01 15:55:44]]  INFO  [vvs_service.py]  #170 <3884952:140562040071936>  	# Error:已注册过该音频
+[[2022-06-01 15:56:09]]  INFO  [vvs_service.py]  #152 <3884952:140562040071936>  # => Register
+[[2022-06-01 16:01:01]]  INFO  [vvs_service.py]  #46 <4128209:139806121441088>  ** Start
+[[2022-06-01 16:01:05]]  INFO  [vvs_service.py]  #46 <4128887:140563056699200>  ** Start
+[[2022-06-01 16:01:14]]  INFO  [vvs_service.py]  #152 <4128887:140558775117568>  # => Register
+[[2022-06-01 16:02:00]]  INFO  [vvs_service.py]  #272 <4128887:140558775117568>  	# Msg: Save to dabase success, class:15
+[[2022-06-01 16:02:00]]  INFO  [vvs_service.py]  #275 <4128887:140558775117568>  	# Success: Qualified.
+[[2022-06-01 16:02:00]]  INFO  [vvs_service.py]  #276 <4128887:140558775117568>  	# Time using: 45.5s
+[[2022-06-01 16:02:49]]  INFO  [vvs_service.py]  #152 <4128887:140560192927488>  # => Register
+[[2022-06-01 16:02:50]]  INFO  [vvs_service.py]  #170 <4128887:140560192927488>  	# Error:已注册过该音频
+[[2022-06-01 16:02:51]]  INFO  [vvs_service.py]  #152 <4128887:140560192927488>  # => Register
+[[2022-06-01 16:02:52]]  INFO  [vvs_service.py]  #170 <4128887:140560192927488>  	# Error:已注册过该音频
+[[2022-06-01 16:05:21]]  INFO  [vvs_service.py]  #46 <177427:140006605694784>  ** Start
+[[2022-06-01 16:06:50]]  INFO  [vvs_service.py]  #46 <179122:139692608165696>  ** Start
+[[2022-06-01 16:08:10]]  INFO  [vvs_service.py]  #46 <180556:140713513207616>  ** Start
+[[2022-06-01 16:30:09]]  INFO  [vvs_service.py]  #46 <211236:140677384714016>  ** Start
+[[2022-06-01 16:30:09]]  INFO  [vvs_service.py]  #46 <211234:140677384714016>  ** Start
+[[2022-06-01 16:30:09]]  INFO  [vvs_service.py]  #46 <211237:140677384714016>  ** Start
+[[2022-06-01 16:30:10]]  INFO  [vvs_service.py]  #46 <211235:140677384714016>  ** Start
+[[2022-06-01 16:31:15]]  INFO  [vvs_service.py]  #46 <212959:139817534015264>  ** Start
+[[2022-06-01 16:31:15]]  INFO  [vvs_service.py]  #46 <212962:139817534015264>  ** Start
+[[2022-06-01 16:31:15]]  INFO  [vvs_service.py]  #46 <212960:139817534015264>  ** Start
+[[2022-06-01 16:31:15]]  INFO  [vvs_service.py]  #46 <212961:139817534015264>  ** Start
+[[2022-06-01 16:33:00]]  INFO  [vvs_service.py]  #152 <212959:139812906040576>  # => Register
+[[2022-06-01 16:33:00]]  INFO  [vvs_service.py]  #186 <212959:139812906040576>  	# Time using: 0.1s
+[[2022-06-01 16:33:00]]  INFO  [vvs_service.py]  #187 <212959:139812906040576>  	# Error: 文件读取失败
+[[2022-06-01 16:33:13]]  INFO  [vvs_service.py]  #152 <212961:139812906040576>  # => Register
+[[2022-06-01 16:33:13]]  INFO  [vvs_service.py]  #186 <212961:139812906040576>  	# Time using: 0.0s
+[[2022-06-01 16:33:13]]  INFO  [vvs_service.py]  #187 <212961:139812906040576>  	# Error: 文件读取失败
+[[2022-06-01 16:34:07]]  INFO  [vvs_service.py]  #46 <216612:140678566811424>  ** Start
+[[2022-06-01 16:34:07]]  INFO  [vvs_service.py]  #46 <216613:140678566811424>  ** Start
+[[2022-06-01 16:34:07]]  INFO  [vvs_service.py]  #46 <216611:140678566811424>  ** Start
+[[2022-06-01 16:34:07]]  INFO  [vvs_service.py]  #46 <216610:140678566811424>  ** Start
+[[2022-06-01 16:34:22]]  INFO  [vvs_service.py]  #152 <216611:140673938828544>  # => Register
+[[2022-06-01 16:34:29]]  INFO  [vvs_service.py]  #205 <216611:140673938828544>  	# Time using: 6.9s
+[[2022-06-01 16:34:29]]  INFO  [vvs_service.py]  #206 <216611:140673938828544>  	# Error: Insufficient duration, the current duration is 11.782s.
+[[2022-06-01 16:40:34]]  INFO  [vvs_service.py]  #152 <216610:140673938824448>  # => Register
+[[2022-06-01 16:40:39]]  INFO  [vvs_service.py]  #205 <216610:140673938824448>  	# Time using: 5.0s
+[[2022-06-01 16:40:39]]  INFO  [vvs_service.py]  #206 <216610:140673938824448>  	# Error: Insufficient duration, the current duration is 11.782s.
+[[2022-06-01 16:41:39]]  INFO  [vvs_service.py]  #152 <216612:140673938824448>  # => Register
+[[2022-06-01 16:41:45]]  INFO  [vvs_service.py]  #205 <216612:140673938824448>  	# Time using: 5.2s
+[[2022-06-01 16:41:45]]  INFO  [vvs_service.py]  #206 <216612:140673938824448>  	# Error: Insufficient duration, the current duration is 18.98s.
+[[2022-06-01 16:42:44]]  INFO  [vvs_service.py]  #46 <342613:140093211993888>  ** Start
+[[2022-06-01 16:42:45]]  INFO  [vvs_service.py]  #46 <342609:140093211993888>  ** Start
+[[2022-06-01 16:42:45]]  INFO  [vvs_service.py]  #46 <342608:140093211993888>  ** Start
+[[2022-06-01 16:42:45]]  INFO  [vvs_service.py]  #46 <342614:140093211993888>  ** Start
+[[2022-06-01 16:42:47]]  INFO  [vvs_service.py]  #152 <342609:140088584015104>  # => Register
+[[2022-06-01 16:43:02]]  INFO  [vvs_service.py]  #205 <342609:140088584015104>  	# Time using: 14.8s
+[[2022-06-01 16:43:02]]  INFO  [vvs_service.py]  #206 <342609:140088584015104>  	# Error: Bad quality score:0.5787882804870605.
+[[2022-06-01 16:46:39]]  INFO  [vvs_service.py]  #152 <342613:140088584015104>  # => Register
+[[2022-06-01 16:46:39]]  INFO  [vvs_service.py]  #186 <342613:140088584015104>  	# Time using: 0.0s
+[[2022-06-01 16:46:39]]  INFO  [vvs_service.py]  #187 <342613:140088584015104>  	# Error: 文件读取失败
+[[2022-06-01 16:47:22]]  INFO  [vvs_service.py]  #152 <342608:140088584019200>  # => Register
+[[2022-06-01 16:47:22]]  INFO  [vvs_service.py]  #186 <342608:140088584019200>  	# Time using: 0.0s
+[[2022-06-01 16:47:22]]  INFO  [vvs_service.py]  #187 <342608:140088584019200>  	# Error: 文件读取失败
+[[2022-06-01 16:47:51]]  INFO  [vvs_service.py]  #152 <342614:140088584015104>  # => Register
+[[2022-06-01 16:48:06]]  INFO  [vvs_service.py]  #205 <342614:140088584015104>  	# Time using: 14.4s
+[[2022-06-01 16:48:06]]  INFO  [vvs_service.py]  #206 <342614:140088584015104>  	# Error: Bad quality score:0.5787882804870605.
+[[2022-06-01 16:48:50]]  INFO  [vvs_service.py]  #152 <342608:140088584019200>  # => Register
+[[2022-06-01 16:49:02]]  INFO  [vvs_service.py]  #205 <342608:140088584019200>  	# Time using: 11.8s
+[[2022-06-01 16:49:02]]  INFO  [vvs_service.py]  #206 <342608:140088584019200>  	# Error: Bad quality score:0.5787882804870605.
+[[2022-06-01 17:53:28]]  INFO  [vvs_service.py]  #152 <342609:140088584015104>  # => Register
+[[2022-06-01 17:53:38]]  INFO  [vvs_service.py]  #205 <342609:140088584015104>  	# Time using: 9.8s
+[[2022-06-01 17:53:38]]  INFO  [vvs_service.py]  #206 <342609:140088584015104>  	# Error: Bad quality score:0.5787882804870605.
+[[2022-06-01 17:57:05]]  INFO  [vvs_service.py]  #46 <785604:140213844969248>  ** Start
+[[2022-06-01 17:57:05]]  INFO  [vvs_service.py]  #46 <785602:140213844969248>  ** Start
+[[2022-06-01 17:57:05]]  INFO  [vvs_service.py]  #46 <785605:140213844969248>  ** Start
+[[2022-06-01 17:57:05]]  INFO  [vvs_service.py]  #46 <785603:140213844969248>  ** Start
+[[2022-06-01 17:57:05]]  INFO  [vvs_service.py]  #152 <785603:140209216982272>  # => Register
+[[2022-06-01 17:57:23]]  INFO  [vvs_service.py]  #152 <785605:140209216978176>  # => Register
+[[2022-06-01 17:57:49]]  INFO  [vvs_service.py]  #152 <785604:140209216986368>  # => Register
+[[2022-06-01 17:58:09]]  INFO  [vvs_service.py]  #152 <785605:140209216978176>  # => Register
+[[2022-06-01 18:01:51]]  INFO  [vvs_service.py]  #46 <1088920:140435156043552>  ** Start
+[[2022-06-01 18:01:51]]  INFO  [vvs_service.py]  #46 <1088919:140435156043552>  ** Start
+[[2022-06-01 18:01:51]]  INFO  [vvs_service.py]  #46 <1088918:140435156043552>  ** Start
+[[2022-06-01 18:01:51]]  INFO  [vvs_service.py]  #46 <1088921:140435156043552>  ** Start
+[[2022-06-01 18:01:59]]  INFO  [vvs_service.py]  #152 <1088919:140430527744736>  # => Register
+[[2022-06-01 18:02:09]]  INFO  [vvs_service.py]  #206 <1088919:140430527744736>  	# Time using: 10.2s
+[[2022-06-01 18:02:09]]  INFO  [vvs_service.py]  #207 <1088919:140430527744736>  	# Error: Bad quality score:0.5787882804870605.
+[[2022-06-01 18:02:18]]  INFO  [vvs_service.py]  #152 <1088921:140430527740640>  # => Register
+[[2022-06-01 18:02:28]]  INFO  [vvs_service.py]  #206 <1088921:140430527740640>  	# Time using: 10.0s
+[[2022-06-01 18:02:28]]  INFO  [vvs_service.py]  #207 <1088921:140430527740640>  	# Error: Bad quality score:0.5787882804870605.
+[[2022-06-01 18:03:33]]  INFO  [vvs_service.py]  #46 <1238080:139789865113376>  ** Start
+[[2022-06-01 18:03:33]]  INFO  [vvs_service.py]  #46 <1238079:139789865113376>  ** Start
+[[2022-06-01 18:03:33]]  INFO  [vvs_service.py]  #46 <1238077:139789865113376>  ** Start
+[[2022-06-01 18:03:33]]  INFO  [vvs_service.py]  #46 <1238078:139789865113376>  ** Start
+[[2022-06-01 18:03:39]]  INFO  [vvs_service.py]  #152 <1238078:139785236810464>  # => Register
+[[2022-06-01 18:03:39]]  INFO  [vvs_service.py]  #171 <1238078:139785236810464>  	# Error:已注册过该音频
+[[2022-06-01 18:03:41]]  INFO  [vvs_service.py]  #152 <1238078:139785236810464>  # => Register
+[[2022-06-01 18:03:41]]  INFO  [vvs_service.py]  #171 <1238078:139785236810464>  	# Error:已注册过该音频
+[[2022-06-01 18:03:41]]  INFO  [vvs_service.py]  #152 <1238079:139785236773600>  # => Register
+[[2022-06-01 18:03:42]]  INFO  [vvs_service.py]  #171 <1238079:139785236773600>  	# Error:已注册过该音频
+[[2022-06-01 18:03:42]]  INFO  [vvs_service.py]  #152 <1238078:139785236810464>  # => Register
+[[2022-06-01 18:03:42]]  INFO  [vvs_service.py]  #171 <1238078:139785236810464>  	# Error:已注册过该音频
+[[2022-06-01 18:03:42]]  INFO  [vvs_service.py]  #152 <1238078:139785236810464>  # => Register
+[[2022-06-01 18:03:42]]  INFO  [vvs_service.py]  #171 <1238078:139785236810464>  	# Error:已注册过该音频

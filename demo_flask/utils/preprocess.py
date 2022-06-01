@@ -11,6 +11,7 @@ import os
 from utils.scores import get_scores
 import soundfile as sf
 USE_ONNX = False
+
 model, utils = torch.hub.load(repo_or_dir='snakers4/silero-vad',
                               model='silero_vad',
                               force_reload=False,
@@ -36,8 +37,12 @@ def vad_and_upsample(wav_file,spkid,savepath=None,channel=0):
     """
     wav, sr = sf.read(wav_file)
     # wav = read_audio(wav_file, sampling_rate=8000)
+    
+    if wav.shape[0]>sr*127:
+        wav = torch.FloatTensor(wav[7*sr:127*sr,1])
+    else:
+        wav = torch.FloatTensor(wav[7*sr:,1])
     print(wav.shape)
-    wav = torch.FloatTensor(wav[7*sr:,1])
     before_vad_length = len(wav)/sr
     
     speech_timestamps = get_speech_timestamps(wav, model, sampling_rate=8000,window_size_samples=512)

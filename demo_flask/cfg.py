@@ -5,13 +5,13 @@
 # Desc  : Config file.
 
 # Black database data {"spk_id":spk_id,"wav_file":wav_file_path,"embedding":embedding}
-BLACK_LIST = "/si-server/blackbase.pkl"
+BLACK_LIST = "./wavs/database/blackbase.pkl"
 
-# test wav files save path
-SAVE_PATH = "/si-server/demo_flask/saved_wavs"
-
-# black base wav files save path
-BASE_WAV_PATH = "/si-server/demo_flask/base_wavs"
+# wav files save path
+REGISTER_RAW_PATH = "./wavs/raw"
+REGISTER_PREPROCESSED_PATH = "./wavs/preprocessed"
+TEST_RAW_PATH = "./wavs/test/raw"
+TEST_PREPROCESSED_PATH = "./wavs/test/preprocessed"
 
 # black threshold: Determine whether it is in the black library
 BLACK_TH = 0.82
@@ -26,3 +26,5 @@ TEST_SPLIT_NUM = 4
 MIN_LENGTH = 5
 
 AUTO_TESTING_MODE = True
+
+MYSQL_DATABASE = "mysql://root:Nt3380518!zhaosheng123@zhaosheng.mysql.rds.aliyuncs.com:27546/si"
