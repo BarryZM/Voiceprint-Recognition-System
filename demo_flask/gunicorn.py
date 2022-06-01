@@ -13,7 +13,7 @@ threads = 10
 bind = "127.0.0.1:8170"
 
 # 设置非守护进程, 将进程交给supervisor管理
-daemon = True
+daemon = 'false'
 # 工作模式协程
 worker_class = "gevent"
 # 设置最大并发量

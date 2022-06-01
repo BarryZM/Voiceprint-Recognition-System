@@ -54,9 +54,16 @@ def self_check(database,embedding,spkid,black_limit,similarity,top_num=10):
             for index in range(top_num):
                 if results[index][1] == spkid:
                     msg = f"在黑库中，第{index+1}个命中了。得分:{results[index][0]}"
-                    return True,msg
-            msg = "在黑库中，但是Top10未命中！！"
-            return False,msg
+                    return True,1,msg
+            msg = "在黑库中，但未命中"
+            return False,2,msg
+        else:
+            True,3,"在黑库中，但识别错误"
     else:
-        msg = "不在黑库中。"
-        return best_score < black_limit,msg
+        
+        if best_score < black_limit:
+            msg = "不在黑库中,且正确"
+            return True,4,msg
+        else:
+            msg = "不在黑库中，识别错误"
+            return False,5,msg

@@ -24,7 +24,7 @@ from utils.preprocess import self_test,vad_and_upsample
 from utils.scores import get_scores,self_check
 from utils.orm import init_info,add_hit,add_register,add_self_test,add_right,add_test,add_error,add_speaker,add_log
 from utils.phone import getPhoneInfo
-from utils.query import query_speaker,query_hit_phone,query_hit_location,query_database_info,query_date_info
+from utils.query import query_speaker,query_hit_phone,query_hit_location,query_database_info,query_date_info,check_url_already_exists,add_to_log
 # config file
 import cfg
 
@@ -40,12 +40,12 @@ from sqlalchemy import desc
 from sqlalchemy import func
 app=Flask(__name__)
 #配置数据库的连接用户,启动地址端口号数据库名
-app.config["SQLALCHEMY_DATABASE_URI"]="mysql://root:123456@127.0.0.1:3306/si"
+app.config["SQLALCHEMY_DATABASE_URI"]="mysql://root:Nt3380518!zhaosheng123@zhaosheng.mysql.rds.aliyuncs.com:27546/si"
+# server=zhaosheng.mysql.rds.aliyuncs.com;port=27546;user=root;password=Nt3380518!zhaosheng123;database=shuadan;Charset=utf8;
 # 设置是否追踪数据库的增删改查，会有显著的开销，一般设置为False
 app.config["SQLALCHEMY_TRACK_MOD/IFICATIONS"]=False
 # 创建SQLAlchemy对象，，并与当前数据库关联，TCP连接
 db=SQLAlchemy(app)
-
 
 class Info(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -64,30 +64,31 @@ class Info(db.Model):
 
 class Speaker(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(20),default="none")
-    uuid = db.Column(db.String(256))
-    phone = db.Column(db.String(256))
-    hit = db.Column(db.Integer,default=0)
+    name = db.Column(db.String(10),default="none")
+    file_url = db.Column(db.String(256))
+    phone = db.Column(db.String(12))
     register_time = db.Column(db.DateTime, default=datetime.now)
-    province = db.Column(db.String(20))
-    city = db.Column(db.String(20))
-    phone_type = db.Column(db.String(20))
-    area_code = db.Column(db.String(20))
-    zip_code = db.Column(db.String(20))
-    self_test_score_mean = db.Column(db.Float(),default=0.0)
-    self_test_score_min = db.Column(db.Float(),default=0.0)
-    self_test_score_max = db.Column(db.Float(),default=0.0)
-    call_begintime = db.Column(db.DateTime, default=datetime.now)
-    call_endtime = db.Column(db.DateTime, default=datetime.now)
+    province = db.Column(db.String(10))
+    city = db.Column(db.String(10))
+    phone_type = db.Column(db.String(10))
+    area_code = db.Column(db.String(10))
+    zip_code = db.Column(db.String(10))
+    self_test_score_mean = db.Column(db.Float(8),default=0.0)
+    self_test_score_min = db.Column(db.Float(8),default=0.0)
+    self_test_score_max = db.Column(db.Float(8),default=0.0)
+    call_begintime = db.Column(db.DateTime)
+    call_endtime = db.Column(db.DateTime)
+    status = db.Column(db.Integer(),default=1)                          # 0.未激活  1.激活
+    class_number = db.Column(db.Integer())                    # 声纹预分类的类别
 
 class Log(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    hit_time = db.Column(db.DateTime, default=datetime.now)
-    phone = db.Column(db.String(256))
-    province = db.Column(db.String(20))
-    city = db.Column(db.String(20))
-    phone_type = db.Column(db.String(20))
-
+    id = db.Column(db.Integer(), primary_key=True)
+    phone = db.Column(db.String(20))
+    time = db.Column(db.DateTime, default=datetime.now)
+    action_type = db.Column(db.Integer(),default=0) # test:1 # register:2 # self_test:3 # hit:4
+    err_type = db.Column(db.Integer(),default=0)    # test:{0:一切正常 1:质量不合格 2:长度不合格  3: 其他错误} register:{0:一切正常 1:质量不合格 2:长度不合格  3: 其他错误}  self_test:{1:TP在黑库中且正确 2:FP1在黑库中但错误(未命中) 3:FP2在黑库中但错误(错误判断其不在黑库中)  4:TN不在黑库中且正确  5:FN 不在黑库中且错误}
+    file_url = db.Column(db.String(256),default="")
+    message = db.Column(db.String(128))
 
 client_list = []
 ws_dict={}
@@ -132,7 +133,7 @@ else:
     black_database = {}
     logger.info(f"\tLoad blacklist Error! No such file:{cfg.BLACK_LIST}")
 
-# 主页
+# HomePage
 @app.route("/", methods=["GET"])
 def index():
     spks = list(black_database.keys())
@@ -143,30 +144,7 @@ def index():
     }
     return render_template('index.html',**kwargs)
 
-# Websocket实时更新注册人数等信息         
-@app.route('/info', methods=["GET"])
-def getInfo():
-    
-    if request.method == "GET":
-        time.sleep(3)
-        names_10 = list(black_database.keys())[-10:]
-        number = len(black_database.keys())
-        response = {
-            "code": 2000,
-            "status": "success",
-            "register_number_total": number,
-            "register_number_today":today_regitster,
-            "test_number_today":today_test,
-            "hits_number_today":today_hits_number,
-            "hits_number_total":total_hits_number,
-            "todal_self_test":today_self_test,
-            "today_right":today_right,
-            "names_10":names_10,
-            "err_msg": "null"
-        }
-        return json.dumps(response, ensure_ascii=False)
-
-# 声纹对比模块
+# Test
 @app.route("/test/<test_type>", methods=["POST","GET"])
 def test(test_type):
     if request.method == "GET":
@@ -198,9 +176,9 @@ def test(test_type):
                 "err_msg": msg
             }
             if "duration" in msg:
-                add_error("test",2,db,Info)
+                add_to_log(phone=new_spkid, action_type=1, err_type=2, message=f"{msg}")
             else:
-                add_error("test",1,db,Info)
+                add_to_log(phone=new_spkid, action_type=2, err_type=2, message=f"{msg}")
             end_time = time.time()
             time_used = end_time - start_time
             logger.info(f"\t# Time using: {np.round(time_used, 1)}s")
@@ -216,18 +194,12 @@ def test(test_type):
                                     cfg.BLACK_TH,
                                     similarity,
                                     top_num=10)
-        add_test(db,Info)
+        add_to_log(phone=new_spkid, action_type=1, err_type=0, message=f"")
         if scores["inbase"] == 1:
-            add_hit(db,Info)
-            phone_info = getPhoneInfo(new_spkid)
-            log_info ={
-                "city":phone_info.get("city",None),
-                "province":phone_info.get("province",None),
-                "phone_type":phone_info.get("phone_type",None),
-                "hit_time":datetime.now(),
-                "phone":new_spkid
-            }
-            add_log(log_info,db,Log)
+            add_to_log(phone=new_spkid, action_type=4, err_type=1, message=f"对比命中：{top_list}")
+        else:
+            add_to_log(phone=new_spkid, action_type=4, err_type=0, message=f"对比未命中：{top_list}")
+
         end_time = time.time()
         time_used = end_time - start_time
         logger.info(f"\t# Success: {msg}")
@@ -244,46 +216,7 @@ def test(test_type):
         print(response)
         return json.dumps(response, ensure_ascii=False)
 
-# 最近注册信息
-@app.route("/namelist", methods=["GET"])
-def namelist():
-    if request.method == "GET":
-        return query_speaker()
-
-@sock.route('/namelist_ws')
-def namelist_ws(sock):
-    while True:
-        sock.send(query_speaker())
-        time.sleep(3)
-
-# 比中信息（说话人）
-@app.route("/hit_phone_info", methods=["GET"])
-def hit_phone_info():
-    if request.method == "GET":
-        return query_hit_phone()
-
-@sock.route('/hit_phone_info_ws')
-def hit_phone_info_ws(sock):
-    while True:
-        sock.send(query_hit_phone())
-        time.sleep(3)
-
-
-# 比中信息(地域)
-@app.route("/hit_info", methods=["GET"])
-def hit_info():
-    if request.method == "GET":
-        return query_hit_location()
-
-
-@sock.route('/hit_info_ws')
-def hit_info_ws(sock):
-    while True:
-        sock.send(query_hit_location())
-        time.sleep(3)
-
-
-# 声纹注册模块
+# Register
 @app.route("/register/<register_type>", methods=["POST","GET"])
 def register(register_type):
     if request.method == "GET":
@@ -298,15 +231,24 @@ def register(register_type):
         logger.info("# => Register")
         logger.info(f"\tBlack spk number: {len(names_inbase)}")
         # get request.files
-        new_spkid = request.form.get("spkid")
-        begintime = request.form.get("begintime")
-        endtime = request.form.get("endtime")
+        new_spkid = request.form["spkid"]
+        call_begintime = request.form["call_begintime"]
+        call_endtime = request.form["call_endtime"]
         
         if register_type == "file":
             new_file = request.files["wav_file"]
             filepath,speech_number = save_wav_from_file(new_file,new_spkid,os.path.join(cfg.BASE_WAV_PATH,"raw"))
         elif register_type == "url":
             new_url =request.form.get("wav_url")
+            # TODO 判断new_url 是否已存在：
+            if check_url_already_exists(new_url):
+                response = {
+                    "code": 2000,
+                    "status": "error",
+                    "err_msg": str("已注册过该音频")
+                    }
+                logger.info(f"\t# Error:已注册过该音频")
+                return json.dumps(response, ensure_ascii=False)
             filepath,speech_number = save_wav_from_url(new_url,new_spkid,os.path.join(cfg.BASE_WAV_PATH,"raw"))
         start_time = time.time()
         # Preprocess: vad + upsample to 16k + self test
@@ -323,7 +265,7 @@ def register(register_type):
             time_used = end_time - start_time
             logger.info(f"\t# Time using: {np.round(time_used, 1)}s")
             logger.info(f"\t# Error: 文件读取失败")
-            add_error("register",3,db,Info)
+            add_to_log(phone=new_spkid, action_type=2, err_type=3, message=f"文件读取失败")
             return json.dumps(response, ensure_ascii=False)
 
         pass_test, msg,max_score,mean_score,min_score = self_test(wav, spkreg,similarity, sr=16000, split_num=cfg.TEST_SPLIT_NUM, min_length=cfg.MIN_LENGTH, similarity_limit=cfg.SELF_TEST_TH)
@@ -335,9 +277,9 @@ def register(register_type):
                 "err_msg": msg
             }
             if "duration" in msg:
-                add_error("register",2,db,Info)
+                add_to_log(phone=new_spkid, action_type=2, err_type=2, message=f"{msg}")
             else:
-                add_error("register",1,db,Info)
+                add_to_log(phone=new_spkid, action_type=2, err_type=1, message=f"{msg}")
             end_time = time.time()
             time_used = end_time - start_time
             logger.info(f"\t# Time using: {np.round(time_used, 1)}s")
@@ -346,19 +288,34 @@ def register(register_type):
 
         embedding = spkreg.encode_batch(wav)[0][0]
         
+        #TODO:预分类模块
+        max_class_score = 0
+        max_class_index = 0
+        for index,i in enumerate(torch.eye(192)):
+            now_class_score = similarity(embedding,i)
+            if now_class_score>max_class_score:
+                max_class_score=now_class_score
+                max_class_index = index
+        
+
+
+
+
         if len(black_database.keys()) > 1:
             if cfg.AUTO_TESTING_MODE:
-                predict_right,pre_test_msg = self_check(database=black_database,
+                predict_right,status,pre_test_msg = self_check(database=black_database,
                                             embedding=embedding,
                                             spkid=new_spkid,
                                             black_limit=cfg.BLACK_TH,
                                             similarity=similarity,
                                             top_num=10)               
                 add_self_test(db,Info)
+                add_to_log(phone=new_spkid, action_type=3, err_type=status, message=f"{pre_test_msg}")
                 if predict_right:
                     
                     logger.info(f"\t# Pre-test pass √")
                     logger.info(f"\t# Pre-test msg:{pre_test_msg}")
+                    
                     add_right(db,Info)
                     add_hit(db,Info)
                     phone_info = getPhoneInfo(new_spkid)
@@ -371,7 +328,7 @@ def register(register_type):
                         "hit_time":datetime.now(),
                         "phone":new_spkid
                     }
-                    add_log(log_info,db,Log)
+                    # add_log(log_info,db,Log)
                 else:
                     logger.info(f"\t# Pre-test error !")
                     logger.info(f"\t# Pre-test msg:{pre_test_msg}")
@@ -386,7 +343,8 @@ def register(register_type):
                                         database_filepath=cfg.BLACK_LIST,
                                         max_score=max_score,
                                         mean_score=mean_score,
-                                        min_score=min_score)
+                                        min_score=min_score,
+                                        max_class_index=max_class_index)
         if not add_success:
             response = {
                 "code": 2000,
@@ -399,7 +357,7 @@ def register(register_type):
             logger.info(f"\t# Error: Already in database! Skipped!")
             return json.dumps(response, ensure_ascii=False)
         else:
-            logger.info(f"\t# Msg: Save to dabase success.")
+            logger.info(f"\t# Msg: Save to dabase success, class:{max_class_index}")
         end_time = time.time()
         time_used = end_time - start_time
         logger.info(f"\t# Success: {msg}")
@@ -411,40 +369,54 @@ def register(register_type):
             "vad_length":after_vad_length,
             "err_msg": "null"
         }
-        #return redirect(url_for('login'))
-        add_register(db,Info)
+
         skp_info = {
             "name":"none",
             "phone":new_spkid,
             "uuid":new_url,
             "hit":0,
             "register_time":datetime.now(),
-            "province":phone_info["province"],
-            "city":phone_info["city"],
-            "phone_type":phone_info["phone_type"],
-            "area_code":phone_info["area_code"],
-            "zip_code":phone_info["zip_code"],
+            "province":phone_info.get("province",None),
+            "city":phone_info.get("city",None),
+            "phone_type":phone_info.get("phone_type",None),
+            "area_code":phone_info.get("area_code",None),
+            "zip_code":phone_info.get("zip_code",None),
             "self_test_score_mean":mean_score.numpy(),
             "self_test_score_min":min_score.numpy(),
             "self_test_score_max":max_score.numpy(),
-            "call_begintime":begintime,
-            "call_endtime":endtime
+            "call_begintime":call_begintime,
+            "call_endtime":call_endtime,
+            "max_class_index":max_class_index
         }
         add_speaker(skp_info,db,Speaker)
         print("register info add to msyql")
+        add_to_log(phone=new_spkid, action_type=2, err_type=0, message=f"{msg}")
         return json.dumps(response, ensure_ascii=False)
 
-# Websocket实时更新注册人数等信息   
+# Websockets
+@sock.route('/namelist_ws')
+def namelist_ws(sock):
+    while True:
+        sock.send(query_speaker())
+        time.sleep(3)
+
+@sock.route('/hit_phone_info_ws')
+def hit_phone_info_ws(sock):
+    while True:
+        sock.send(query_hit_phone())
+        time.sleep(3)
+
+@sock.route('/hit_info_ws')
+def hit_info_ws(sock):
+    while True:
+        sock.send(query_hit_location())
+        time.sleep(3)
+ 
 @sock.route('/database_info_ws')
 def database_info_ws(sock):
     while True:
         sock.send(query_database_info())
         time.sleep(3)
-
-# 声纹数据库总体信息
-@app.route("/database_info",methods=["GET"])
-def database_info():
-    return query_database_info()
 
 @sock.route('/date_info_ws')
 def date_info_ws(sock):
@@ -452,13 +424,6 @@ def date_info_ws(sock):
         date = time.strftime("%Y%m%d",time.localtime(time.time()))
         sock.send(query_date_info(date))
         time.sleep(3)
-
-# 每日概况信息
-@app.route("/date_info", methods=["POST"])
-def date_info():
-    date = flask.request.form.get("date")
-    return query_date_info(date)
-
 
 if __name__ == "__main__":
     db.create_all()

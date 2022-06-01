@@ -86,8 +86,7 @@ def add_speaker(spk_info,db,Speaker):
     info=Speaker()
     info.name = spk_info["name"]
     info.phone = spk_info["phone"]
-    info.uuid = spk_info["uuid"]
-    info.hit = spk_info["hit"]
+    info.file_url = spk_info["uuid"]
     info.register_time = spk_info["register_time"]
     info.province = spk_info["province"]
     info.city = spk_info["city"]
@@ -97,6 +96,9 @@ def add_speaker(spk_info,db,Speaker):
     info.self_test_score_mean = spk_info["self_test_score_mean"]
     info.self_test_score_min = spk_info["self_test_score_min"]
     info.self_test_score_max = spk_info["self_test_score_max"]
+    info.call_begintime = spk_info["call_begintime"]
+    info.call_endtime = spk_info["call_endtime"]
+    info.class_number = spk_info["max_class_index"]
     db.session.add(info)
     db.session.commit()
 
