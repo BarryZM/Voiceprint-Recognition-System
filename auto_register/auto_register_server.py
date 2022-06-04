@@ -11,7 +11,7 @@ aps = APScheduler()
 
 # initializing a variable of Flask
 app = Flask(__name__)
-query = Query()
+query = Query(-1)
 
 class Config(object):
     JOBS = [

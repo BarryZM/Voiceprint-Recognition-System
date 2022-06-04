@@ -58,7 +58,7 @@ def self_check(database,embedding,spkid,black_limit,similarity,top_num=10):
             msg = "在黑库中，但未命中"
             return False,2,msg
         else:
-            True,3,"在黑库中，但识别错误"
+            return True,3,"在黑库中，但识别错误"
     else:
         
         if best_score < black_limit:

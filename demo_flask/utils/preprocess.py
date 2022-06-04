@@ -10,6 +10,7 @@ import torchaudio.transforms as T
 import os
 from utils.scores import get_scores
 import soundfile as sf
+
 USE_ONNX = False
 
 model, utils = torch.hub.load(repo_or_dir='snakers4/silero-vad',

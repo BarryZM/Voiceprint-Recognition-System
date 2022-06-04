@@ -44,6 +44,8 @@ def get_all_embedding(index=-1):
     all_embedding = {}
     for key in r.keys():
         key = key.decode('utf-8')
+        if "_" not in key:
+            continue
         class_index = int(key.split("_")[0])
         if class_index == index or index == -1:
             spkid = key.split("_")[1]
@@ -58,6 +60,7 @@ def add_to_database(embedding,spkid,max_class_index):
     phone_info = getPhoneInfo(spkid)
     embedding_npy = embedding.numpy()
     toRedis(r,embedding_npy,f'{max_class_index}_{spkid}')
+    
     return True,phone_info
 
 def get_embeddings(class_index):

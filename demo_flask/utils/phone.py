@@ -2,6 +2,9 @@ from phone import Phone
 
 def getPhoneInfo(phoneNum):
     info = Phone().find(phoneNum)
+
+    if info == None:
+        return {}
     return info
 # try:
 #     phone = info['phone']

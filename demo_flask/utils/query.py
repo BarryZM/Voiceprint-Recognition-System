@@ -369,23 +369,30 @@ def check_url_already_exists(url):
             "table": "speaker"
     }
 
-    conn = pymysql.connect(
-        host=msg_db.get("host", "zhaosheng.mysql.rds.aliyuncs.com"),
-        port=msg_db.get("port", 27546),
-        db=msg_db.get("db", "si"),
-        user=msg_db.get("user", "root"),
-        passwd=msg_db.get("passwd", "Nt3380518!zhaosheng123"),
-        cursorclass=pymysql.cursors.DictCursor,
-    )
-    cur = conn.cursor()
 
-    query_sql = f"SELECT * FROM log WHERE file_url='{url}';"
-    cur.execute(query_sql)
-    res = cur.fetchall()
-    if len(res) != 0:
-        return True
-    else:
-        return False
+
+    
+
+    while True:
+        try:
+            conn = pymysql.connect(
+                host=msg_db.get("host", "zhaosheng.mysql.rds.aliyuncs.com"),
+                port=msg_db.get("port", 27546),
+                db=msg_db.get("db", "si"),
+                user=msg_db.get("user", "root"),
+                passwd=msg_db.get("passwd", "Nt3380518!zhaosheng123"),
+                cursorclass=pymysql.cursors.DictCursor,
+            )
+            cur = conn.cursor()
+            query_sql = f"SELECT * FROM log WHERE file_url='{url}';"
+            cur.execute(query_sql)
+            res = cur.fetchall()
+            if len(res) != 0:
+                return True
+            else:
+                return False
+        except Exception as error:
+            conn.ping(True)
 
 def add_to_log(phone, action_type, err_type, message,file_url):
     msg_db = {
