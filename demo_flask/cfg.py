@@ -14,10 +14,18 @@ TEST_RAW_PATH = "./wavs/test/raw"
 TEST_PREPROCESSED_PATH = "./wavs/test/preprocessed"
 
 # black threshold: Determine whether it is in the black library
-BLACK_TH = 0.82
+BLACK_TH = 0.80
 
 # self test threshold
+SELF_TEST = 1
 SELF_TEST_TH = 0.6
+
+# 记录手机号信息
+LOG_PHONE_INFO = 1
+
+# use wav length(s)
+# 使用多长的音频(秒)
+WAV_LENGTH = 90
 
 # self test fragments number
 TEST_SPLIT_NUM = 4

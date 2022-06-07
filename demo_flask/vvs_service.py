@@ -1,6 +1,6 @@
 import json
 import time
-from flask import Flask, request, jsonify,render_template
+from flask import Flask, request, render_template
 from flask_cors import CORS
 import flask
 import torch
@@ -15,10 +15,11 @@ from utils.database import add_to_database,get_all_embedding
 from utils.save import save_wav_from_url,save_wav_from_file
 from utils.preprocess import self_test,vad_and_upsample
 from utils.scores import get_scores,self_check
-from utils.orm import init_info,add_hit,add_register,add_self_test,add_right,add_test,add_error,add_speaker,add_log
+from utils.orm import add_speaker
 from utils.phone import getPhoneInfo
 from utils.query import query_speaker,query_hit_phone,query_hit_location,query_database_info,query_date_info,check_url_already_exists,add_to_log
-from utils.log_wraper import logger
+from utils.log_wraper import logger,err_logger
+
 
 # config
 import cfg
@@ -42,8 +43,12 @@ CORS(app, supports_credentials=True,
 
 
 # Load blackbase
+load_blackbase_start = time.time()
 black_database = get_all_embedding(-1)
-logger.info(f"** Start")
+spks = list(black_database.keys())
+spks_num = len(spks)
+logger.info(f"** Start! Load database used:{time.time() - load_blackbase_start:.2f}s. Total speaker num:{spks_num}")
+
 # HomePage
 @app.route("/", methods=["GET"])
 def index():
@@ -79,8 +84,8 @@ def test(test_type):
             filepath,speech_number = save_wav_from_url(new_url,new_spkid,os.path.join(cfg.SAVE_PATH,"raw"))
         start_time = time.time()
         # Preprocess: vad + upsample to 16k + self test
-        wav,before_vad_length,after_vad_length = vad_and_upsample(filepath,savepath=cfg.TEST_PREPROCESSED_PATH,spkid=new_spkid)
-        pass_test, msg = self_test(wav, spkreg,similarity, sr=16000, split_num=cfg.TEST_SPLIT_NUM, min_length=cfg.MIN_LENGTH, similarity_limit=cfg.SELF_TEST_TH)
+        wav,before_vad_length,after_vad_length,preprocessed_filepath,raw_wav_length,vad_used_time = vad_and_upsample(filepath,savepath=cfg.REGISTER_PREPROCESSED_PATH,spkid=new_spkid,wav_length=cfg.WAV_LENGTH)
+        pass_test, msg,self_test_used_time = self_test(wav, spkreg,similarity, sr=16000, split_num=cfg.TEST_SPLIT_NUM, min_length=cfg.MIN_LENGTH, similarity_limit=cfg.SELF_TEST_TH)
         if not pass_test:
             response = {
                 "code": 2000,
@@ -98,7 +103,7 @@ def test(test_type):
             return json.dumps(response, ensure_ascii=False)
 
 
-
+        encode_start_time = time.time()
         embedding = spkreg.encode_batch(wav)[0][0]
         #TODO:预分类模块
         max_class_score = 0
@@ -136,6 +141,10 @@ def test(test_type):
             "top_list":top_list
         }
         print(response)
+        logger.info(f"\t# Wav Length: {raw_wav_length}s")
+        logger.info(f"\t# Vad used:{vad_used_time:.2f}s.")
+        logger.info(f"\t# Self Test used:{self_test_used_time:.2f}s.")
+        logger.info(f"\t# Embed and test used:{time.time() - encode_start_time:.2f}s.")
         return json.dumps(response, ensure_ascii=False)
 
 # Register
@@ -174,7 +183,7 @@ def register(register_type):
         start_time = time.time()
         # Preprocess: vad + upsample to 16k + self test
         try:
-            wav,before_vad_length,after_vad_length,preprocessed_filepath = vad_and_upsample(filepath,savepath=cfg.REGISTER_PREPROCESSED_PATH,spkid=new_spkid)
+            wav,before_vad_length,after_vad_length,preprocessed_filepath,raw_wav_length,vad_used_time = vad_and_upsample(filepath,savepath=cfg.REGISTER_PREPROCESSED_PATH,spkid=new_spkid,wav_length=cfg.WAV_LENGTH)
         except Exception as e:
             print(e)
             response = {
@@ -188,9 +197,14 @@ def register(register_type):
             logger.info(f"\t# Error: 文件读取失败")
             add_to_log(phone=new_spkid, action_type=2, err_type=3, message=f"文件读取失败",file_url=new_url)
             return json.dumps(response, ensure_ascii=False)
-
-        pass_test, msg,max_score,mean_score,min_score = self_test(wav, spkreg,similarity, sr=16000, split_num=cfg.TEST_SPLIT_NUM, min_length=cfg.MIN_LENGTH, similarity_limit=cfg.SELF_TEST_TH)
         
+        if cfg.SELF_TEST:
+            pass_test, msg,max_score,mean_score,min_score,self_test_used_time = self_test(wav, spkreg,similarity, sr=16000, split_num=cfg.TEST_SPLIT_NUM, min_length=cfg.MIN_LENGTH, similarity_limit=cfg.SELF_TEST_TH)
+        else:
+            pass_test = True
+            msg = ""
+            max_score,mean_score,min_score = 999,999,999
+
         if not pass_test:
             response = {
                 "code": 2000,
@@ -198,8 +212,10 @@ def register(register_type):
                 "err_msg": msg
             }
             if "duration" in msg:
+                # 时长不符合要求
                 add_to_log(phone=new_spkid, action_type=2, err_type=2, message=f"{msg}",file_url=new_url)
             else:
+                # 质量不符合要求
                 add_to_log(phone=new_spkid, action_type=2, err_type=1, message=f"{msg}",file_url=new_url)
             end_time = time.time()
             time_used = end_time - start_time
@@ -207,6 +223,7 @@ def register(register_type):
             logger.info(f"\t# Error: {msg}")
             return json.dumps(response, ensure_ascii=False)
 
+        encode_start_time = time.time()
         embedding = spkreg.encode_batch(wav)[0][0]
         
         #TODO:预分类模块
@@ -236,28 +253,27 @@ def register(register_type):
                     logger.info(f"\t# Pre-test pass √")
                     logger.info(f"\t# Pre-test msg:{pre_test_msg}")
                     
-
-                    phone_info = getPhoneInfo(new_spkid)
-                    if phone_info == None:
-                        phone_info = {}
-                    log_info ={
-                        "city":phone_info.get("city",None),
-                        "province":phone_info.get("province",None),
-                        "phone_type":phone_info.get("phone_type",None),
-                        "hit_time":datetime.now(),
-                        "phone":new_spkid
-                    }
+                    # if cfg.LOG_PHONE_INFO:
+                    #     phone_info = getPhoneInfo(new_spkid)
+                    #     if phone_info == None:
+                    #         phone_info = {}
 
                 else:
                     logger.info(f"\t# Pre-test error !")
                     logger.info(f"\t# Pre-test msg:{pre_test_msg}")
-                
+                    # TODO 将error添加到mysql做记录
+        
+        logger.info(f"\t# Wav Length: {raw_wav_length}s")
+        logger.info(f"\t# Vad used:{vad_used_time:.2f}s.")
+        logger.info(f"\t# Self Test used:{self_test_used_time:.2f}s.")
+        logger.info(f"\t# Embed and test used:{time.time() - encode_start_time:.2f}s.")
 
 
         add_success,phone_info = add_to_database(
                                         embedding=embedding,
                                         spkid=new_spkid,
-                                        max_class_index=max_class_index
+                                        max_class_index=max_class_index,
+                                        log_phone_info = cfg.LOG_PHONE_INFO
                                         )
         if not add_success:
             response = {

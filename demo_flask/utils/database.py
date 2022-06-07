@@ -55,9 +55,12 @@ def get_all_embedding(index=-1):
             continue
     return all_embedding
 
-def add_to_database(embedding,spkid,max_class_index):
+def add_to_database(embedding,spkid,max_class_index,log_phone_info):
 
-    phone_info = getPhoneInfo(spkid)
+    if log_phone_info:
+        phone_info = getPhoneInfo(spkid)
+    else:
+        phone_info = {}
     embedding_npy = embedding.numpy()
     toRedis(r,embedding_npy,f'{max_class_index}_{spkid}')
     

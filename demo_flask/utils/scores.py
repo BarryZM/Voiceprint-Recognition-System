@@ -43,6 +43,7 @@ def self_check(database,embedding,spkid,black_limit,similarity,top_num=10):
         results.append([similarity(base_embedding, embedding), base_item])
     results = sorted(results, key=lambda x:float(x[0])*(-1))
     best_score = float(np.array(results[0][0]))
+    best_id = str(np.array(results[0][1]))
     return_results["best_score"] = best_score
     print(f"Spkid: {spkid} -> Best score:{results[0]}")
 
@@ -53,17 +54,17 @@ def self_check(database,embedding,spkid,black_limit,similarity,top_num=10):
             # top1-top10
             for index in range(top_num):
                 if results[index][1] == spkid:
-                    msg = f"在黑库中，第{index+1}个命中了。得分:{results[index][0]}"
+                    msg = f"在黑库中，第{index+1}个命中了。得分:{results[index][0]},now_spk:{spkid},best score:{best_score},spk:{best_id}"
                     return True,1,msg
-            msg = "在黑库中，但未命中"
+            msg = f"在黑库中，但未命中,now_spk:{spkid},best score:{best_score},spk:{best_id}"
             return False,2,msg
         else:
-            return True,3,"在黑库中，但识别错误"
+            return True,3,f"在黑库中，但识别错误,now_spk:{spkid},best score:{best_score},spk:{best_id}"
     else:
         
         if best_score < black_limit:
-            msg = "不在黑库中,且正确"
+            msg = f"不在黑库中,且正确,now_spk:{spkid},best score:{best_score},spk:{best_id}"
             return True,4,msg
         else:
-            msg = "不在黑库中，识别错误"
+            msg = f"不在黑库中，识别错误,now_spk:{spkid},best score:{best_score},spk:{best_id}"
             return False,5,msg
