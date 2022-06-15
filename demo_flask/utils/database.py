@@ -10,10 +10,7 @@ from datetime import datetime, timedelta
 import struct
 import redis
 import numpy as np
-
-# Redis connection
-r = redis.Redis(host='localhost', port=6379, db=0)
-
+import cfg
 
 def toRedis(r,a,n):
     """Store given Numpy array 'a' in Redis under key 'n'"""
@@ -28,35 +25,43 @@ def fromRedis(r,n):
     a = np.frombuffer(encoded, dtype=np.float32, offset=8)
     return a
 
-# # Create 80x80 numpy array to store
-# a0 = np.arange(6400,dtype=np.uint16).reshape(80,80) 
+def get_all_embedding(blackbase_type ="redis",class_index=-1):
+    if blackbase_type == 'pkl':
+        # all_spker_embedding = np.load(cfg.BLACK_BASE_SAVE_PATH,allow_pickle=True)
+        # # load
+        with open(cfg.BLACK_BASE_SAVE_PATH, 'rb') as f:
+            all_spker_embedding = pickle.load(f)
+        all_embedding = {}
+        for key in all_spker_embedding.keys():
+            if "_" not in key:
+                continue
+            class_index_now = int(key.split("_")[0])
+            if class_index_now == class_index or class_index == -1:
+                spkid = key.split("_")[1]
+                embedding_1 = all_spker_embedding[key]
+                all_embedding[spkid] = {"embedding_1":embedding_1}
+            else:
+                continue
+        return all_embedding
 
-
-# # Store array a0 in Redis under name 'a0array'
-# toRedis(r,a0,'a0array')
-
-# # Retrieve from Redis
-# a1 = fromRedis(r,'a0array')
-
-# np.testing.assert_array_equal(a0,a1)
-
-def get_all_embedding(index=-1):
-    all_embedding = {}
-    for key in r.keys():
-        key = key.decode('utf-8')
-        if "_" not in key:
-            continue
-        class_index = int(key.split("_")[0])
-        if class_index == index or index == -1:
-            spkid = key.split("_")[1]
-            embedding_1 = fromRedis(r,key)
-            all_embedding[spkid] = {"embedding_1":embedding_1}
-        else:
-            continue
-    return all_embedding
+    else:
+        r = redis.Redis(host=cfg.REDIS_DATABASE_HOST, port=cfg.REDIS_DATABASE_PORT, db=cfg.REDIS_DATABASE_DB)
+        all_embedding = {}
+        for key in r.keys():
+            key = key.decode('utf-8')
+            if "_" not in key:
+                continue
+            class_index_now = int(key.split("_")[0])
+            if class_index_now == class_index or class_index == -1:
+                spkid = key.split("_")[1]
+                embedding_1 = fromRedis(r,key)
+                all_embedding[spkid] = {"embedding_1":embedding_1}
+            else:
+                continue
+        return all_embedding
 
 def add_to_database(embedding,spkid,max_class_index,log_phone_info):
-
+    r = redis.Redis(host=cfg.REDIS_DATABASE_HOST, port=cfg.REDIS_DATABASE_PORT, db=cfg.REDIS_DATABASE_DB)
     if log_phone_info:
         phone_info = getPhoneInfo(spkid)
     else:
@@ -66,5 +71,20 @@ def add_to_database(embedding,spkid,max_class_index,log_phone_info):
     
     return True,phone_info
 
+def save_redis_to_pkl():
+    r = redis.Redis(host=cfg.REDIS_DATABASE_HOST, port=cfg.REDIS_DATABASE_PORT, db=cfg.REDIS_DATABASE_DB)
+    all_embedding = {}
+    for key in r.keys():
+        key = key.decode('utf-8')
+        spkid = key
+        embedding_1 = fromRedis(r,key)
+        all_embedding[spkid] = {"embedding_1":embedding_1}
+    with open(cfg.BLACK_BASE_SAVE_PATH, 'wb') as f:
+        pickle.dump(all_embedding, f, pickle.HIGHEST_PROTOCOL)
+
+
 def get_embeddings(class_index):
     pass
+
+if __name__ == "__main__":
+    save_redis_to_pkl()

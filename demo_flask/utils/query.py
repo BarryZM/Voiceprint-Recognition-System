@@ -7,6 +7,12 @@ import pymysql
 from datetime import datetime, timedelta
 import json
 
+import sys
+sys.path.append('/VAF-System/demo_flask/')
+
+import cfg
+
+msg_db = cfg.MYSQL_DATABASE_DICT
 
 def check_new_record(pre_timestamp,now_timestamp):
     """query record data in cti_cdr_call
@@ -52,15 +58,6 @@ def check_new_record(pre_timestamp,now_timestamp):
     return res
 
 def query_speaker():
-    msg_db = {
-            "host": "zhaosheng.mysql.rds.aliyuncs.com",
-            "port": 27546,
-            "db": "si",
-            "username": "root",
-            "passwd": "Nt3380518!zhaosheng123",
-            "table": "speaker"
-    }
-
     conn = pymysql.connect(
         host=msg_db.get("host", "zhaosheng.mysql.rds.aliyuncs.com"),
         port=msg_db.get("port", 27546),
@@ -103,14 +100,7 @@ def query_speaker():
     return json.dumps(response, ensure_ascii=False)
 
 def query_hit_phone():
-    msg_db = {
-            "host": "zhaosheng.mysql.rds.aliyuncs.com",
-            "port": 27546,
-            "db": "si",
-            "username": "root",
-            "passwd": "Nt3380518!zhaosheng123",
-            "table": "speaker"
-    }
+    
 
     conn = pymysql.connect(
         host=msg_db.get("host", "zhaosheng.mysql.rds.aliyuncs.com"),
@@ -122,9 +112,9 @@ def query_hit_phone():
     )
     cur = conn.cursor()
     # query_sql = "SELECT phone, count(*) as count,any_value(hit_time) as hit_time,any_value(id) as id FROM log WHERE phone IS NOT NULL GROUP BY phone ORDER BY count DESC LIMIT 10;"
-    query_sql = "SELECT log.phone, count(*) as count,any_value(log.time) as hit_time,any_value(speaker.id) as id \
-                FROM log INNER JOIN speaker ON log.phone=table speaker.phone \
-                WHERE (log.action_type=4) AND log.phone IS NOT NULL GROUP BY log.phone ORDER BY count DESC LIMIT 10;"
+    # TODO 带优化
+    # TODO 加一个最新的hit——time
+    query_sql = "SELECT phone, hit_count as count, register_time as hit_time,id FROM speaker ORDER BY hit_count DESC LIMIT 10;"
     cur.execute(query_sql)
     res = cur.fetchall()
     
@@ -146,15 +136,7 @@ def query_hit_phone():
     return json.dumps(response, ensure_ascii=False)
 
 def query_hit_location():
-    msg_db = {
-            "host": "zhaosheng.mysql.rds.aliyuncs.com",
-            "port": 27546,
-            "db": "si",
-            "username": "root",
-            "passwd": "Nt3380518!zhaosheng123",
-            "table": "speaker"
-    }
-
+    
     conn = pymysql.connect(
         host=msg_db.get("host", "zhaosheng.mysql.rds.aliyuncs.com"),
         port=msg_db.get("port", 27546),
@@ -165,12 +147,8 @@ def query_hit_location():
     )
     cur = conn.cursor()
     # query_sql = "SELECT province, count(*) as count FROM log WHERE province IS NOT NULL GROUP BY province ORDER BY count(*) DESC LIMIT 10;"
-
-    query_sql = "SELECT speaker.province, count(*) as count\
-                FROM log INNER JOIN speaker ON log.phone=table speaker.phone \
-                WHERE (log.action_type=4) AND log.phone IS NOT NULL \
-                GROUP BY speaker.province \
-                ORDER BY count DESC LIMIT 10;"
+    query_sql = "SELECT province, sum(hit_count) as hit_count, count(*) as count,id FROM speaker WHERE (province IS NOT NULL) AND phone IS NOT NULL GROUP BY province ORDER BY count DESC LIMIT 10;"
+    
     cur.execute(query_sql)
     res = cur.fetchall()
     return_info = []
@@ -184,15 +162,6 @@ def query_hit_location():
     return json.dumps(response, ensure_ascii=False)
 
 def query_database_info():
-    msg_db = {
-            "host": "zhaosheng.mysql.rds.aliyuncs.com",
-            "port": 27546,
-            "db": "si",
-            "username": "root",
-            "passwd": "Nt3380518!zhaosheng123",
-            "table": "speaker"
-    }
-
     conn = pymysql.connect(
         host=msg_db.get("host", "zhaosheng.mysql.rds.aliyuncs.com"),
         port=msg_db.get("port", 27546),
@@ -228,14 +197,14 @@ def query_database_info():
 
     # self_test
     query_sql = "SELECT count(*) as total_self_test FROM log \
-                    WHERE action_type=3;"
+                    WHERE action_type=3 ;"
     cur.execute(query_sql)
     res = cur.fetchall()
     total_self_test = int(res[0].get("total_self_test",0))
 
     # self_test_right
     query_sql = "SELECT count(*) as total_self_test_right FROM log \
-                    WHERE action_type=3 AND err_type=0;"
+                    WHERE action_type=3 AND (err_type=1 or err_type=4 or err_type=5);"
     cur.execute(query_sql)
     res = cur.fetchall()
     total_right = int(res[0].get("total_self_test_right",0))
@@ -253,15 +222,6 @@ def query_database_info():
     return json.dumps(response, ensure_ascii=False)
     
 def query_date_info(date):
-    msg_db = {
-            "host": "zhaosheng.mysql.rds.aliyuncs.com",
-            "port": 27546,
-            "db": "si",
-            "username": "root",
-            "passwd": "Nt3380518!zhaosheng123",
-            "table": "speaker"
-    }
-
     conn = pymysql.connect(
         host=msg_db.get("host", "zhaosheng.mysql.rds.aliyuncs.com"),
         port=msg_db.get("port", 27546),
@@ -272,38 +232,41 @@ def query_date_info(date):
     )
     cur = conn.cursor()
 
-    # query_sql = f"SELECT * FROM info WHERE date='{date}';"
+    # query_sql = f"SELECT * FROM info WHERE to_days(time) = to_days(now());;"
     
     # Test
+
+
+
     query_sql = "SELECT count(*) as total_test FROM log \
-                    WHERE action_type=1 AND err_type=0 AND date='{date};"
+                    WHERE action_type=1 AND err_type=0 AND to_days(time) = to_days(now());;"
     cur.execute(query_sql)
     res = cur.fetchall()
     test = int(res[0].get("total_test",0))
     
     # Register
     query_sql = "SELECT count(*) as total_register FROM log \
-                    WHERE action_type=2 AND err_type=0 AND date='{date};"
+                    WHERE action_type=2 AND err_type=0 AND to_days(time) = to_days(now());;"
     cur.execute(query_sql)
     res = cur.fetchall()
     register = int(res[0].get("total_register",0))
 
     # Hit
     query_sql = "SELECT count(*) as total_hit FROM log \
-                    WHERE action_type=4 AND err_type=0 AND date='{date};"
+                    WHERE action_type=4 AND err_type=0 AND to_days(time) = to_days(now());;"
     cur.execute(query_sql)
     res = cur.fetchall()
     hit = int(res[0].get("total_hit",0))
 
     # self_test
     query_sql = "SELECT count(*) as total_self_test FROM log \
-                    WHERE action_type=3 AND date='{date};"
+                    WHERE action_type=3 AND to_days(time) = to_days(now());;"
     cur.execute(query_sql)
     res = cur.fetchall()
     self_test = int(res[0].get("total_self_test",0))
 
     # self_test_right
-    query_sql = "SELECT count(*) as total_self_test_right FROM log WHERE action_type=3 AND err_type=0 AND date='{date};"
+    query_sql = "SELECT count(*) as total_self_test_right FROM log WHERE action_type=3 AND (err_type=1 or err_type=4 or err_type=5) AND to_days(time) = to_days(now());;"
     cur.execute(query_sql)
     res = cur.fetchall()
     right = int(res[0].get("total_self_test_right",0))
@@ -360,19 +323,6 @@ def query_date_info(date):
     return json.dumps(response, ensure_ascii=False)
     
 def check_url_already_exists(url):
-    msg_db = {
-            "host": "zhaosheng.mysql.rds.aliyuncs.com",
-            "port": 27546,
-            "db": "si",
-            "username": "root",
-            "passwd": "Nt3380518!zhaosheng123",
-            "table": "speaker"
-    }
-
-
-
-    
-
     while True:
         try:
             conn = pymysql.connect(
@@ -395,15 +345,6 @@ def check_url_already_exists(url):
             conn.ping(True)
 
 def add_to_log(phone, action_type, err_type, message,file_url):
-    msg_db = {
-            "host": "zhaosheng.mysql.rds.aliyuncs.com",
-            "port": 27546,
-            "db": "si",
-            "username": "root",
-            "passwd": "Nt3380518!zhaosheng123",
-            "table": "speaker"
-    }
-
     conn = pymysql.connect(
         host=msg_db.get("host", "zhaosheng.mysql.rds.aliyuncs.com"),
         port=msg_db.get("port", 27546),
@@ -419,18 +360,34 @@ def add_to_log(phone, action_type, err_type, message,file_url):
     conn.commit()
     print(query_sql)
 
-if __name__ == "__main__":
-    timestamp = (datetime.now() + timedelta(hours=-20)).strftime("%Y-%m-%d %H:%M:%S")
-    result = check_new_record(timestamp)
-    print(len(result))
-    print(result[0]["record_file_name"])
-    for item in result:
-        record_file_name= item["record_file_name"]
-        caller_num= item["caller_num"]
-        url = f"http://116.62.120.233/mpccApi/common/downloadFile.json?type=0&addr={record_file_name}"
-        begintime = item["begintime"]
-        endtime = item["endtime"]
-        filename = record_file_name.split("/")[-1]
-        save_path = f"root/{caller_num}/{filename}"
+def add_speaker_hit(spk_id):
+    conn = pymysql.connect(
+        host=msg_db.get("host", "zhaosheng.mysql.rds.aliyuncs.com"),
+        port=msg_db.get("port", 27546),
+        db=msg_db.get("db", "si"),
+        user=msg_db.get("user", "root"),
+        passwd=msg_db.get("passwd", "Nt3380518!zhaosheng123"),
+        cursorclass=pymysql.cursors.DictCursor,
+    )
+    cur = conn.cursor()
+    query_sql = f"update speaker set hit_count = hit_count + 1 where phone='{spk_id}' limit 1;"
+    cur.execute(query_sql)
+    conn.commit()
+    print(query_sql)
 
-        print(f"Registering:\n\t-> URL {url}\n\t-> SPKID {caller_num}\n\t-> Save Path {save_path}")
+if __name__ == "__main__":
+    # timestamp = (datetime.now() + timedelta(hours=-20)).strftime("%Y-%m-%d %H:%M:%S")
+    # result = check_new_record(timestamp)
+    # print(len(result))
+    # print(result[0]["record_file_name"])
+    # for item in result:
+    #     record_file_name= item["record_file_name"]
+    #     caller_num= item["caller_num"]
+    #     url = f"http://116.62.120.233/mpccApi/common/downloadFile.json?type=0&addr={record_file_name}"
+    #     begintime = item["begintime"]
+    #     endtime = item["endtime"]
+    #     filename = record_file_name.split("/")[-1]
+    #     save_path = f"root/{caller_num}/{filename}"
+
+    #     print(f"Registering:\n\t-> URL {url}\n\t-> SPKID {caller_num}\n\t-> Save Path {save_path}")
+    print(query_speaker())

@@ -11,9 +11,11 @@ import os
 from utils.scores import get_scores
 import soundfile as sf
 import time
+import numpy as np
 USE_ONNX = True
 
-model, utils = torch.hub.load(repo_or_dir='snakers4/silero-vad',
+model, utils = torch.hub.load(repo_or_dir='./snakers4_silero-vad_master',
+                             source='local',
                               model='silero_vad',
                               force_reload=False,
                               onnx=USE_ONNX)
@@ -36,7 +38,7 @@ def print_run_time(func):
     return wrapper 
 
 
-def vad_and_upsample(wav_file,spkid,wav_length,savepath=None,channel=0):
+def vad_and_upsample(wav_file,spkid,wav_length,save_wavs=False,savepath=None,channel=0):
     
     """vad and upsample to 16k.
 
@@ -66,17 +68,20 @@ def vad_and_upsample(wav_file,spkid,wav_length,savepath=None,channel=0):
     speech_timestamps = get_speech_timestamps(wav, model, sampling_rate=16000,window_size_samples=512)
     wav_torch = collect_chunks(speech_timestamps, wav)
     
-    if savepath != None:
+    if save_wavs:
+        if savepath != None:
 
-        spk_dir = os.path.join(savepath, str(spkid))
-        os.makedirs(spk_dir, exist_ok=True)
-        spk_filelist = os.listdir(spk_dir)
-        speech_number = len(spk_filelist) + 1
-        # receive wav file and save it to  ->  <receive_path>/<spk_id>/raw_?.webm
-        save_name = f"preprocessed_{speech_number}.wav"
-        final_save_path = os.path.join(spk_dir, save_name)
+            spk_dir = os.path.join(savepath, str(spkid))
+            os.makedirs(spk_dir, exist_ok=True)
+            spk_filelist = os.listdir(spk_dir)
+            speech_number = len(spk_filelist) + 1
+            # receive wav file and save it to  ->  <receive_path>/<spk_id>/raw_?.webm
+            save_name = f"preprocessed_{speech_number}.wav"
+            final_save_path = os.path.join(spk_dir, save_name)
 
-        save_audio(final_save_path,wav_torch, sampling_rate=16000)
+            save_audio(final_save_path,wav_torch, sampling_rate=16000)
+        else:
+            final_save_path = None
     else:
         final_save_path = None
     after_vad_length = len(wav_torch)/16000.
@@ -113,13 +118,13 @@ def self_test(wav_torch, spkreg,similarity, sr=16000, split_num=3, min_length=3,
     if len(wav_torch)/sr <= split_num*min_length:
         used_time = time.time() - local_time
         return False, f"Insufficient duration, the current duration is {len(wav_torch)/sr}s.",0,0,0,used_time
-    length = int(len(wav_torch)/split_num)
+    half_length = int(len(wav_torch)/2)
 
-    for index in range(split_num):
-        tiny_wav = torch.tensor(
-            wav_torch[index*length:(index+1)*length]).unsqueeze(0)
-        wav_list.append(tiny_wav)
-        embedding_list.append(spkreg.encode_batch(tiny_wav)[0][0])
+    # for index in range(split_num):
+    #     tiny_wav = torch.tensor(
+    #         wav_torch[index*length:(index+1)*length]).unsqueeze(0)
+    #     wav_list.append(tiny_wav)
+    #     embedding_list.append(spkreg.encode_batch(tiny_wav)[0][0])
 
     # for embedding1 in embedding_list:
     #     for embedding2 in embedding_list:
@@ -136,14 +141,25 @@ def self_test(wav_torch, spkreg,similarity, sr=16000, split_num=3, min_length=3,
     #             print(f"Score:{score}")
     #             return False, f"Bad quality score:{score}.",0,0,0
     # mean_score = scores_sum/scores_num
-     
-    embedding1 = embedding_list[0]
-    embedding2 = embedding_list[0]
-    score = similarity(embedding1, embedding2)
-    max_score,mean_score,min_score = score,score,score
+
+    tiny_wav1 = torch.tensor(wav_torch[half_length:]).unsqueeze(0)
+    embedding1 = spkreg.encode_batch(tiny_wav1)[0][0]
+
+    tiny_wav2 = torch.tensor(wav_torch[:half_length]).unsqueeze(0)
+    embedding2 = spkreg.encode_batch(tiny_wav2)[0][0]
+        
+    # embedding3 = embedding_list[2]
+    # embedding4 = embedding_list[3]
+    # scores = []
+    score = similarity(embedding1, embedding2).numpy()
+    # scores.append(similarity(embedding1, embedding3).numpy())
+    # scores.append(similarity(embedding1, embedding4).numpy())
+    # scores.append(similarity(embedding2, embedding3).numpy())
+    # scores.append(similarity(embedding3, embedding4).numpy())
+    max_score,mean_score,min_score = score,score,score#np.max(scores),np.mean(scores),np.min(scores)
     used_time = time.time() - local_time
     # print(f"self-test used {time.time() - local_time}")
     if score < similarity_limit:
-        print(f"Score:{score}")
-        return False, f"Bad quality score:{score}.",0,0,0,used_time
+        print(f"Score:{min_score}")
+        return False, f"Bad quality score:{min_score}.",max_score,mean_score,min_score,used_time
     return True, "Qualified.", max_score,mean_score,min_score,used_time

@@ -23,8 +23,9 @@ phone==0.4.3
 PyMySQL==1.0.2
 redis==3.2.0
 requests==2.26.0
-SoundFile==0.10.3.post1
--e git+https://github.com/speechbrain/speechbrain@0ee0f7dafcb6fff283aab7225ac139b30816416a#egg=speechbrain
+SoundFile
+librosa
+speechbrain
 SQLAlchemy==1.4.26
 supervisor==4.2.2
 torch==1.9.1

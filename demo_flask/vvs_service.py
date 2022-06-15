@@ -17,7 +17,7 @@ from utils.preprocess import self_test,vad_and_upsample
 from utils.scores import get_scores,self_check
 from utils.orm import add_speaker
 from utils.phone import getPhoneInfo
-from utils.query import query_speaker,query_hit_phone,query_hit_location,query_database_info,query_date_info,check_url_already_exists,add_to_log
+from utils.query import query_speaker,query_hit_phone,query_hit_location,query_database_info,query_date_info,check_url_already_exists,add_to_log,add_speaker_hit
 from utils.log_wraper import logger,err_logger
 
 
@@ -44,7 +44,7 @@ CORS(app, supports_credentials=True,
 
 # Load blackbase
 load_blackbase_start = time.time()
-black_database = get_all_embedding(-1)
+black_database = get_all_embedding(blackbase_type = cfg.BLACK_BASE_SAVE_TYPE,class_index=-1)
 spks = list(black_database.keys())
 spks_num = len(spks)
 logger.info(f"** Start! Load database used:{time.time() - load_blackbase_start:.2f}s. Total speaker num:{spks_num}")
@@ -84,7 +84,7 @@ def test(test_type):
             filepath,speech_number = save_wav_from_url(new_url,new_spkid,os.path.join(cfg.SAVE_PATH,"raw"))
         start_time = time.time()
         # Preprocess: vad + upsample to 16k + self test
-        wav,before_vad_length,after_vad_length,preprocessed_filepath,raw_wav_length,vad_used_time = vad_and_upsample(filepath,savepath=cfg.REGISTER_PREPROCESSED_PATH,spkid=new_spkid,wav_length=cfg.WAV_LENGTH)
+        wav,before_vad_length,after_vad_length,preprocessed_filepath,raw_wav_length,vad_used_time = vad_and_upsample(filepath,save_wavs=cfg.SAVE_WAVS,savepath=cfg.REGISTER_PREPROCESSED_PATH,spkid=new_spkid,wav_length=cfg.WAV_LENGTH)
         pass_test, msg,self_test_used_time = self_test(wav, spkreg,similarity, sr=16000, split_num=cfg.TEST_SPLIT_NUM, min_length=cfg.MIN_LENGTH, similarity_limit=cfg.SELF_TEST_TH)
         if not pass_test:
             response = {
@@ -114,7 +114,7 @@ def test(test_type):
                 max_class_score=now_class_score
                 max_class_index = index
     
-        black_database = get_all_embedding(max_class_index)
+        black_database = get_all_embedding(blackbase_type = cfg.BLACK_BASE_SAVE_TYPE,class_index=max_class_index)
         
         scores,top_list = get_scores(black_database,
                                     embedding,
@@ -124,8 +124,10 @@ def test(test_type):
         add_to_log(phone=new_spkid, action_type=1, err_type=0, message=f"",file_url=new_url)
         if scores["inbase"] == 1:
             add_to_log(phone=new_spkid, action_type=4, err_type=1, message=f"对比命中：{top_list}",file_url=new_url)
+            add_speaker_hit(new_spkid)
         else:
             add_to_log(phone=new_spkid, action_type=4, err_type=0, message=f"对比未命中：{top_list}",file_url=new_url)
+            
 
         end_time = time.time()
         time_used = end_time - start_time
@@ -183,7 +185,7 @@ def register(register_type):
         start_time = time.time()
         # Preprocess: vad + upsample to 16k + self test
         try:
-            wav,before_vad_length,after_vad_length,preprocessed_filepath,raw_wav_length,vad_used_time = vad_and_upsample(filepath,savepath=cfg.REGISTER_PREPROCESSED_PATH,spkid=new_spkid,wav_length=cfg.WAV_LENGTH)
+            wav,before_vad_length,after_vad_length,preprocessed_filepath,raw_wav_length,vad_used_time = vad_and_upsample(filepath,save_wavs=cfg.SAVE_WAVS,savepath=cfg.REGISTER_PREPROCESSED_PATH,spkid=new_spkid,wav_length=cfg.WAV_LENGTH)
         except Exception as e:
             print(e)
             response = {
@@ -238,7 +240,7 @@ def register(register_type):
 
 
 
-        black_database = get_all_embedding(max_class_index)
+        black_database = get_all_embedding(blackbase_type = cfg.BLACK_BASE_SAVE_TYPE,class_index=max_class_index)
         if len(black_database.keys()) > 1:
             if cfg.AUTO_TESTING_MODE:
                 predict_right,status,pre_test_msg = self_check(database=black_database,
@@ -248,8 +250,10 @@ def register(register_type):
                                             similarity=similarity,
                                             top_num=10)               
                 add_to_log(phone=new_spkid, action_type=3, err_type=status, message=f"{pre_test_msg}",file_url=new_url)
+                if 1<=status<=3:
+                    add_speaker_hit(new_spkid)
+                    add_to_log(phone=new_spkid, action_type=4, err_type=0, message=f"",file_url=new_url)
                 if predict_right:
-                    
                     logger.info(f"\t# Pre-test pass √")
                     logger.info(f"\t# Pre-test msg:{pre_test_msg}")
                     
@@ -311,9 +315,9 @@ def register(register_type):
             "phone_type":phone_info.get("phone_type",None),
             "area_code":phone_info.get("area_code",None),
             "zip_code":phone_info.get("zip_code",None),
-            "self_test_score_mean":mean_score.numpy(),
-            "self_test_score_min":min_score.numpy(),
-            "self_test_score_max":max_score.numpy(),
+            "self_test_score_mean":mean_score,
+            "self_test_score_min":min_score,
+            "self_test_score_max":max_score,
             "call_begintime":call_begintime,
             "call_endtime":call_endtime,
             "max_class_index":max_class_index
@@ -356,6 +360,6 @@ def date_info_ws(sock):
         time.sleep(3)
 
 if __name__ == "__main__":
-    log_db.create_all()
-    speaker_db.create_all()
-    app.run(host='0.0.0.0', threaded=True, port=8180, debug=True,)
+    # log_db.create_all()
+    # speaker_db.create_all()
+    app.run(host='0.0.0.0', threaded=True, port=8180, debug=False,)

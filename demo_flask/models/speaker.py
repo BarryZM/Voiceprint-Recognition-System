@@ -20,3 +20,4 @@ class Speaker(db.Model):
     call_endtime = db.Column(db.DateTime)
     status = db.Column(db.Integer(),default=1)                          # 0.未激活  1.激活
     class_number = db.Column(db.Integer())                    # 声纹预分类的类别
+    hit_count = db.Column(db.Integer(),default=0)
