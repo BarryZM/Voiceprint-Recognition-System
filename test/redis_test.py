@@ -2,8 +2,12 @@ import struct
 import redis
 import numpy as np
 import pickle
+import sys
+sys.path.append("/VAF-System/demo_flask")
+import cfg
+
 # Redis connection
-r = redis.Redis(host='localhost', port=6379, db=0)
+r = redis.Redis(host=cfg.REDIS["host"], port=cfg.REDIS["port"], db=cfg.REDIS["db"])
 
 
 def toRedis(r,a,n):
@@ -21,12 +25,13 @@ def fromRedis(r,n):
 
 if __name__ == "__main__":
 
-    with open("/home/zhaosheng/VAF-System/demo_flask/wavs/database/blackbase.pkl", 'rb') as base:
-        black_database = pickle.load(base)
-    a = black_database["15151832002"]["embedding_1"]
-    toRedis(r,a,"141_15151832002")
-    b = fromRedis(r,"141_15151832002")
-    print(a==b)
-    print(a)
-    print(b)
-    
+   with open("/VAF-System/demo_flask/wavs/database/blackbase.pkl", 'rb') as base:
+      black_database = pickle.load(base)
+   keys = black_database.keys()
+   for k in keys:
+      print(k)
+      break
+   a = black_database["54_18567343505"]["embedding_1"]
+   toRedis(r,a,"141_15151832002")
+   b = fromRedis(r,"141_15151832002")
+   print(a==b)

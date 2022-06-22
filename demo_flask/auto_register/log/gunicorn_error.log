@@ -39,3 +39,59 @@ ModuleNotFoundError: No module named 'auto_reigster_server'
 [2022-06-13 17:46:33 +0800] [3869565] [INFO] Handling signal: term
 [2022-06-13 17:46:33 +0800] [3869565] [WARNING] Worker with pid 3869567 was terminated due to signal 1
 [2022-06-13 17:47:03 +0800] [3869565] [INFO] Shutting down: Master
+[2022-06-21 00:31:22 +0800] [4147815] [INFO] Starting gunicorn 20.1.0
+[2022-06-21 00:31:22 +0800] [4147815] [INFO] Listening at: http://0.0.0.0:8190 (4147815)
+[2022-06-21 00:31:22 +0800] [4147815] [INFO] Using worker: gevent
+[2022-06-21 00:31:22 +0800] [4147817] [INFO] Booting worker with pid: 4147817
+[2022-06-21 00:31:51 +0800] [4149048] [INFO] Starting gunicorn 20.1.0
+[2022-06-21 00:31:51 +0800] [4149048] [INFO] Listening at: http://0.0.0.0:8190 (4149048)
+[2022-06-21 00:31:51 +0800] [4149048] [INFO] Using worker: gevent
+[2022-06-21 00:31:51 +0800] [4149050] [INFO] Booting worker with pid: 4149050
+[2022-06-21 16:07:12 +0800] [1878810] [INFO] Starting gunicorn 20.1.0
+[2022-06-21 16:15:49 +0800] [1897241] [INFO] Starting gunicorn 20.1.0
+[2022-06-21 16:15:49 +0800] [1897241] [INFO] Listening at: http://0.0.0.0:8190 (1897241)
+[2022-06-21 16:15:49 +0800] [1897241] [INFO] Using worker: gevent
+[2022-06-21 16:15:49 +0800] [1897243] [INFO] Booting worker with pid: 1897243
+[2022-06-21 16:16:17 +0800] [1898356] [INFO] Starting gunicorn 20.1.0
+[2022-06-21 16:16:17 +0800] [1898356] [INFO] Listening at: http://0.0.0.0:8190 (1898356)
+[2022-06-21 16:16:17 +0800] [1898356] [INFO] Using worker: gevent
+[2022-06-21 16:16:17 +0800] [1898358] [INFO] Booting worker with pid: 1898358
+[2022-06-21 16:17:01 +0800] [1899930] [INFO] Starting gunicorn 20.1.0
+[2022-06-21 16:17:01 +0800] [1899930] [INFO] Listening at: http://0.0.0.0:8190 (1899930)
+[2022-06-21 16:17:01 +0800] [1899930] [INFO] Using worker: gevent
+[2022-06-21 16:17:01 +0800] [1899938] [INFO] Booting worker with pid: 1899938
+[2022-06-21 16:20:22 +0800] [1907055] [INFO] Starting gunicorn 20.1.0
+[2022-06-21 16:20:22 +0800] [1907055] [INFO] Listening at: http://0.0.0.0:8190 (1907055)
+[2022-06-21 16:20:22 +0800] [1907055] [INFO] Using worker: gevent
+[2022-06-21 16:20:22 +0800] [1907063] [INFO] Booting worker with pid: 1907063
+[2022-06-21 16:32:20 +0800] [1931401] [INFO] Starting gunicorn 20.1.0
+[2022-06-21 16:33:32 +0800] [1934112] [INFO] Starting gunicorn 20.1.0
+[2022-06-21 16:38:29 +0800] [1944140] [INFO] Starting gunicorn 20.1.0
+[2022-06-21 16:38:29 +0800] [1944140] [INFO] Listening at: http://0.0.0.0:8190 (1944140)
+[2022-06-21 16:38:29 +0800] [1944140] [INFO] Using worker: gevent
+[2022-06-21 16:38:29 +0800] [1944143] [INFO] Booting worker with pid: 1944143
+[2022-06-21 16:43:24 +0800] [1954098] [INFO] Starting gunicorn 20.1.0
+[2022-06-21 16:43:24 +0800] [1954098] [INFO] Listening at: http://0.0.0.0:8190 (1954098)
+[2022-06-21 16:43:24 +0800] [1954098] [INFO] Using worker: gevent
+[2022-06-21 16:43:24 +0800] [1954100] [INFO] Booting worker with pid: 1954100
+[2022-06-22 07:42:51 +0800] [3770178] [INFO] Starting gunicorn 20.1.0
+[2022-06-22 08:07:40 +0800] [3822158] [INFO] Starting gunicorn 20.1.0
+[2022-06-22 08:07:40 +0800] [3822158] [INFO] Listening at: http://0.0.0.0:8190 (3822158)
+[2022-06-22 08:07:40 +0800] [3822158] [INFO] Using worker: gevent
+[2022-06-22 08:07:40 +0800] [3822160] [INFO] Booting worker with pid: 3822160
+[2022-06-22 11:26:34 +0800] [31506] [INFO] Starting gunicorn 20.1.0
+[2022-06-22 11:26:34 +0800] [31506] [INFO] Listening at: http://0.0.0.0:8190 (31506)
+[2022-06-22 11:26:34 +0800] [31506] [INFO] Using worker: gevent
+[2022-06-22 11:26:34 +0800] [31519] [INFO] Booting worker with pid: 31519
+[2022-06-22 11:41:27 +0800] [62805] [INFO] Starting gunicorn 20.1.0
+[2022-06-22 11:41:27 +0800] [62805] [INFO] Listening at: http://0.0.0.0:8190 (62805)
+[2022-06-22 11:41:27 +0800] [62805] [INFO] Using worker: gevent
+[2022-06-22 11:41:27 +0800] [62807] [INFO] Booting worker with pid: 62807
+[2022-06-22 13:50:57 +0800] [324970] [INFO] Starting gunicorn 20.1.0
+[2022-06-22 13:50:57 +0800] [324970] [INFO] Listening at: http://0.0.0.0:8190 (324970)
+[2022-06-22 13:50:57 +0800] [324970] [INFO] Using worker: gevent
+[2022-06-22 13:50:57 +0800] [324972] [INFO] Booting worker with pid: 324972
+[2022-06-22 14:41:24 +0800] [427894] [INFO] Starting gunicorn 20.1.0
+[2022-06-22 14:41:24 +0800] [427894] [INFO] Listening at: http://0.0.0.0:8190 (427894)
+[2022-06-22 14:41:24 +0800] [427894] [INFO] Using worker: gevent
+[2022-06-22 14:41:24 +0800] [427896] [INFO] Booting worker with pid: 427896

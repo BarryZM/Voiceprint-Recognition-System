@@ -1,9 +1,10 @@
-from auto_register.query import Query
+
+from query import Query
 from datetime import datetime
 import requests
 import time
 
-query = Query(-30*60)
+query = Query(-24*20)
 print("* 开始自动注册")
 query.now_timestamp = (datetime.now()).strftime("%Y-%m-%d %H:%M:%S")
 result = query.check_new_record()
@@ -32,7 +33,7 @@ for item in result:
     save_path = f"root/{caller_num}/{filename}"
             
     
-    url="http://192.168.12.119:8180/register/url"
+    url="http://192.168.12.68:8180/register/url"
     values = {"spkid": caller_num,"wav_url":wav_url,"call_begintime":begintime,"call_endtime":endtime}
     print(values)
     try:

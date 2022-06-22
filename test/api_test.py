@@ -5,23 +5,51 @@
 # Desc  : API test.
 
 import requests
+import argparse
+import datetime
+import os
+parser = argparse.ArgumentParser(description='')
+parser.add_argument('--ip', type=str, default="127.0.0.1",help='')
+parser.add_argument('--port', type=int, default=8180,help='')
+parser.add_argument('--path', type=str, default="register",help='')
+parser.add_argument('--wav_path', type=str, default="/VAF-System/test_wavs",help='')
+parser.add_argument('--mode', type=str, default="url",help='url or file')
 
+args = parser.parse_args()
 
-url="http://127.0.0.1:8170/score"
+url=f"http://{args.ip}:{args.port}/{args.path}/{args.mode}"
 headers = {
     'Content-Type': 'multipart/form-data'
 }
+endtime = datetime.datetime.now()
+begintime = datetime.datetime.now()
+wavs = sorted([os.path.join(args.wav_path,_file) for _file in os.listdir(args.wav_path) if ".wav" in _file])[:2]
 
-# 上传文件单独构造成以下形式
-# 'file' 上传文件的字段名
-# 'filename' 上传到服务器的文件名，可以和上传的文件名不同
-# open('test.zip') 打开的文件对象，注意文件路径正确
-# request_file = {'wav_file':(('wav_file',open('/mnt/zhaosheng/test_wav_16k/zhaosheng.wav','rb')))}
-request_file = {'wav_file':open(r'/mnt/zhaosheng/test_wav_16k/zhaosheng2.wav', 'rb')}
-values = {"spkid": "15151832004"}
-# !不能指定header
-resp = requests.request("POST",url, files=request_file, data=values)#,headers=headers)
+start_time = datetime.datetime.now()
+for wav in wavs:
+    
+    if args.mode == 'file':
+        
+        request_file = {'wav_file':open(wav, 'rb')}
+        values = {"spkid": "15151832004","call_begintime":begintime,"call_endtime":endtime}
+        print(values)
+        # !不能指定header
+        # try:
+        resp = requests.request("POST",url, files=request_file, data=values)
+        print(resp.json())
+        # except Exception as e:
+        #     print(e)
+        #     continue
+    else:
+        wav_url = f"local:/{wav}"
+        values = {"spkid": "15151832004","wav_url":wav_url,"call_begintime":begintime,"call_endtime":endtime}
+        print(values)
+        # try:
+        resp = requests.request("POST",url=url, data=values)
+        print(resp.json())
+        # except Exception as e:
+        #     print(e)
+        #     continue
 
-
-print(resp)
-print(resp.json())
+time_used = end = datetime.datetime.now() - start_time
+print(time_used)

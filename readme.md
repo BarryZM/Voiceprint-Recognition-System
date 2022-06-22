@@ -21,7 +21,7 @@ docker load -i si_vue.tar
 docker run -it -p 8190:8190 si_vue:v1.0 /bin/bash
 ```
 
-### frontend
+### nginx server (load balancing)
 ```shell
 docker load -i si_nginx.tar
 docker run -it -p 80:80 si_nginx:v1.0 /bin/bash

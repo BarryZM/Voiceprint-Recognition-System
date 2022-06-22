@@ -12,7 +12,7 @@ sys.path.append('/VAF-System/demo_flask/')
 
 import cfg
 
-msg_db = cfg.MYSQL_DATABASE_DICT
+msg_db = cfg.MYSQL
 
 def check_new_record(pre_timestamp,now_timestamp):
     """query record data in cti_cdr_call
@@ -147,7 +147,7 @@ def query_hit_location():
     )
     cur = conn.cursor()
     # query_sql = "SELECT province, count(*) as count FROM log WHERE province IS NOT NULL GROUP BY province ORDER BY count(*) DESC LIMIT 10;"
-    query_sql = "SELECT province, sum(hit_count) as hit_count, count(*) as count,id FROM speaker WHERE (province IS NOT NULL) AND phone IS NOT NULL GROUP BY province ORDER BY count DESC LIMIT 10;"
+    query_sql = "SELECT province, sum(hit_count) as hit_count, count(*) as count,id FROM speaker WHERE (province IS NOT NULL) AND (province != '') AND phone IS NOT NULL GROUP BY province ORDER BY count DESC LIMIT 10;"
     
     cur.execute(query_sql)
     res = cur.fetchall()

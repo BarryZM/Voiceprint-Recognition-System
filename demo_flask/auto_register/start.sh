@@ -1,0 +1,1 @@
+gunicorn -c gunicorn.py auto_register_server:app

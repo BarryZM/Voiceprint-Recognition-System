@@ -81,6 +81,36 @@ def add_error(type,error_type,db,Info):
             res.register_error_2 += 1
     db.session.commit()
 
+def get_span(time2,time1):
+    time2 = time.strptime(time2,"%Y-%m-%d %H:%M:%S")
+    time1 = time.strptime(time1,"%Y-%m-%d %H:%M:%S")
+    return int(time.mktime(time2)-time.mktime(time1))
+def add_hit_log(hit_info,db,Hit):
+    info = Hit()
+    info.phone = hit_info["phone"]
+    info.file_url = hit_info["file_url"]
+    
+    #
+    info.province = hit_info["province"]
+    info.city = hit_info["city"]
+    info.phone_type = hit_info["phone_type"]
+    info.area_code = hit_info["area_code"]
+    info.zip_code = hit_info["zip_code"]
+    info.self_test_score_mean = hit_info["self_test_score_mean"]
+    info.self_test_score_min = hit_info["self_test_score_min"]
+    info.self_test_score_max = hit_info["self_test_score_max"]
+    info.call_begintime = hit_info["call_begintime"]
+    info.call_endtime = hit_info["call_endtime"]
+    info.span_time =  get_span(info.call_endtime,info.call_begintime)
+    info.class_number = hit_info["class_number"]
+    info.hit_time = hit_info["hit_time"]
+    info.blackbase_phone = hit_info["blackbase_phone"]
+    info.blackbase_id = hit_info["blackbase_id"]
+    # 1~10
+    info.hit_status = hit_info["hit_status"]
+    info.hit_score = hit_info["hit_scores"]
+    db.session.add(info)
+    db.session.commit()
 
 def add_speaker(spk_info,db,Speaker):
     info=Speaker()
@@ -99,6 +129,7 @@ def add_speaker(spk_info,db,Speaker):
     info.call_begintime = spk_info["call_begintime"]
     info.call_endtime = spk_info["call_endtime"]
     info.class_number = spk_info["max_class_index"]
+    info.span_time =  get_span(info.call_endtime,info.call_begintime)
     db.session.add(info)
     db.session.commit()
 

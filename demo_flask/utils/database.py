@@ -25,11 +25,11 @@ def fromRedis(r,n):
     a = np.frombuffer(encoded, dtype=np.float32, offset=8)
     return a
 
-def get_all_embedding(blackbase_type ="redis",class_index=-1):
-    if blackbase_type == 'pkl':
+def get_all_embedding(blackbase="redis",class_index=-1):
+    if blackbase  != 'redis':
         # all_spker_embedding = np.load(cfg.BLACK_BASE_SAVE_PATH,allow_pickle=True)
         # # load
-        with open(cfg.BLACK_BASE_SAVE_PATH, 'rb') as f:
+        with open(cfg.BLACK_BASE, 'rb') as f:
             all_spker_embedding = pickle.load(f)
         all_embedding = {}
         for key in all_spker_embedding.keys():
@@ -38,14 +38,14 @@ def get_all_embedding(blackbase_type ="redis",class_index=-1):
             class_index_now = int(key.split("_")[0])
             if class_index_now == class_index or class_index == -1:
                 spkid = key.split("_")[1]
-                embedding_1 = all_spker_embedding[key]
+                embedding_1 = all_spker_embedding[key]["embedding_1"]
                 all_embedding[spkid] = {"embedding_1":embedding_1}
             else:
                 continue
         return all_embedding
 
     else:
-        r = redis.Redis(host=cfg.REDIS_DATABASE_HOST, port=cfg.REDIS_DATABASE_PORT, db=cfg.REDIS_DATABASE_DB)
+        r = redis.Redis(host=cfg.REDIS["host"], port=cfg.REDIS["port"], db=cfg.REDIS["db"])
         all_embedding = {}
         for key in r.keys():
             key = key.decode('utf-8')
@@ -60,26 +60,30 @@ def get_all_embedding(blackbase_type ="redis",class_index=-1):
                 continue
         return all_embedding
 
-def add_to_database(embedding,spkid,max_class_index,log_phone_info):
-    r = redis.Redis(host=cfg.REDIS_DATABASE_HOST, port=cfg.REDIS_DATABASE_PORT, db=cfg.REDIS_DATABASE_DB)
+def add_to_database(blackbase,embedding,spkid,max_class_index,log_phone_info):
     if log_phone_info:
         phone_info = getPhoneInfo(spkid)
     else:
         phone_info = {}
     embedding_npy = embedding.numpy()
-    toRedis(r,embedding_npy,f'{max_class_index}_{spkid}')
-    
+
+    if blackbase == 'redis':
+        r = redis.Redis(host=cfg.REDIS["host"], port=cfg.REDIS["port"], db=cfg.REDIS["db"])    
+        toRedis(r,embedding_npy,f'{max_class_index}_{spkid}')
+    else:
+        pass
+        
     return True,phone_info
 
 def save_redis_to_pkl():
-    r = redis.Redis(host=cfg.REDIS_DATABASE_HOST, port=cfg.REDIS_DATABASE_PORT, db=cfg.REDIS_DATABASE_DB)
+    r = redis.Redis(host=cfg.REDIS["host"], port=cfg.REDIS["port"], db=cfg.REDIS["db"])
     all_embedding = {}
     for key in r.keys():
         key = key.decode('utf-8')
         spkid = key
         embedding_1 = fromRedis(r,key)
         all_embedding[spkid] = {"embedding_1":embedding_1}
-    with open(cfg.BLACK_BASE_SAVE_PATH, 'wb') as f:
+    with open(cfg.BLACK_BASE, 'wb') as f:
         pickle.dump(all_embedding, f, pickle.HIGHEST_PROTOCOL)
 
 

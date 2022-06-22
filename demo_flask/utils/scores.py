@@ -55,16 +55,16 @@ def self_check(database,embedding,spkid,black_limit,similarity,top_num=10):
             for index in range(top_num):
                 if results[index][1] == spkid:
                     msg = f"在黑库中,正确,第{index+1}个命中了。得分:{results[index][0]},now_spk:{spkid},best score:{best_score},spk:{best_id}"
-                    return True,1,msg
+                    return True,1,msg,{"best_score":best_score,"spk":best_id}
             msg = f"在黑库中,错误,但未命中,now_spk:{spkid},best score:{best_score},spk:{best_id}"
-            return False,2,msg
+            return False,2,msg,{"best_score":best_score,"spk":best_id}
         else:
-            return True,3,f"在黑库中,错误,不满足阈值,now_spk:{spkid},best score:{best_score},spk:{best_id}"
+            return True,3,f"在黑库中,错误,不满足阈值,now_spk:{spkid},best score:{best_score},spk:{best_id}",{"best_score":best_score,"spk":best_id}
     else:
         
         if best_score < black_limit:
             msg = f"不在黑库中,正确,now_spk:{spkid},best score:{best_score},spk:{best_id}"
-            return True,4,msg
+            return True,4,msg,{"best_score":best_score,"spk":best_id}
         else:
             msg = f"不在黑库中,错误,now_spk:{spkid},best score:{best_score},spk:{best_id}"
-            return False,5,msg
+            return False,5,msg,{"best_score":best_score,"spk":best_id}
